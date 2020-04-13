@@ -9,6 +9,33 @@ const LoginController = {
         const listadoUsuarios = await Usuarios.findAll();
         res.send(listadoUsuarios);
     },
+
+    async EditarUsuario(req,res){
+        let body =  req.body;
+        let _id = req.params.id;
+        const edit = await Usuarios.update({
+            nombre: body.nombre,
+            apellidos: body.apellidos,
+            ciudad: body.ciudad
+        },{
+        where: {
+            id: _id
+        }
+
+        })
+        res.send({mensaje: 'Usuario actualizado', edit})
+    },
+
+    async BorrarUsuario(req,res){
+        let _id = id;
+        const eliminar = await Usuarios.destroy({
+            where:{
+                id: _id
+            }
+        });
+        res.send({mensaje: 'Usuario eliminado', eliminar})
+    },
+
     async NuevoUsuario(req, res){
         const usuarioCreado = await Usuarios.create({
             nombre: req.body.nombre,
@@ -43,6 +70,7 @@ const LoginController = {
     });
     res.send({mensaje: 'Bienvenido' + usuario.nombre, usuario, token})
 },
+
     async Logout(req, res){
         await Token.destroy({
             where: { [Op.and]:[
@@ -53,4 +81,5 @@ const LoginController = {
         res.send({mensaje: 'Desconectado con exito'})
     }
 }
+
 module.exports = LoginController;
