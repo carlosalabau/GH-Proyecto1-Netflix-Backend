@@ -6,7 +6,12 @@ const {Op} = require('sequelize')
 
 const LoginController = {
     async ListarUsuarios(req,res){
-        const listadoUsuarios = await Usuarios.findAll();
+        let _id = id;
+        const listadoUsuarios = await Usuarios.findOne({
+            where: {
+                id: _id
+            }
+        });
         res.send(listadoUsuarios);
     },
 
@@ -23,21 +28,21 @@ const LoginController = {
         }
 
         })
-        res.send({mensaje: 'Usuario actualizado', edit})
+        res.send({mensaje: 'Usuario actualizado'})
     },
 
     async BorrarUsuario(req,res){
-        let _id = id;
+        let _id = req.params.id;
         const eliminar = await Usuarios.destroy({
             where:{
                 id: _id
             }
         });
-        res.send({mensaje: 'Usuario eliminado', eliminar})
+        res.send({mensaje: 'Usuario eliminado'})
     },
 
     async NuevoUsuario(req, res){
-        const usuarioCreado = await Usuarios.create({
+         await Usuarios.create({
             nombre: req.body.nombre,
             apellidos: req.body.apellidos,
             ciudad: req.body.ciudad,
@@ -45,7 +50,7 @@ const LoginController = {
             password: bcrypt.hashSync(req.body.password, 10),
             rol: req.body.rol
         })
-        res.send({mensaje: 'Usuario creado', usuarioCreado})
+        res.status(200).send({mensaje: 'Usuario creado'})
     },
 
     async LoginUsuario(req, res){
