@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const ActoresByPeliculas = sequelize.define('ActoresByPeliculas', {
-    ActorId: DataTypes.INTEGER,
+    ActoreId: DataTypes.INTEGER,
     PeliculaId: DataTypes.INTEGER
   }, {});
   ActoresByPeliculas.associate = function(models) {
