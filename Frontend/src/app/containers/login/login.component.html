@@ -8,10 +8,11 @@
     </div>
 
     <!-- Login Form -->
-    <form>
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
+    <form #userform="ngForm">
+      <input type="text" ngModel id="login" class="fadeIn second" required autofocus name="email" placeholder="email">
+      <input type="password" ngModel id="password" required class="fadeIn third login" name="password" placeholder="password">
+      <input type="submit" (click)="addUserLogin(userform)" class="fadeIn fourth" value="Log In">
+      <input type="submit" class="fadeIn fourth" value="Invite">
     </form>
 
     <!-- Remind Passowrd -->
