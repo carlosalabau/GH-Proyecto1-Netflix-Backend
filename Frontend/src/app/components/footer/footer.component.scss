@@ -1,0 +1,19 @@
+.all{
+    height: 40px;
+    width: 90%;
+    bottom: 0;
+    margin-left: 8% ;
+}
+
+.downFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    color: gray;
+    width: 200px;
+    margin-right: 18%;
+}
+
+.logIn > a, i, span{
+    color: gray; 
+} 
