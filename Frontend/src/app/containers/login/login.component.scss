@@ -136,6 +136,11 @@ input[type=text] {
   border-radius: 5px 5px 5px 5px;
 }
 
+.login{
+  height: 4vh;
+  width: 25vw;
+  margin:  20px;
+}
 input[type=text]:focus {
   background-color: #fff;
   border-bottom: 2px solid #5fbae9;
