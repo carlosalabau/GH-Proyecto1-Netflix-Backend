@@ -6,7 +6,7 @@ const {Op} = require('sequelize')
 
 const LoginController = {
     async ListarUsuarios(req,res){
-        let _id = id;
+        let _id = req.params.id;
         const listadoUsuarios = await Usuarios.findOne({
             where: {
                 id: _id
