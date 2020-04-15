@@ -6,7 +6,7 @@ const {Op} = require('sequelize')
 
 const LoginController = {
     async ListarUsuarios(req,res){
-        let _id = id;
+        let _id = req.params.id;
         const listadoUsuarios = await Usuarios.findOne({
             where: {
                 id: _id
@@ -21,14 +21,14 @@ const LoginController = {
         const edit = await Usuarios.update({
             nombre: body.nombre,
             apellidos: body.apellidos,
-            ciudad: body.ciudad
+            ciudad: body.ciudad,
+            telefono: body.telefono
         },{
         where: {
             id: _id
         }
-
         })
-        res.send({mensaje: 'Usuario actualizado'})
+        res.send({mensaje: 'Usuario actualizado', edit})
     },
 
     async BorrarUsuario(req,res){
@@ -47,6 +47,7 @@ const LoginController = {
             apellidos: req.body.apellidos,
             ciudad: req.body.ciudad,
             email: req.body.email,
+            telefono: req.body.telefono,
             password: bcrypt.hashSync(req.body.password, 10),
             rol: req.body.rol
         })

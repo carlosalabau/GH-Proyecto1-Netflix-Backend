@@ -1,11 +1,13 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 const cors = require('cors');
-var indexRouter = require('./routes/index');
-var usuariosRouter = require('./routes/usuarios');
+const indexRouter = require('./routes/index');
+
+const usuariosRouter = require('./routes/usuarios');
 const peliculasRouter = require('./routes/peliculas');
+const pedidosRouter = require('./routes/pedidos');
 
 var app = express();
 
@@ -18,5 +20,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/usuarios', usuariosRouter);
-app.use('/peliculas', peliculasRouter)
+app.use('/peliculas', peliculasRouter);
+app.use('/pedidos', pedidosRouter);
+
 module.exports = app;

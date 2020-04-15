@@ -17,6 +17,9 @@ module.exports = {
       ciudad: {
         type: Sequelize.STRING
       },
+      telefono: {
+        type: Sequelize.INTEGER
+      },
       email: {
         type: Sequelize.STRING
       },

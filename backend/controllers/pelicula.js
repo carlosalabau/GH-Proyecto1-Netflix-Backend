@@ -1,4 +1,5 @@
 const { Peliculas, Actores, ActoresByPeliculas } = require('../models/index');
+const db = require('../models/index');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
@@ -63,7 +64,7 @@ const PeliculaController = {
         res.send({titulo})
     },
     async BusquedaActores(req,res){
-        const actores = await Peliculas.findAll(
+        /* const actores = await Peliculas.findAll(
             {
             attributes: ['titulo','descripcion'],
             include:{
@@ -72,9 +73,10 @@ const PeliculaController = {
                 }                
             }
         )
-        res.send({actores})
+        res.send({actores}) */
+        const actores = await db.sequelize.query('SELECT Peliculas.titulo, Actores.nombre FROM Peliculas, Actores, ActoresByPeliculas WHERE ActoresByPeliculas.ActoreId = Actores.id AND ActoresByPeliculas.PeliculaId = Peliculas.id');
+        res.send(actores)
     }
-
 
 }
 

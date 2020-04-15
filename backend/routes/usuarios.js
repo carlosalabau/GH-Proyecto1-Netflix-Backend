@@ -6,7 +6,7 @@ const { autenticacion } = require('../middleware/autenticacion');
 const UsuarioController = require('../controllers/usuario')
 //
 
-router.get('/:id', autenticacion, UsuarioController.ListarUsuarios);
+router.get('/:id', UsuarioController.ListarUsuarios);
 router.put('/actualizar/:id', UsuarioController.EditarUsuario);
 router.delete('/eliminar/:id', UsuarioController.BorrarUsuario);
 router.post('/registro', UsuarioController.NuevoUsuario);
