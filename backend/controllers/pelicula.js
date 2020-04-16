@@ -1,4 +1,4 @@
-const { Peliculas, Actores, ActoresByPeliculas } = require('../models/index');
+const { Peliculas, Generos } = require('../models/index');
 const db = require('../models/index');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
@@ -35,15 +35,24 @@ const PeliculaController = {
         res.send({mensaje: 'Pelicula eliminada'})
     },
     async NuevaPelicula(req,res){
-        let body = req.body;
-        const NuevaPelicula = await Peliculas.create({
-            titulo: body.titulo,
-            descripcion: body.descripcion,
-            año: body.año,
-            isEstreno: body.isEstreno,
-            isDisponible: body.isDisponible 
-        })
-        res.send({mensaje: 'Pelicula introducida', NuevaPelicula})
+        try{
+        const pelis = req.body;
+        const pelicula = await Peliculas.create({...pelis});
+        await pelicula.addGeneros(req.body.GeneroId);
+        res.send(pelicula);
+        }
+        catch(error){
+            res.status(500).send({mensaje: 'Problema al crear la pelicula'});
+            console.log(error)
+        }
+
+
+        /* pelis.forEach(async peli =>{
+            const NuevaPelicula = await Peliculas.create({...peli})
+            NuevaPelicula.addGeneros(body.GeneroId);
+            Genre.push(NuevaPelicula);
+        }) */
+        
     },
     async Estrenos(req,res){
         const estrenos = await Peliculas.findAll({

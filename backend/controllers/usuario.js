@@ -1,4 +1,4 @@
-const { Usuarios, Token } = require('../models/index');
+const { Usuarios, Token, Pedidos } = require('../models/index');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const key = require('../key/config');
@@ -85,6 +85,19 @@ const LoginController = {
             ]}
         });
         res.send({mensaje: 'Desconectado con exito'})
+    },
+
+    async PorPedidos(req,res){
+        let _id = req.params.id;
+        const peli = await Usuarios.findAll({
+            include: [Pedidos]
+        },
+        {
+            where: {
+                id: _id
+            }
+        })
+        res.send(peli)
     }
 }
 
