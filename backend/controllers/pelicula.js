@@ -1,4 +1,4 @@
-const { Peliculas, Generos } = require('../models/index');
+const { Peliculas } = require('../models/index');
 const db = require('../models/index');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
@@ -36,22 +36,16 @@ const PeliculaController = {
     },
     async NuevaPelicula(req,res){
         try{
-        const pelis = req.body;
-        const pelicula = await Peliculas.create({...pelis});
-        await pelicula.addGeneros(req.body.GeneroId);
-        res.send(pelicula);
+            const pelis = req.body;
+            const pelicula = await Peliculas.create({...pelis});
+            await pelicula.addGeneros(req.body.GeneroId);
+            await pelicula.addActores(req.body.ActorId);
+            res.send(pelicula);
         }
         catch(error){
             res.status(500).send({mensaje: 'Problema al crear la pelicula'});
             console.log(error)
         }
-
-
-        /* pelis.forEach(async peli =>{
-            const NuevaPelicula = await Peliculas.create({...peli})
-            NuevaPelicula.addGeneros(body.GeneroId);
-            Genre.push(NuevaPelicula);
-        }) */
         
     },
     async Estrenos(req,res){
@@ -73,16 +67,6 @@ const PeliculaController = {
         res.send({titulo})
     },
     async BusquedaActores(req,res){
-        /* const actores = await Peliculas.findAll(
-            {
-            attributes: ['titulo','descripcion'],
-            include:{
-                model: Actores,
-                attributes: ['nombre']
-                }                
-            }
-        )
-        res.send({actores}) */
         const actores = await db.sequelize.query('SELECT Peliculas.titulo, Actores.nombre FROM Peliculas, Actores, ActoresByPeliculas WHERE ActoresByPeliculas.ActoreId = Actores.id AND ActoresByPeliculas.PeliculaId = Peliculas.id');
         res.send(actores)
     }

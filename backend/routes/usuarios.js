@@ -7,7 +7,7 @@ const UsuarioController = require('../controllers/usuario')
 //
 
 router.get('/:id', UsuarioController.ListarUsuarios);
-router.get('/pedidos/:1', UsuarioController.PorPedidos);
+router.get('/pedidos/:id', UsuarioController.PorPedidos);
 router.put('/actualizar/:id', UsuarioController.EditarUsuario);
 router.delete('/eliminar/:id', UsuarioController.BorrarUsuario);
 router.post('/registro', UsuarioController.NuevoUsuario);

@@ -8,6 +8,7 @@ const indexRouter = require('./routes/index');
 const usuariosRouter = require('./routes/usuarios');
 const peliculasRouter = require('./routes/peliculas');
 const pedidosRouter = require('./routes/pedidos');
+const actoresRouter = require('./routes/actores');
 
 var app = express();
 
@@ -22,5 +23,6 @@ app.use('/', indexRouter);
 app.use('/usuarios', usuariosRouter);
 app.use('/peliculas', peliculasRouter);
 app.use('/pedidos', pedidosRouter);
+app.use('/actores', actoresRouter)
 
 module.exports = app;
