@@ -1,7 +1,5 @@
 
 <div class="jumbotron">
-    <h1 class="display-3">Hello, User!</h1>
-    <h3 class="lead">aqui podras visualizar tu perfil, per pedidos o editar tu perfil.</h3>
     <div class="container">
       <div class="row">
           <div class="col-md-3">
@@ -11,7 +9,11 @@
                           <div class="osahan-user-media">
                               <img class="mb-3 rounded-pill shadow-sm mt-1" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="gurdeep singh osahan">
                               <div class="osahan-user-media-body">
-                                  <h6 class="mb-2">Name User</h6>
+                                <h6 class="mb-2">
+                                <strong>
+                                     Name User
+                                 </strong>
+                                 </h6>
                                   <p class="mb-1">telefono234234</p>
                                   <p>email@gmail.com</p>
                                   <p class="mb-0 text-black font-weight-bold"><a class="text-primary mr-3" href="#"><i class="icofont-ui-edit"></i> EDIT</a></p>
@@ -19,9 +21,9 @@
                           </div>
                       </div>
                   </div>
-                  <ul class="nav nav-tabs flex-column border-0 pt-4 pl-4 pb-4" id="myTab" role="tablist">
+                  <ul class="nav flex-column border-0 pt-4 pl-4 pb-4">
                       <li class="nav-item">
-                          <a class="nav-link active item"  (click)="showprofile()">
+                          <a class="nav-link active item" routerLinkActive="active" (click)="showprofile()">
                             <i class="icofont icofont-ui-user"></i>
                             Profile
                           </a>
@@ -54,7 +56,7 @@
                         </p>
                     </div>
                        <div class="col-md-12">
-                        <h5 class="mt-2 mb-3"><span class="fa fa-clock-o ion-clock float-right"></span> Recent order</h5>
+                        <h5 class="mt-2 mb-3"><span class="fa fa-clock-o ion-clock float-left"></span>Recent order</h5>
                         <table class="table table-hover table-striped">
                             <tbody>                                    
                                 <tr>
@@ -83,23 +85,29 @@
                               <input type="text" class="form-control" id="inputLastName" placeholder="Last name">
                           </div>
                       </div>
-                      <div class="form-group">
+                      <div class="form-row">  
+                      <div class="form-group col-md-6">
                           <label for="inputEmail4">Email</label>
                           <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
                       </div>
-                      <div class="form-group">
+                      <div class="form-group col-md-6">
                           <label for="inputAddress">Telfono</label>
-                          <input type="text" class="form-control" id="inputAddress" placeholder="⁺34">
+                          <input type="text" class="form-control" placeholder="⁺34">
                       </div>
+                    </div>
+                    <div class="form-row">  
                       <div class="form-group col-md-6">
                         <label for="inputCity">City</label>
-                        <input type="text" class="form-control" id="inputCity">
+                        <input type="text" class="form-control"  placeholder="Valencia">
                     </div>
                         <div class="form-group col-md-6">
                           <label for="inputAddress2">password</label>
                           <input type="text" class="form-control" id="password" placeholder="password">
                       </div>    
-                      <button type="submit" class="btn btn-secundary">Save changes</button>
+                     </div> 
+                     <div class="botonaz">
+                         <button type="submit" class="btn btn-primary botonazo">Save changes</button>
+                     </div>
                   </form>
                      
               </div>

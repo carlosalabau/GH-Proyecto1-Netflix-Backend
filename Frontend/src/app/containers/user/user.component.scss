@@ -3,6 +3,7 @@
     margin: 10px;
 }
 
+
 body{
     margin-top:20px;
     background:#eee;
@@ -35,10 +36,15 @@ body{
     margin: 0 7px 0 0px;
     color: #fff;
 }
-.osahan-account-page-left .nav-link.active {
+.osahan-account-page-left .nav-link.active:hover {
     background: #f3f7f8;
     color: #282c3f !important;
 }
+.float-left{
+    margin-right: 8px;
+}
+
+
 .osahan-account-page-left .nav-link.active i {
     background: #282c3f !important;
 }
