@@ -1,1 +1,202 @@
-<p>user works!</p>
+
+<div class="jumbotron">
+    <h1 class="display-3">Hello, User!</h1>
+    <h3 class="lead">aqui podras visualizar tu perfil, per pedidos o editar tu perfil.</h3>
+    <div class="container">
+      <div class="row">
+          <div class="col-md-3">
+              <div class="osahan-account-page-left shadow-sm bg-white h-100">
+                  <div class="border-bottom p-4">
+                      <div class="osahan-user text-center">
+                          <div class="osahan-user-media">
+                              <img class="mb-3 rounded-pill shadow-sm mt-1" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="gurdeep singh osahan">
+                              <div class="osahan-user-media-body">
+                                  <h6 class="mb-2">Name User</h6>
+                                  <p class="mb-1">telefono234234</p>
+                                  <p>email@gmail.com</p>
+                                  <p class="mb-0 text-black font-weight-bold"><a class="text-primary mr-3" data-toggle="modal" data-target="#edit-profile-modal" href="#"><i class="icofont-ui-edit"></i> EDIT</a></p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <ul class="nav nav-tabs flex-column border-0 pt-4 pl-4 pb-4" id="myTab" role="tablist">
+                      <li class="nav-item">
+                          <a class="nav-link active item" id="payments-tab" data-toggle="tab"  role="tab" aria-controls="payments" aria-selected="true" (click)="showprofile()">
+                            <i class="icofont-credit-card">
+                            </i> 
+                            Profile
+                          </a>
+                          <a class="nav-link active item" id="payments-tab" data-toggle="tab"  role="tab" aria-controls="payments" aria-selected="true" (click)="showEditprofile()">
+                            <i class="icofont-credit-card">
+                          </i> 
+                          Edit Profile
+                        </a>
+                          <a class="nav-link active item" id="payments-tab" data-toggle="tab"  role="tab" aria-controls="payments" aria-selected="true"(click)="showpedidos()">
+                            <i class="icofont-credit-card">
+                          </i> 
+                          Pedidos
+                          <span class="badge badge-primary badge-pill">5</span>
+                        </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <!-- profile -->
+            <div class="card col-md-9"*ngIf="showProfile">
+            <div class="tab-pane active show" id="profile">
+                <h5 class="mb-3">User Profile</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong>Name</strong>
+                        <p>
+                            Gio
+                        </p>
+                        <strong>City</strong>
+                        <p>
+                          Valencia
+                        </p>
+                    </div>
+                       <div class="col-md-12">
+                        <h5 class="mt-2 mb-3"><span class="fa fa-clock-o ion-clock float-right"></span> Recent order</h5>
+                        <table class="table table-hover table-striped">
+                            <tbody>                                    
+                                <tr>
+                                    <td>
+                                        <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--/row-->
+            </div>
+             </div>
+            <!-- edit profile -->
+            <div class="card item" *ngIf="showEditProfile">
+              <div class="card-header">
+                  <div class="card-actions float-right">
+                  </div>
+                  <h5 class="card-title mb-0">Private info</h5>
+              </div>
+              <div class="card-body">
+                  <form>
+                      <div class="form-row">
+                          <div class="form-group col-md-6">
+                              <label for="inputFirstName">First name</label>
+                              <input type="text" class="form-control" id="inputFirstName" placeholder="First name">
+                          </div>
+                          <div class="form-group col-md-6">
+                              <label for="inputLastName">Last name</label>
+                              <input type="text" class="form-control" id="inputLastName" placeholder="Last name">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="inputEmail4">Email</label>
+                          <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                      </div>
+                      <div class="form-group">
+                          <label for="inputAddress">Telfono</label>
+                          <input type="text" class="form-control" id="inputAddress" placeholder="⁺34">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputCity">City</label>
+                        <input type="text" class="form-control" id="inputCity">
+                    </div>
+                        <div class="form-group col-md-6">
+                          <label for="inputAddress2">password</label>
+                          <input type="text" class="form-control" id="password" placeholder="password">
+                      </div>    
+                      <button type="submit" class="btn btn-secundary">Save changes</button>
+                  </form>
+                     
+              </div>
+            </div>
+          <!-- show pedidos -->
+          <div class="col-md-9" *ngIf="showPedidos">
+              <div class="osahan-account-page-right shadow-sm bg-white p-4 h-100">
+                  <div class="tab-content" id="myTabContent">
+                      <div class="tab-pane fade active show" id="payments" role="tabpanel" aria-labelledby="payments-tab">
+                          <h4 class="font-weight-bold mt-0 mb-4">Pedidos</h4>
+                          <div class="row">
+                                <div class="col-md-6">
+                                  <div class="bg-white card payments-item mb-4 shadow-sm">
+                                      <div class="gold-members p-4">
+                                          <a href="#">
+                                          </a>
+                                          <div class="media">
+                                              <div class="media-body">
+                                                 <a href="#">
+                                                     <i class="icofont-visa icofont-4x"></i>
+                                                 </a>
+                                                  <a href="#">
+                                                      <h6 class="mb-1">6070-XXXXXXXX-0666</h6>
+                                                      <p>VALID TILL 10/2025</p>
+                                                  </a>
+                                                  <p class="mb-0 text-black font-weight-bold">
+                                                      <a href="#">
+                                                      </a><a class="text-danger" data-toggle="modal" data-target="#delete-address-modal" href="#"><i class="icofont-ui-delete"></i> DELETE</a></p>
+                                              </div>
+                                          </div>
+  
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-6">
+                                  <div class="bg-white card payments-item mb-4 shadow-sm">
+                                      <div class="gold-members p-4">
+                                          <a href="#">
+                                          </a>
+                                          <div class="media">
+                                              <div class="media-body">
+                                                  <a href="#">
+                                                      <i class="icofont-visa icofont-4x"></i>
+                                                  </a>
+                                                  <a href="#">
+                                                      <h6 class="mb-1">6070-XXXXXXXX-0666</h6>
+                                                      <p>VALID TILL 10/2025</p>
+                                                  </a>
+                                                  <p class="mb-0 text-black font-weight-bold">
+                                                      <a href="#">
+                                                      </a><a class="text-danger" data-toggle="modal" data-target="#delete-address-modal" href="#"><i class="icofont-ui-delete"></i> DELETE</a></p>
+                                              </div>
+                                          </div>
+  
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-md-6">
+                                  <div class="bg-white card payments-item mb-4 shadow-sm">
+                                      <div class="gold-members p-4">
+                                          <a href="#">
+                                          </a>
+                                          <div class="media">
+                                              <div class="media-body">
+                                                  <a href="#">
+                                                      <i class="icofont-mastercard icofont-4x"></i>
+                                                  </a>
+                                                  <a href="#">
+                                                      <h6 class="mb-1">6070-XXXXXXXX-0666</h6>
+                                                      <p>VALID TILL 10/2025</p>
+                                                  </a>
+                                                  <p class="mb-0 text-black font-weight-bold">
+                                                      <a href="#">
+                                                      </a><a class="text-danger" data-toggle="modal" data-target="#delete-address-modal" href="#"><i class="icofont-ui-delete"></i> DELETE</a></p>
+                                              </div>
+                                          </div>
+  
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+         
+      </div>
+  </div>
+</div>
+

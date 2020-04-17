@@ -1,0 +1,81 @@
+.wrap
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.left{
+    display: flex;
+    flex-direction: row;
+    margin: 30px;
+    margin-left: 6rem;
+    width: 55%;
+}
+.card-body{
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body > h3{
+    height: 40px;
+}
+
+.sequex-posts-info{
+    list-style: none;
+    padding: 0;
+    display: inline-block;
+    line-height: 1.3;
+    width: 100%;
+    margin: 0 0 15px;
+    max-width: 100%;
+    white-space: nowrap;
+    vertical-align: bottom;
+  }
+
+
+.sequex-posts-info{
+    display: flex;
+    position: relative;
+    border-top: 1px solid rgba(160,160,160,.2);
+    padding: 20px 30px;
+    background-color: inherit;
+    flex-direction: row;
+    margin-top: 6rem;
+}
+.sequex-posts-info > li,i,a{
+    margin: 5px;
+
+}
+.right{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    word-wrap: break-word;
+    position: fixed;
+    top: 8rem;
+    right:6rem;
+    width: 25%;
+    margin: 20px;
+    padding: 15px;
+}
+
+.widget_search, form-group{
+    margin: 30px;
+}
+
+//carrousell
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-item {
+    height: 65vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }

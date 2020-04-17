@@ -8,6 +8,9 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
+showProfile = true;
+showEditProfile = false;
+showPedidos = false;
 
   userList: any;
   constructor(public userService: UsersService) { }
@@ -39,6 +42,20 @@ export class UserComponent implements OnInit {
   delTask(i: number){
     this.userService.deleteUser(i)
     .subscribe(msn => this.getAllUser());
-
   }
+showprofile(){
+  this.showEditProfile = false;
+  this.showPedidos = false;
+  this.showProfile = true;
+}
+showEditprofile(){
+  this.showEditProfile = true;
+  this.showPedidos = false;
+  this.showProfile = false;
+}
+showpedidos(){
+  this.showEditProfile = false;
+  this.showPedidos = true;
+  this.showProfile = false;
+}
 }

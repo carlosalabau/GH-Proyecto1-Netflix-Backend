@@ -15,6 +15,7 @@ import { MovieComponent } from './containers/movie/movie.component';
 import { LoginComponent } from './containers/login/login.component';
 import { LogoutComponent } from './containers/logout/logout.component';
 import { RegisterComponent } from './containers/register/register.component';
+import { PedidosComponent } from './containers/pedidos/pedidos.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RegisterComponent } from './containers/register/register.component';
     MovieComponent,
     LoginComponent,
     LogoutComponent,
-    RegisterComponent
+    RegisterComponent,
+    PedidosComponent
   ],
   imports: [
     BrowserModule,
