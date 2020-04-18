@@ -10,9 +10,10 @@ export class MovieComponent implements OnInit {
   constructor(public movieServices: MoviesService) { }
 
   ngOnInit(): void {
+    this.getAllMovies();
   }
 getAllMovies(){
-this.movieServices.getAll()
+this.movieServices.getAllMovies()
 .subscribe((movies: any) => {
   console.log(movies);
 }, err => console.log(err)
