@@ -22,10 +22,11 @@ export class LoginComponent implements OnInit {
   }
   addUserLogin(userform: NgForm){
     this.users = userform.value;
+    console.log(this.users);
     this.userService.setNewLogin(this.users)
     .subscribe(
       res => {
-              console.log(this.users, res);
+              console.log(this.users, res.token);
               localStorage.setItem('token', res.token);
               EventBus.getInstance().emit('onloggin', undefined);
               this.router.navigate(['/movie']);
