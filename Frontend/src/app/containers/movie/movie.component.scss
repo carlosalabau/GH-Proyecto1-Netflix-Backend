@@ -1,19 +1,7 @@
-.wrap{
-display: flex;
-flex-direction: row;}
-
-.left{
-    padding: 15px;
+.content{
+    margin-top: 30px;
+    position: relative;
 }
-
-.row{
-    width: 100%;
-}  
-.col{
-    width: 25%;
-    height: 100%;
-}
-
 .text-muted{
     margin-top: 8px;
 }
@@ -30,18 +18,15 @@ li{
 li a, li i{
     margin: 2px;
 }
+.search{
+    background: black;
+    height: 100vh;
+}
 .right{
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
     word-wrap: break-word;
     position: sticky;
-    height: 60vh;
-    top: 2rem;
     right:1rem;
-    bottom: 2rem;
-    margin: 20px;
-    padding: 15px;
+    bottom: 0;
 }
 
 .widget_search, form-group{
