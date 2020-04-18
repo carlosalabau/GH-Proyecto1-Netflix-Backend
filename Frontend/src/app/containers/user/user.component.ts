@@ -15,11 +15,10 @@ showPedidos = false;
   userList: any;
   constructor(public userService: UsersService) { }
   ngOnInit(): void {
-    this.getAllUser();
      }
 
-    getAllUser(){
-  this.userService.getAll()
+    getUser(id: number){
+  this.userService.getUserId(id)
   // tslint:disable-next-line: no-shadowed-variable
   .subscribe(( user: any) =>
       {
@@ -31,18 +30,19 @@ showPedidos = false;
 
   updateUser(taskform: NgForm, i: number){
     this.userService.updateUser(taskform.value, i)
-    .subscribe(msn => this.getAllUser());
-            }
+    .subscribe(msn =>  console.log(msn));
+  }
 
    addNewUser(taskform: NgForm){
     this.userService.setNewLogin(taskform.value)
-    .subscribe(msn => this.getAllUser());
-          }
+    .subscribe(msn =>  console.log(msn));
+   }
 
-  delTask(i: number){
+  delUser(i: number){
     this.userService.deleteUser(i)
-    .subscribe(msn => this.getAllUser());
+    .subscribe(msn => console.log(msn));
   }
+
 showprofile(){
   this.showEditProfile = false;
   this.showPedidos = false;
