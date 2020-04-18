@@ -14,7 +14,7 @@ module.exports = {
       descripcion: {
         type: Sequelize.STRING
       },
-      año: {
+      anyo: {
         type: Sequelize.STRING
       },
       imagen: {

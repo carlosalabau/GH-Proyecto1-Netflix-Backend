@@ -6,6 +6,7 @@ const PeliculaController = require('../controllers/pelicula');
 //
 
 router.get('/', PeliculaController.ListarPeliculas);
+router.get('/:id', PeliculaController.ListarId)
 router.put('/actualizar/:id', PeliculaController.EditarPelicula);
 router.delete('/eliminar/:id', PeliculaController.BorrarPelicula);
 router.post('/agregar', PeliculaController.NuevaPelicula);
