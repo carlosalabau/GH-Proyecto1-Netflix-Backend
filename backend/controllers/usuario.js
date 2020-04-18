@@ -65,6 +65,7 @@ const LoginController = {
     }
     const coincide = await bcrypt.compare(req.body.password, usuario.password);
     if(!coincide){
+        console.log('aqui')
      return res.status(400).send({mensaje: 'Usuario o contraseña incorrectos'})
     }
     const token = jwt.sign({
