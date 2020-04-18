@@ -31,4 +31,10 @@ export class UsersService {
     deleteUser(id: number){
       return this.http.delete(`http://localhost:3000/ususarios/eliminar/${id}`);
     }
+
+uploadFile(formData){
+  const urlApi = 'localhost....';
+  return this.http.post(urlApi, formData);
+}
+
 }
