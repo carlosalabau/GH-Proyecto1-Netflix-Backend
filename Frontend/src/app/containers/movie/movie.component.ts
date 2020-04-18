@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
 import {NgForm} from '@angular/forms';
+
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
@@ -8,14 +9,19 @@ import {NgForm} from '@angular/forms';
 })
 export class MovieComponent implements OnInit {
   constructor(public movieServices: MoviesService) { }
-
+listMovie: {};
   ngOnInit(): void {
+    this.getAllMovies();
   }
+
 getAllMovies(){
-this.movieServices.getAll()
-.subscribe((movies: any) => {
-  console.log(movies);
-}, err => console.log(err)
+this.movieServices.getAllMovies()
+.subscribe(
+  movies => {
+    this.listMovie = movies;
+    console.log(this.listMovie);
+},
+ err => console.log(err)
 );
 }
 

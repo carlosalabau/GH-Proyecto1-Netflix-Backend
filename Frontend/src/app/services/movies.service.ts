@@ -9,7 +9,7 @@ export class MoviesService {
   constructor(private http: HttpClient) { }
 
   // GET
-  getAll(){
+  getAllMovies(){
     return this.http.get<any>('http://localhost:3000/peliculas');
   }
   getEstrenos(){
