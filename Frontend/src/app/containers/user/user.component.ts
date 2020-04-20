@@ -43,21 +43,4 @@ export class UserComponent implements OnInit {
     .subscribe(msn => console.log(msn));
   }
 
-
-showprofile(){
-
-  this.showEditProfile = false;
-  this.showPedidos = false;
-  this.showProfile = true;
-}
-showEditprofile(){
-  this.showEditProfile = true;
-  this.showPedidos = false;
-  this.showProfile = false;
-}
-showpedidos(){
-  this.showEditProfile = false;
-  this.showPedidos = true;
-  this.showProfile = false;
-}
 }
