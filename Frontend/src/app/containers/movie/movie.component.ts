@@ -45,10 +45,9 @@ getEstrenos(){
   }, err => console.log(err)
   );
 }
-getTitleId(id: number){
-  return this.listMovie[id].titulo;
+getactualMovie(movie: any){
+this.movieServices.getactualMovie(movie);
 }
-
 
 setMovie(taskform: NgForm){
   this.movieServices.setMovie(taskform.value)

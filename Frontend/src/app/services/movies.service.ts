@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class MoviesService {
-
+actualMovie = {};
   constructor(private http: HttpClient) { }
 
   // GET
@@ -63,5 +63,12 @@ export class MoviesService {
   deleteActor(id: number){
       return this.http.delete(`http://localhost:3000/actores/eliminar/${id}`);
   }
+
+  getactualMovie(movie: any): object{
+this.actualMovie = movie;
+
+return;
+  }
+
 
 }
