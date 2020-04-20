@@ -1,11 +1,13 @@
-const { Peliculas } = require('../models/index');
+const { Peliculas, Generos, Actores } = require('../models/index');
 const db = require('../models/index');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
 const PeliculaController = {
     async ListarPeliculas(req,res){
-        const peliculas = await Peliculas.findAll();
+        const peliculas = await Peliculas.findAll({
+            include: [Generos, Actores]
+        });
         res.send(peliculas);
     },
 
