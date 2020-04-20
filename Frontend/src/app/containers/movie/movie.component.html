@@ -39,7 +39,7 @@
 <div class="content">
   <div class="row">
   <div class="col-md-4" *ngFor="let movies of listMovie; let i = index" >
-    <a routerLink="/detalls" (click)="getTitleId(i)">
+    <a routerLink="/detalls" (click)="getactualMovie(movies)">
    <img style="height: 300px; width: 200px; display: block;" src="{{movies.imagen}}" alt="Card image">
     </a>
     <h3 class="text-muted">

@@ -12,8 +12,10 @@ moviesDetall ;
 pedidosList ;
 title;
   constructor(public detallsServices: MoviesService, public userService: UsersService) { }
-
+selectMovie = {};
   ngOnInit(): void {
+    this.getPedido();
+    {}
   }
   getTitles(title: string){
     this.detallsServices.getTitulo(title)
@@ -23,15 +25,9 @@ title;
     );
   }
 
-  getPedido(id: number){
-    this.userService.getPedidosUser(id)
-    // tslint:disable-next-line: no-shadowed-variable
-    .subscribe(( user: any) =>
-        {
-          this.pedidosList = user;
-        },
-        err => console.log(err)
-        );
+  getPedido(){
+   this.selectMovie = this.detallsServices.actualMovie;
+   console.log(this.selectMovie);
    }
 
 }
