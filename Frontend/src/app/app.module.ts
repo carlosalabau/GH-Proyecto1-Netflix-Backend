@@ -17,6 +17,7 @@ import { LoginComponent } from './containers/login/login.component';
 import { LogoutComponent } from './containers/logout/logout.component';
 import { RegisterComponent } from './containers/register/register.component';
 import { PedidosComponent } from './containers/pedidos/pedidos.component';
+import { DetallsComponent } from './containers/detalls/detalls.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { PedidosComponent } from './containers/pedidos/pedidos.component';
     LoginComponent,
     LogoutComponent,
     RegisterComponent,
-    PedidosComponent
+    PedidosComponent,
+    DetallsComponent
   ],
   imports: [
     BrowserModule,

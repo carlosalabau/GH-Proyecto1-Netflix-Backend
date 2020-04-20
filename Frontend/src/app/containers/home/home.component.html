@@ -40,193 +40,30 @@
 </header>
 <div class="container left">
   <div class="row">
-    <div class="col">
+    <div class="col-md-4" *ngFor="let movies of listMovie">
+     <div class="condition">
       <a routerLink="/pedidos">
-     <img style="height: 300px; width: 200px; display: block;" src="http://sequex-light.egemenerd.com/wp-content/uploads/2017/11/poster23-200x300.jpg" alt="Card image">
-      </a>
-      <h3 class="text-muted">
-        Movie
-      </h3>
-         
-     <div>
-         <ul>
-           <li>
-             <i class="fa fa-calendar-o">
-             </i>2012</li>
-             <li>
-               <i class="fa fa-tags">
-               </i> 
-               <a>Drama</a>,
-               <a>Comedy</a>,
-               <a>Romance</a>  
-           </li>
-         </ul>
-    </div>
-    </div>
-<div class="col">
-<a routerLink="/pedidos">
-<img style="height: 300px; width: 200px; display: block;" src="http://sequex-light.egemenerd.com/wp-content/uploads/2017/11/poster23-200x300.jpg" alt="Card image">
-</a>
-<h3 class="text-muted">
-  Movie
-</h3>
-   
-<div>
-   <ul>
-     <li>
-       <i class="fa fa-calendar-o">
-       </i>2012</li>
-       <li>
-         <i class="fa fa-tags">
-         </i> 
-         <a>Drama</a>,
-         <a>Comedy</a>,
-         <a>Romance</a>  
-     </li>
-   </ul>
-</div>
-</div> 
-<div class="col">
-  <a routerLink="/pedidos">
- <img style="height: 300px; width: 200px; display: block;" src="http://sequex-light.egemenerd.com/wp-content/uploads/2017/11/poster23-200x300.jpg" alt="Card image">
-  </a>
-  <h3 class="text-muted">
-    Movie
-  </h3>
-     
- <div>
-     <ul>
-       <li>
-         <i class="fa fa-calendar-o">
-         </i>2012</li>
-         <li>
-           <i class="fa fa-tags">
-           </i> 
-           <a>Drama</a>,
-           <a>Comedy</a>,
-           <a>Romance</a>  
-       </li>
-     </ul>
-</div>
-</div>
-<div class="col">
-<a routerLink="/pedidos">
-<img style="height: 300px; width: 200px; display: block;" src="http://sequex-light.egemenerd.com/wp-content/uploads/2017/11/poster23-200x300.jpg" alt="Card image">
-</a>
-<h3 class="text-muted">
-Movie
-</h3>
-
-<div>
-<ul>
- <li>
-   <i class="fa fa-calendar-o">
-   </i>2012</li>
-   <li>
-     <i class="fa fa-tags">
-     </i> 
-     <a>Drama</a>,
-     <a>Comedy</a>,
-     <a>Romance</a>  
- </li>
-</ul>
-</div>
-</div>
-   </div>
-   <div class="row">
-     <!-- este es el tipo -->
-     <div class="col">
-            <a routerLink="/pedidos">
-           <img style="height: 300px; width: 200px; display: block;" src="http://sequex-light.egemenerd.com/wp-content/uploads/2017/11/poster23-200x300.jpg" alt="Card image">
-            </a>
-            <h3 class="text-muted">
-              Movie
-            </h3>
-               
-           <div>
-               <ul>
-                 <li>
-                   <i class="fa fa-calendar-o">
-                   </i>2012</li>
-                   <li>
-                     <i class="fa fa-tags">
-                     </i> 
-                     <a>Drama</a>,
-                     <a>Comedy</a>,
-                     <a>Romance</a>  
-                 </li>
-               </ul>
-          </div>
-     </div>
-     <div class="col">
-      <a routerLink="/pedidos">
-     <img style="height: 300px; width: 200px; display: block;" src="http://sequex-light.egemenerd.com/wp-content/uploads/2017/11/poster23-200x300.jpg" alt="Card image">
-      </a>
-      <h3 class="text-muted">
-        Movie
-      </h3>
-         
-     <div>
-         <ul>
-           <li>
-             <i class="fa fa-calendar-o">
-             </i>2012</li>
-             <li>
-               <i class="fa fa-tags">
-               </i> 
-               <a>Drama</a>,
-               <a>Comedy</a>,
-               <a>Romance</a>  
-           </li>
-         </ul>
-    </div>
-      </div> 
-      <div class="col">
-        <a routerLink="/pedidos">
-       <img style="height: 300px; width: 200px; display: block;" src="http://sequex-light.egemenerd.com/wp-content/uploads/2017/11/poster23-200x300.jpg" alt="Card image">
+     <img style="height: 300px; width: 200px; display: block;" src="{{movies.imagen}}" alt="Card image">
         </a>
-        <h3 class="text-muted">
-          Movie
-        </h3>
-           
-       <div>
-           <ul>
+       <h3 class="text-muted">
+        {{movies["titulo"] }}
+       </h3>
+         
+        <div>
+         <ul>
+           <li>
+             <i class="fa fa-calendar-o">
+             </i> {{movies.anyo}} </li>
              <li>
-               <i class="fa fa-calendar-o">
-               </i>2012</li>
-               <li>
-                 <i class="fa fa-tags">
-                 </i> 
-                 <a>Drama</a>,
-                 <a>Comedy</a>,
-                 <a>Romance</a>  
-             </li>
-           </ul>
+               <i class="fa fa-tags">
+               </i> 
+               <a>Drama</a>,
+               <a>Comedy</a>,
+               <a>Romance</a>  
+           </li>
+         </ul>
+       </div>
+      </div >
       </div>
-      </div>
-      <div class="col">
-  <a routerLink="/pedidos">
- <img style="height: 300px; width: 200px; display: block;" src="http://sequex-light.egemenerd.com/wp-content/uploads/2017/11/poster23-200x300.jpg" alt="Card image">
-  </a>
-  <h3 class="text-muted">
-    Movie
-  </h3>
-     
- <div>
-     <ul>
-       <li>
-         <i class="fa fa-calendar-o">
-         </i>2012</li>
-         <li>
-           <i class="fa fa-tags">
-           </i> 
-           <a>Drama</a>,
-           <a>Comedy</a>,
-           <a>Romance</a>  
-       </li>
-     </ul>
-</div>
     </div>
-   </div>  
-  
  </div>
