@@ -1,46 +1,29 @@
-.wrap{
-display: flex;
-flex-direction: row;}
-
-.left{
-    margin: 4rem;
-    padding: 15px;
-    width: 70%;
+.content{
+    margin-top: 30px;
+    position: relative;
+    display: flex;
+    
 }
-
-.row{
-    width: 100%;
-}  
-.col{
-    width: 25%;
-    height: 100%;
+.text-muted{
+    margin-top: 8px;
 }
-
 ul{
+    margin: 0px;
+    padding: 0px;
     list-style: none;
-    margin-right: 44px;
 }
 li{
-    padding: 5px;
-    margin-right: 2rem;
+    padding: 0px;
+    margin-bottom: 8px;
 }
 
 li a, li i{
     margin: 2px;
 }
+
 .right{
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
     word-wrap: break-word;
     position: sticky;
-    height: 60vh;
-    top: 2rem;
-    right:1rem;
-    bottom: 2rem;
-    width: 25%;
-    margin: 20px;
-    padding: 15px;
 }
 
 .widget_search, form-group{

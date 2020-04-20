@@ -1,4 +1,4 @@
-<header class="container-fluid">
+<header class="container">
  
 
 <nav class="navbar-expand-lg navbar-light bg-light">
@@ -65,14 +65,16 @@
         <li class="nav-item">
 
           <div class="dropdown show" *ngIf="!showLog">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown link
+            <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-user"></i>
             </a>
           
             <div class="dropdown-menu nav-link"  aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" (click)="showprofile()" routerLink="/user" >Profile</a>
+                <a class="dropdown-item" id="input-custom-file">+AddImagen
+                </a>
+              <a class="dropdown-item" (click)="showEditprofile()" routerLink="/user" >Edit Profile</a>
+              <a class="dropdown-item" routerLink="/user"(click)="showprofile()">Ver Pedidos</a>
             </div>
           </div>
         </li>
@@ -81,4 +83,3 @@
      </div>
   </nav>
 </header>
- 

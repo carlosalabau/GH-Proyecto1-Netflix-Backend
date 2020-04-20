@@ -9,26 +9,29 @@
   }
 
   .left{
-    margin: 4rem;
     padding: 15px;
     width: 100%;
 }
 
 .row{
     width: 100%;
+    margin: 1rem;
 }  
 .col{
     width: 25%;
     height: 100%;
 }
-
+.text-muted{
+    margin-top: 8px;
+}
 ul{
+    margin: 0px;
+    padding: 0px;
     list-style: none;
-    margin-right: 44px;
 }
 li{
-    padding: 5px;
-    margin-right: 2rem;
+    padding: 0px;
+    margin-bottom: 8px;
 }
 
 li a, li i{

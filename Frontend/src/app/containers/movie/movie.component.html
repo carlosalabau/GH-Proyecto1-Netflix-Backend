@@ -41,114 +41,113 @@
   </div>
 </header>
 
-<div class="wrap">    
-<div class="card-container left">
- <div class="row">
-    <div class="col-md-3">
-           <a routerLink="/pedidos">
-          <img style="height: 300px; width: 200px; display: block;" src="http://sequex-light.egemenerd.com/wp-content/uploads/2017/11/poster23-200x300.jpg" alt="Card image">
-           </a>
-           <h3>
-          <small class="text-muted">Moviue</small>
-           </h3>
-          <div>
-              <ul>
-                <li>
-                  <i class="fa fa-calendar-o">
-                  </i>2012</li>
-                  <li>
-                    <i class="fa fa-tags">
-                    </i> 
-                    <a>Drama</a>,
-                    <a>Comedy</a>,
-                    <a>Romance</a>  
-                </li>
-              </ul>
-         </div>
-    </div>
-    <div class=" card right">
-        <div class="so-panel widget widget_search panel-first-child">
-          <div class="sequex-sidebar-box">
-          <h3 class="widget-title">
-            Quick Search
-          </h3>
-          <form>
-            <div class="input-group"> 
-              <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Enter a keyword..." name="s" autocomplete="off"> 
-              <button type="submit" class="btn btn-outline-success mb-2 mb-sm-0">
-                Search
-              </button>
-            </div>
-          </form>
-          </div>
-        </div>
-    
-    
-    <div class="card-header">
-       <div class="so-panel widget widget_sequex-custom-search" data-index="3">
-    
-       </div>
-        <div class="sequex-sidebar-box panel-widget-style panel-widget-style-for-178-1-1-1">
-          <h3 class="widget-title">
-            Advanced Search
-          </h3>
-        </div>    
-        <div class="form-group">
-          <label for="exampleSelect1">Actors</label>
-          <select class="form-control" id="exampleSelect1">
-            
-            <option value="brad-pitt">Brad Pitt</option>
-            <option value="bradley-cooper">Bradley Cooper</option>
-            <option value="bryan-cranston">Bryan Cranston</option>
-            <option value="caroline-goodall">Caroline Goodall</option>
-            <option value="casey-affleck">Casey Affleck</option>
-            <option value="chad-lindberg">Chad Lindberg</option>
-            <option value="charlie-tahan">Charlie Tahan</option>
-            <option value="charlotte-gainsbourg">Charlotte Gainsbourg</option>
-            <option value="robert-de-niro">Robert De Niro</option>
-            <option value="rowan-atkinson">Rowan Atkinson</option>
-            <option value="ryan-reynolds">Ryan Reynolds</option>
-            <option value="salli-richardson-whitfield">Salli Richardson-Whitfield</option>
-            <option value="santino-fontana">Santino Fontana</option>
-            <option value="shia-labeouf">Shia LaBeouf</option>
-            <option value="song-kang-ho">Song Kang-ho</option>
-            <option value="t-j-miller">T.J. Miller</option>
-            <option value="thomas-haden-church">Thomas Haden Church</option>
-            <option value="tilda-swinton">Tilda Swinton</option>
-            <option value="tobey-maguire">Tobey Maguire</option>
-            <option value="tom-cruise">Tom Cruise</option>
-            <option value="tom-glynn-carney">Tom Glynn-Carney</option>
-            <option value="topher-grace">Topher Grace</option>
-            <option value="viggo-mortensen">Viggo Mortensen</option>
-            <option value="viola-davis">Viola Davis</option>
-            
-          </select>
-        </div>
+<div class="container">    
+<div class="content">
+  <div class="row">
+  <div class="col-md-4" *ngFor="let movies of listMovie">
+    <a routerLink="/pedidos">
+   <img style="height: 300px; width: 200px; display: block;" src="{{movies.imagen}}" alt="Card image">
+    </a>
+    <h3 class="text-muted">
+      {{movies["titulo"] }}
+    </h3>
        
-          <div class="form-group">
-          <label for="exampleSelect1">Genre</label>
-          <select class="form-control" id="exampleSelect1">
-            <option value="action">Action</option>
-            <option value="adventure">Adventure</option>
-            <option value="animation">Animation</option>
-            <option value="comedy">Comedy</option>
-            <option value="crime">Crime</option>
-            <option value="drama">Drama</option>
-            <option value="family">Family</option>
-            <option value="fantasy">Fantasy</option>
-            <option value="history">History</option>
-            <option value="horror">Horror</option>
-            <option value="romance">Romance</option>
-            <option value="science-fiction">Science Fiction</option>
-            <option value="thriller">Thriller</option>
-            <option value="war">War</option>
-          </select>
-    
+   <div>
+       <ul>
+         <li>
+           <i class="fa fa-calendar-o">
+           </i> {{movies.anyo}} </li>
+           <li>
+             <i class="fa fa-tags">
+             </i> 
+             <a>Drama</a>,
+             <a>Comedy</a>,
+             <a>Romance</a>  
+         </li>
+       </ul>
+  </div>
+  </div >
+  </div>
+    <div class="col-md-4">
+      <div class="sticky-top">
+        <div class="so-panel widget widget_search panel-first-child">
+         <div class="sequex-sidebar-box">
+         <h3 class="widget-title">
+           Quick Search
+         </h3>
+         <form>
+           <div class="input-group"> 
+             <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Enter a keyword..." name="s" autocomplete="off"> 
+             <button type="submit" class="btn btn-outline-success mb-2 mb-sm-0">
+               Search
+             </button>
+           </div>
+         </form>
+         </div>
         </div>
-       </div>  
-    </div>
-   
+        <div class="card-header">
+      <div class="so-panel widget widget_sequex-custom-search" data-index="3">
+     
+      </div>
+       <div class="sequex-sidebar-box panel-widget-style panel-widget-style-for-178-1-1-1">
+         <h3 class="widget-title">
+           Advanced Search
+         </h3>
+       </div>    
+       <div class="form-group">
+         <label for="exampleSelect1">Actors</label>
+         <select class="form-control" id="exampleSelect1">
+           
+           <option value="brad-pitt">Brad Pitt</option>
+           <option value="bradley-cooper">Bradley Cooper</option>
+           <option value="bryan-cranston">Bryan Cranston</option>
+           <option value="caroline-goodall">Caroline Goodall</option>
+           <option value="casey-affleck">Casey Affleck</option>
+           <option value="chad-lindberg">Chad Lindberg</option>
+           <option value="charlie-tahan">Charlie Tahan</option>
+           <option value="charlotte-gainsbourg">Charlotte Gainsbourg</option>
+           <option value="robert-de-niro">Robert De Niro</option>
+           <option value="rowan-atkinson">Rowan Atkinson</option>
+           <option value="ryan-reynolds">Ryan Reynolds</option>
+           <option value="salli-richardson-whitfield">Salli Richardson-Whitfield</option>
+           <option value="santino-fontana">Santino Fontana</option>
+           <option value="shia-labeouf">Shia LaBeouf</option>
+           <option value="song-kang-ho">Song Kang-ho</option>
+           <option value="t-j-miller">T.J. Miller</option>
+           <option value="thomas-haden-church">Thomas Haden Church</option>
+           <option value="tilda-swinton">Tilda Swinton</option>
+           <option value="tobey-maguire">Tobey Maguire</option>
+           <option value="tom-cruise">Tom Cruise</option>
+           <option value="tom-glynn-carney">Tom Glynn-Carney</option>
+           <option value="topher-grace">Topher Grace</option>
+           <option value="viggo-mortensen">Viggo Mortensen</option>
+           <option value="viola-davis">Viola Davis</option>
+           
+         </select>
+       </div>
+      
+         <div class="form-group">
+         <label for="exampleSelect1">Genre</label>
+         <select class="form-control" id="exampleSelect1">
+           <option value="action">Action</option>
+           <option value="adventure">Adventure</option>
+           <option value="animation">Animation</option>
+           <option value="comedy">Comedy</option>
+           <option value="crime">Crime</option>
+           <option value="drama">Drama</option>
+           <option value="family">Family</option>
+           <option value="fantasy">Fantasy</option>
+           <option value="history">History</option>
+           <option value="horror">Horror</option>
+           <option value="romance">Romance</option>
+           <option value="science-fiction">Science Fiction</option>
+           <option value="thriller">Thriller</option>
+           <option value="war">War</option>
+         </select>
+     
+       </div>
+        </div>  
+      </div>
+     </div>
+  </div>
 </div>
-
-</div>
-

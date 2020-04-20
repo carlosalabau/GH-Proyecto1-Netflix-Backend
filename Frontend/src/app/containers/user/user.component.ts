@@ -8,9 +8,9 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-showProfile = true;
-showEditProfile = false;
-showPedidos = false;
+ showProfile = true;
+ showEditProfile = false;
+ showPedidos = false;
 
   userList: any;
   constructor(public userService: UsersService) { }
@@ -43,7 +43,9 @@ showPedidos = false;
     .subscribe(msn => console.log(msn));
   }
 
+
 showprofile(){
+
   this.showEditProfile = false;
   this.showPedidos = false;
   this.showProfile = true;

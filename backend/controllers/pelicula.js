@@ -8,13 +8,23 @@ const PeliculaController = {
         const peliculas = await Peliculas.findAll();
         res.send(peliculas);
     },
+
+    async ListarId(req,res){
+        let _id = req.params.id;
+        const peli = await Peliculas.findOne({
+            where: {
+                id: _id
+            }
+        })
+        res.send(peli)
+    },
     async EditarPelicula(req,res){
         let body = req.body;
         let _id = req.params.id;
         await Peliculas.update({
             titulo: body.titulo,
             descripcion: body.descripcion,
-            año: body.año,
+            anyo: body.anyo,
             isEstreno: body.isEstreno,
             isDisponible: body.isDisponible
         },
