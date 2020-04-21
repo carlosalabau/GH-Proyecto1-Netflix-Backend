@@ -8,18 +8,17 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-showProfile = true;
-showEditProfile = false;
-showPedidos = false;
+ showProfile = true;
+ showEditProfile = false;
+ showPedidos = false;
 
   userList: any;
   constructor(public userService: UsersService) { }
   ngOnInit(): void {
-    this.getAllUser();
      }
 
-    getAllUser(){
-  this.userService.getAll()
+    getUser(id: number){
+  this.userService.getUserId(id)
   // tslint:disable-next-line: no-shadowed-variable
   .subscribe(( user: any) =>
       {
@@ -31,31 +30,17 @@ showPedidos = false;
 
   updateUser(taskform: NgForm, i: number){
     this.userService.updateUser(taskform.value, i)
-    .subscribe(msn => this.getAllUser());
-            }
+    .subscribe(msn =>  console.log(msn));
+  }
 
    addNewUser(taskform: NgForm){
     this.userService.setNewLogin(taskform.value)
-    .subscribe(msn => this.getAllUser());
-          }
+    .subscribe(msn =>  console.log(msn));
+   }
 
-  delTask(i: number){
+  delUser(i: number){
     this.userService.deleteUser(i)
-    .subscribe(msn => this.getAllUser());
+    .subscribe(msn => console.log(msn));
   }
-showprofile(){
-  this.showEditProfile = false;
-  this.showPedidos = false;
-  this.showProfile = true;
-}
-showEditprofile(){
-  this.showEditProfile = true;
-  this.showPedidos = false;
-  this.showProfile = false;
-}
-showpedidos(){
-  this.showEditProfile = false;
-  this.showPedidos = true;
-  this.showProfile = false;
-}
+
 }

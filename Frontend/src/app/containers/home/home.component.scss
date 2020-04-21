@@ -1,0 +1,39 @@
+.carousel-item {
+    height: 65vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  .left{
+    padding: 15px;
+    width: 100%;
+}
+
+.row{
+    width: 100%;
+    margin: 1rem;
+}  
+.col{
+    width: 25%;
+    height: 100%;
+}
+.text-muted{
+    margin-top: 8px;
+}
+ul{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+li{
+    padding: 0px;
+    margin-bottom: 8px;
+}
+
+li a, li i{
+    margin: 2px;
+}

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MoviesService } from '../../services/movies.service';
+import {NgForm} from '@angular/forms';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public movieServices: MoviesService, private sanitizer: DomSanitizer) { }
+  listMovie = [] ;
+  cont = 0;
   ngOnInit(): void {
+    this.getAllMovies();
   }
+
+  getImgContent(imgurl): SafeUrl {
+    return this.sanitizer.bypassSecurityTrustStyle(`url(${imgurl})`);
+}
+
+  getAllMovies(){
+    this.movieServices.getAllMovies()
+    .subscribe(
+      movies => {
+        // tslint:disable-next-line: prefer-for-of
+        for (let i = 0; i < movies.length; i++) {
+          if (movies[i].isEstreno) {
+            this.listMovie.push(movies[i]);
+            // tslint:disable-next-line: no-unused-expression
+            console.log(this.listMovie);
+          }
+        }
+    },
+    err => console.log(err)
+   );
+   }
+
 
 }

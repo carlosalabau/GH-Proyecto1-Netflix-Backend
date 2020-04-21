@@ -1,12 +1,24 @@
-const { Peliculas } = require('../models/index');
+const { Peliculas, Generos, Actores } = require('../models/index');
 const db = require('../models/index');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
 const PeliculaController = {
     async ListarPeliculas(req,res){
-        const peliculas = await Peliculas.findAll();
+        const peliculas = await Peliculas.findAll({
+            include: [Generos, Actores]
+        });
         res.send(peliculas);
+    },
+
+    async ListarId(req,res){
+        let _id = req.params.id;
+        const peli = await Peliculas.findOne({
+            where: {
+                id: _id
+            }
+        })
+        res.send(peli)
     },
     async EditarPelicula(req,res){
         let body = req.body;
@@ -14,7 +26,7 @@ const PeliculaController = {
         await Peliculas.update({
             titulo: body.titulo,
             descripcion: body.descripcion,
-            año: body.año,
+            anyo: body.anyo,
             isEstreno: body.isEstreno,
             isDisponible: body.isDisponible
         },

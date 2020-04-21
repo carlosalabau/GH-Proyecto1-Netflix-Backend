@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     this.userService.setNewLogin(this.users)
     .subscribe(
       res => {
-              console.log(this.users, res);
+              console.log(this.users);
               localStorage.setItem('token', res.token);
               EventBus.getInstance().emit('onloggin', undefined);
               this.router.navigate(['/movie']);

@@ -8,11 +8,12 @@ import EventBus from 'src/app/bus/EventBus';
 })
 export class HeaderComponent implements OnInit {
 showLog = true;
+
   constructor() { }
 
-  ngOnInit(): void {
-  EventBus.getInstance().listen('onloggin', () => this.showLog = false);
 
+ngOnInit(): void {
+  EventBus.getInstance().listen('onloggin', () => this.showLog = false);
   }
 
 }

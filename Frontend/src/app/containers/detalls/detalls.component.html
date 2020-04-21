@@ -1,0 +1,50 @@
+<div class="container">
+    <h1 class="my-4"> {{selectMovie[0].titulo}}
+    </h1>
+    <div class="row">
+      <div class="col-md-8">
+        <img class="img-fluid" src="{{selectMovie[0].imagen}}" alt="">
+      </div>
+      <div class="col-md-4 card">
+        <h2 class="my-3">Movie Details</h2>
+        <h2 class="my-3">Overview</h2>
+        <p>{{selectMovie[0].descripcion}}</p>
+        <ul class="navbar-nav mr-auto">
+          <h2 class="my-3">Year</h2>
+            <li >{{selectMovie[0].anyo}}</li>
+          
+          <h2 class="my-3">Genre</h2>
+            <li *ngFor="let genre of Genre">{{ genre.tipo }}</li>
+         
+          <h2 class="my-3">Actors</h2>
+            <li *ngFor="let actors of Actors">{{actors.nombre }}</li>
+    
+            
+        </ul>
+        <button type="submit"  class="btn btn-info disabled">Rent</button>
+      </div>
+    </div>
+    <h3 class="my-4">Recently rent movies</h3>
+    <div class="row">
+      <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+              <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            </a>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+              <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            </a>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+              <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            </a>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+              <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+            </a>
+      </div>
+    </div>
+  </div>

@@ -5,7 +5,11 @@ import { MovieComponent } from './containers/movie/movie.component';
 import { LoginComponent } from './containers/login/login.component';
 import { RegisterComponent } from './containers/register/register.component';
 import { UserComponent } from './containers/user/user.component';
-import { PedidosComponent } from './containers/pedidos/pedidos.component';
+import { AdminComponent } from './containers/admin/admin.component';
+import { DetallsComponent } from './containers/detalls/detalls.component';
+import { EditProfileComponent } from './containers/user/edit-profile/edit-profile.component';
+import { OrdersComponent } from './containers/user/orders/orders.component';
+import { ProfileComponent } from './containers/user/profile/profile.component';
 
 
 const routes: Routes = [
@@ -14,7 +18,11 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent },
   {path: 'register', component: RegisterComponent },
   {path: 'user', component: UserComponent },
-  {path: 'pedidos', component: PedidosComponent }
+  {path: 'user/profile', component: ProfileComponent },
+  {path: 'user/editProfile', component: EditProfileComponent },
+  {path: 'user/orders', component: OrdersComponent },
+  {path: 'detalls', component: DetallsComponent },
+  {path: 'admin', component: AdminComponent }
 
 ];
 
