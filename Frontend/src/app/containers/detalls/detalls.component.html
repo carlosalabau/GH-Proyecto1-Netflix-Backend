@@ -6,18 +6,18 @@
         <img class="img-fluid" src="{{selectMovie[0].imagen}}" alt="">
       </div>
       <div class="col-md-4 card">
-        <h1 class="my-3">Movie Details</h1>
+        <h2 class="my-3">Movie Details</h2>
         <h2 class="my-3">Overview</h2>
         <p>{{selectMovie[0].descripcion}}</p>
-        <ul>
-        <li> <h2 class="my-3">Year</h2>
-          {{selectMovie[0].anyo}}</li>
+        <ul class="navbar-nav mr-auto">
+          <h2 class="my-3">Year</h2>
+            <li >{{selectMovie[0].anyo}}</li>
+          
           <h2 class="my-3">Genre</h2>
-         <li *ngFor="let genre of Genre"> 
-          {{ genre.tipo }}</li>
+            <li *ngFor="let genre of Genre">{{ genre.tipo }}</li>
+         
           <h2 class="my-3">Actors</h2>
-         <li *ngFor="let actors of Actors"> 
-          {{ actors.nombre }}</li>
+            <li *ngFor="let actors of Actors">{{actors.nombre }}</li>
     
             
         </ul>

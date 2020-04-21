@@ -3,3 +3,16 @@
     margin-left: 4rem;
     width: 6rem;
 }
+
+.card > p, ul > li{
+    color:  #2196f3;
+    font-family: "Roboto",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    cursor: pointer;
+    font-size: 20px;
+    text-decoration: none;
+}
+h2{
+    font-family: "Roboto",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    color: #666;
+    letter-spacing: .1px;
+}

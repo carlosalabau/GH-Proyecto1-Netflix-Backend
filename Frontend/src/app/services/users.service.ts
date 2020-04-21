@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class UsersService {
-
+user = '' ;
   constructor(private http: HttpClient) { }
 
   // GET
@@ -24,6 +24,8 @@ export class UsersService {
       return this.http.post<any>('http://localhost:3000/usuarios/registro', body);
     }
     setNewLogin(body: any){
+      this.user = body.email;
+      console.log(this.user);
       return this.http.post<any>('http://localhost:3000/usuarios/login', body);
     }
     // PUT

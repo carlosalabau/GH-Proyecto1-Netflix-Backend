@@ -24,7 +24,6 @@ this.movieServices.getAllMovies()
 .subscribe(
   movies => {
     this.listMovie = movies;
-    console.log(this.listMovie, this.listMovie[1].imagen);
 },
  err => console.log(err)
 );
