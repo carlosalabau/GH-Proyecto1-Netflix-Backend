@@ -11,10 +11,12 @@ export class DetallsComponent implements OnInit {
 moviesDetall ;
 pedidosList ;
 title;
+Genre = [];
+Actors = [];
+selectMovie = [];
   constructor(public detallsServices: MoviesService, public userService: UsersService) { }
-selectMovie = {};
   ngOnInit(): void {
-    this.getPedido();
+    this.getDetails();
     {}
   }
   getTitles(title: string){
@@ -25,9 +27,11 @@ selectMovie = {};
     );
   }
 
-  getPedido(){
-   this.selectMovie = this.detallsServices.actualMovie;
-   console.log(this.selectMovie);
+  getDetails(){
+   this.selectMovie[0] = this.detallsServices.actualMovie;
+   this.Genre = this.selectMovie[0].Generos;
+   this.Actors = this.selectMovie[0].Actores;
+   console.log(this.Genre, this.Actors);
    }
 
 }

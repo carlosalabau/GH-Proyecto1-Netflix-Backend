@@ -1,24 +1,30 @@
 <div class="container">
-    <h1 class="my-4"> {{selectMovie["titulo"]}}
+    <h1 class="my-4"> {{selectMovie[0].titulo}}
     </h1>
     <div class="row">
       <div class="col-md-8">
-        <img class="img-fluid" src="{{selectMovie['imagen']}}" alt="">
+        <img class="img-fluid" src="{{selectMovie[0].imagen}}" alt="">
       </div>
-      <div class="col-md-4">
-        <h3 class="my-3">Overview</h3>
-        <p>{{selectMovie['descripcion']}}</p>
-        <h3 class="my-3">movie Details</h3>
+      <div class="col-md-4 card">
+        <h1 class="my-3">Movie Details</h1>
+        <h2 class="my-3">Overview</h2>
+        <p>{{selectMovie[0].descripcion}}</p>
         <ul>
-         año: <li>{{selectMovie['anyo']}}</li>
-          <li>Dolor Sit Amet</li>
-          <li>Consectetur</li>
-          <li>Adipiscing Elit</li>
+        <li> <h2 class="my-3">Year</h2>
+          {{selectMovie[0].anyo}}</li>
+          <h2 class="my-3">Genre</h2>
+         <li *ngFor="let genre of Genre"> 
+          {{ genre.tipo }}</li>
+          <h2 class="my-3">Actors</h2>
+         <li *ngFor="let actors of Actors"> 
+          {{ actors.nombre }}</li>
+    
+            
         </ul>
         <button type="submit"  class="btn btn-info disabled">Rent</button>
       </div>
     </div>
-    <h3 class="my-4">recentky rent movie</h3>
+    <h3 class="my-4">Recently rent movies</h3>
     <div class="row">
       <div class="col-md-3 col-sm-6 mb-4">
         <a href="#">
