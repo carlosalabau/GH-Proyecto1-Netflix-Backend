@@ -25,5 +25,18 @@ const autenticacion = async (req, res, next) => {
         console.log(error)
         res.status(500).send({error, mensaje:'Ha habido un problema con el token'})
     }
-}
-module.exports= { autenticacion }
+};
+    const isAdmin = async (req,res,next) => {
+        try {
+            const admins = 'Admin';
+            if(!admins.includes(req.body.rol)){
+                return res.status(403).send({mensaje: 'No tienes permiso para ver esta seccion'})
+            }
+            next();
+        } catch (error) {
+            res.status(500).send(error);
+        }
+       
+    }
+
+module.exports= { autenticacion, isAdmin }
