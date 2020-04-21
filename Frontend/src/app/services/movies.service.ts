@@ -16,7 +16,7 @@ actualMovie = {};
     return this.http.get<any>('http://localhost:3000/peliculas/estrenos');
   }
   getActores(){
-    return this.http.get<any>('http://localhost:3000/peliculas/actores');
+    return this.http.get<any>('http://localhost:3000/actores');
   }
   getTitulo(titulo: string){
     return this.http.get<any>(`http://localhost:3000/peliculas/titulos/${titulo}`);

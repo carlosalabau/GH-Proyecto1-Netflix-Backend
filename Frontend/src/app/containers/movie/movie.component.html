@@ -52,11 +52,11 @@
            <i class="fa fa-calendar-o">
            </i> {{movies.anyo}} </li>
            <li>
+             <div *ngFor="let genre of Genre[i]; let j = index">
              <i class="fa fa-tags">
-             </i> 
-             <a>Drama</a>,
-             <a>Comedy</a>,
-             <a>Romance</a>  
+                 <a> {{ Genre[i][j].tipo}} </a>
+                </i > 
+              </div >
          </li>
        </ul>
   </div>
@@ -90,55 +90,25 @@
        </div>    
        <div class="form-group">
          <label for="exampleSelect1">Actors</label>
-         <select class="form-control" id="exampleSelect1">
-           
-           <option value="brad-pitt">Brad Pitt</option>
-           <option value="bradley-cooper">Bradley Cooper</option>
-           <option value="bryan-cranston">Bryan Cranston</option>
-           <option value="caroline-goodall">Caroline Goodall</option>
-           <option value="casey-affleck">Casey Affleck</option>
-           <option value="chad-lindberg">Chad Lindberg</option>
-           <option value="charlie-tahan">Charlie Tahan</option>
-           <option value="charlotte-gainsbourg">Charlotte Gainsbourg</option>
-           <option value="robert-de-niro">Robert De Niro</option>
-           <option value="rowan-atkinson">Rowan Atkinson</option>
-           <option value="ryan-reynolds">Ryan Reynolds</option>
-           <option value="salli-richardson-whitfield">Salli Richardson-Whitfield</option>
-           <option value="santino-fontana">Santino Fontana</option>
-           <option value="shia-labeouf">Shia LaBeouf</option>
-           <option value="song-kang-ho">Song Kang-ho</option>
-           <option value="t-j-miller">T.J. Miller</option>
-           <option value="thomas-haden-church">Thomas Haden Church</option>
-           <option value="tilda-swinton">Tilda Swinton</option>
-           <option value="tobey-maguire">Tobey Maguire</option>
-           <option value="tom-cruise">Tom Cruise</option>
-           <option value="tom-glynn-carney">Tom Glynn-Carney</option>
-           <option value="topher-grace">Topher Grace</option>
-           <option value="viggo-mortensen">Viggo Mortensen</option>
-           <option value="viola-davis">Viola Davis</option>
-           
+         <select [(ngModel)]="optionSelect" (change)="catchSelection()" class="form-control" id="exampleSelect1" >
+          <option value="0">choose one actor</option>
+          
+           <option *ngFor="let actores of allActors" value="{{actores.nombre}}">    
+            {{actores.nombre}} 
+          </option>
          </select>
+         <p [hidden]="optionSelect == '0'">Haz seleccionado la opción # {{ seeSelect }}</p>
        </div>
       
          <div class="form-group">
          <label for="exampleSelect1">Genre</label>
-         <select class="form-control" id="exampleSelect1">
-           <option value="action">Action</option>
-           <option value="adventure">Adventure</option>
-           <option value="animation">Animation</option>
-           <option value="comedy">Comedy</option>
-           <option value="crime">Crime</option>
-           <option value="drama">Drama</option>
-           <option value="family">Family</option>
-           <option value="fantasy">Fantasy</option>
-           <option value="history">History</option>
-           <option value="horror">Horror</option>
-           <option value="romance">Romance</option>
-           <option value="science-fiction">Science Fiction</option>
-           <option value="thriller">Thriller</option>
-           <option value="war">War</option>
+         <select [(ngModel)]="optionSelect" (change)="catchSelection()" class="form-control" id="exampleSelect1">
+          <option value="0">choose one genre</option>
+           <option *ngFor="let genre of allGenre" value="{{genre.tipo}}">
+            {{genre.tipo}}
+            </option>
          </select>
-     
+         <p [hidden]="optionSelect == '0'">Haz seleccionado la opción # {{ seeSelect }}</p>
        </div>
         </div>  
       </div>
