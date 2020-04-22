@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { environment } from '../../environments/environment';
+// import { User } from '../models/user.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +10,7 @@ import { environment } from '../../environments/environment';
 export class UsersService {
 user = '' ;
   constructor(private http: HttpClient) { }
+  private _user: any;
 
   // GET
   getUserId(id: number){
@@ -21,8 +24,9 @@ user = '' ;
   }
 
     // POST
-    setNewRegister(body: any){
-      return this.http.post<any>(environment.API_URL + 'usuarios/registro', body);
+      setNewRegister(body: any){
+        console.log(body);
+      return this.http.post<any>(environment.API_URL + '/usuarios/registro', body);
     }
     setNewLogin(body: any){
       this.user = body.email;
@@ -37,7 +41,12 @@ user = '' ;
     deleteUser(id: number){
       return this.http.delete(environment.API_URL + `/usuarios/eliminar/${id}`);
      }
-
+     setUser(_user: any) {
+      this._user = _user;
+    }
+    getUser(): any {
+      return this._user;
+    }
 
   uploadFile(formData){
   const urlApi = 'localhost....';
