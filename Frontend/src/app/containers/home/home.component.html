@@ -34,7 +34,7 @@
 </header>
 <div class="container left">
   <div class="row" >
-    <div class="col-md-4" *ngFor="let movies of listMovie">
+    <div class="col-md-4" *ngFor="let movies of listMovie; let i = index">
      <div class="condition">
       <a routerLink="/pedidos">
      <img style="height: 300px; width: 200px; display: block;" src="{{movies.imagen}}" alt="Card image">
@@ -49,11 +49,11 @@
              <i class="fa fa-calendar-o">
              </i> {{movies.anyo}} </li>
              <li>
-               <i class="fa fa-tags">
-               </i> 
-               <a>Drama</a>,
-               <a>Comedy</a>,
-               <a>Romance</a>  
+              <div *ngFor="let genre of Genre[i]; let j = index">
+                <i class="fa fa-tags">
+                    <a> {{ Genre[i][j].tipo}} </a>
+                   </i > 
+                 </div >
            </li>
          </ul>
        </div>
