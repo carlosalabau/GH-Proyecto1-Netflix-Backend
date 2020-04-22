@@ -21,6 +21,13 @@ import { DetallsComponent } from './containers/detalls/detalls.component';
 import { EditProfileComponent } from './containers/user/edit-profile/edit-profile.component';
 import { OrdersComponent } from './containers/user/orders/orders.component';
 import { ProfileComponent } from './containers/user/profile/profile.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { es_ES } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import es from '@angular/common/locales/es';
+
+registerLocaleData(es);
 
 @NgModule({
   declarations: [
@@ -45,9 +52,10 @@ import { ProfileComponent } from './containers/user/profile/profile.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
-  providers: [UsersService],
+  providers: [UsersService, { provide: NZ_I18N, useValue: es_ES }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
