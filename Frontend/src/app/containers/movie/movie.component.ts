@@ -11,6 +11,13 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 export class MovieComponent implements OnInit {
   constructor(public movieServices: MoviesService, private sanitizer: DomSanitizer) { }
 listMovie ;
+Genre = [] ;
+allGenre = [];
+allActors = [];
+seeSelect: string;
+optionSelect = '0';
+
+
   ngOnInit(): void {
     this.getAllMovies();
   }
@@ -24,6 +31,14 @@ this.movieServices.getAllMovies()
 .subscribe(
   movies => {
     this.listMovie = movies;
+    this.getActores();
+    this.getGenre();
+    // tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < this.listMovie.length; i++) {
+
+      this.Genre[i] = this.listMovie[i].Generos;
+    }
+    console.log(movies, this.Genre, this.Genre[1][0].tipo);
 },
  err => console.log(err)
 );
@@ -31,8 +46,23 @@ this.movieServices.getAllMovies()
 
 getActores(){
   this.movieServices.getActores()
-  .subscribe((movies: any) => {
-    console.log(movies);
+  .subscribe((actores: any) => {
+    this.allActors = actores;
+    console.log(this.allActors[0].nombre);
+  }, err => console.log(err)
+  );
+}
+
+catchSelection(){
+this.seeSelect = this.optionSelect;
+console.log(this.seeSelect);
+}
+
+getGenre(){
+  this.movieServices.getAllGenre()
+  .subscribe((genre: any) => {
+    this.allGenre = genre;
+    console.log(this.allGenre[0].tipo);
   }, err => console.log(err)
   );
 }

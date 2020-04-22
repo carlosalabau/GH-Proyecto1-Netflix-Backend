@@ -38,8 +38,8 @@ Actors = [];
 
    getPedidos(){
     this.newUser = this.userService.user;
-    this.title =  this.userService.getPedidosUser(this.newUser);
-    console.log(this.title);
+    // this.title =  this.userService.getPedidosUser(this.newUser);
+    console.log('aqui');
    }
 
 }
