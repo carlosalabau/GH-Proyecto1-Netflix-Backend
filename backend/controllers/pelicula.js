@@ -79,8 +79,20 @@ const PeliculaController = {
         res.send({titulo})
     },
     async BusquedaActores(req,res){
-        const actores = await db.sequelize.query('SELECT Peliculas.titulo, Actores.nombre FROM Peliculas, Actores, ActoresByPeliculas WHERE ActoresByPeliculas.ActoreId = Actores.id AND ActoresByPeliculas.PeliculaId = Peliculas.id');
+        let _nombre = req.params.nombre;
+        const actores = await db.sequelize.query(`SELECT Peliculas.titulo, Actores.nombre FROM Peliculas, Actores, ActoresByPeliculas WHERE ActoresByPeliculas.ActoreId = Actores.id AND ActoresByPeliculas.PeliculaId = Peliculas.id AND Actores.nombre = '${_nombre}'`);
         res.send(actores)
+    },
+    async BusquedaGeneros(req,res){
+       try {
+           console.log('Estoy en el try')
+        let _tipo = req.params.tipo;
+        const generos = await db.sequelize.query(`SELECT Peliculas.titulo, Generos.tipo FROM Peliculas, Generos, GenerosByPeliculas WHERE GenerosByPeliculas.GeneroId = Generos.id AND GenerosByPeliculas.PeliculaId = Peliculas.id AND Generos.tipo = '${_tipo}'`);
+        res.send(generos)
+       } catch (error) {
+           console.log('Estoy en el catch')
+           res.status(500).send({mensaje: 'Ha ocurrido un error', error})
+       } 
     }
 
 }

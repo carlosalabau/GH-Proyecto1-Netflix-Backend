@@ -79,13 +79,20 @@ const LoginController = {
 },
 
     async Logout(req, res){
-        await Token.destroy({
-            where: { [Op.and]:[
-                {UserId: req.usuario.id},
-                {token: req.headers.authorization}
-            ]}
-        });
-        res.send({mensaje: 'Desconectado con exito'})
+        try {
+            console.log('Estoy en logout')
+            await Token.destroy({
+                where: { [Op.and]:[
+                    {UserId: req.user.id},
+                    {token: req.headers.authorization}
+                ]}
+            });
+            res.send({mensaje: 'Desconectado con exito'})
+        } catch (error) {
+            console.log(error)
+            res.status(500).send({mensaje: 'Ha habido un problema', error});
+        }
+        
     },
 
     async PorPedidos(req,res){
