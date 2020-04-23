@@ -7,14 +7,13 @@ const {Op} = require('sequelize')
 const LoginController = {
     async ListarUsuarios(req,res){
         try {
-            let _id = req.params.id;
-        const listadoUsuarios = await Usuarios.findOne({
-            where: {
-                id: _id
-            }
-        });
-        res.send(listadoUsuarios);
-        } catch (error) {+
+            const token = await Token.findOne({
+                where:{
+                    id: req.user.id
+                }
+            })
+        res.send(req.user);
+        } catch (error) {
             console.log(error);
             res.status(401).send({mensaje: 'No es posible listar usuarios'})
         }
@@ -80,7 +79,6 @@ const LoginController = {
         }
         const coincide = await bcrypt.compare(req.body.password, usuario.password);
         if(!coincide){
-            console.log('aqui')
          return res.status(400).send({mensaje: 'Usuario o contraseña incorrectos'})
         }
         const token = jwt.sign({
