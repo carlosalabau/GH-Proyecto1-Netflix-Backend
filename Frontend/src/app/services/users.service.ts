@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class UsersService {
 user = '' ;
+private _user: any;
   constructor(private http: HttpClient) { }
-  private _user: any;
 
   // GET
   getUserId(id: number){
@@ -23,6 +23,14 @@ user = '' ;
     return this.http.get<any>(environment.API_URL + 'usuarios/logout');
   }
 
+  getInfo(token): Observable<any> {
+    return this.http.get<any>(environment.API_URL + '/usuarios', {
+      headers: {
+        Authorization: token
+      }
+    });
+  }
+
     // POST
       setNewRegister(body: any){
         console.log(body);
@@ -30,7 +38,7 @@ user = '' ;
     }
     setNewLogin(body: any){
       this.user = body.email;
-      console.log(this.user);
+      console.log(body);
       return this.http.post<any>(environment.API_URL + '/usuarios/login', body);
     }
     // PUT

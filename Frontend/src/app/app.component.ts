@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UsersService } from './services/users.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Frontend';
+  constructor(public usersService: UsersService) { }
+  // tslint:disable-next-line: use-lifecycle-interface
+  ngOnInit() {
+    const token = localStorage.getItem('authToken');
+    if (token) {
+      console.log('info');
+      this.usersService.getInfo(token)
+        .subscribe((res: any) => {
+          console.log(res);
+          this.usersService.setUser(res);
+        },
+          (error) => {
+            console.error(error);
+        });
+    }
+  }
 }

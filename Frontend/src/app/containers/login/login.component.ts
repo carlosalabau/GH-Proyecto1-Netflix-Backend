@@ -27,10 +27,6 @@ export class LoginComponent implements OnInit {
     if (!userform.valid){
         return this.notification.warning('Empty field', 'completa todo anda`');
       }
-    if((this.userService.user["email"] !== userform.controls.email) || (this.userService.user["password"] !== userform.controls.password)){
-    return this.notification.warning('Denied', 'inutil!!! no te sabes tus credenciales');
-  }
-
     {
       this.userService.setNewLogin(userform.value)
         .subscribe((res: HttpResponse<object>) => {
@@ -42,6 +38,7 @@ export class LoginComponent implements OnInit {
         },
           (error: HttpErrorResponse) => {
             console.error(error);
+            this.notification.error('Wrong Login', 'There was a problem trying to log in');
           });
     }
   }
