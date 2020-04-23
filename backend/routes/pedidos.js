@@ -6,9 +6,9 @@ const { autenticacion } = require('../middleware/autenticacion');
 const   PedidosController = require('../controllers/pedidos')
 //
 
-router.get('/', PedidosController.ListarPedidos);
-router.get('/recogida', PedidosController.FechaAlquiler);
-router.get('/devolucion', PedidosController.FechaDevolucion);
+router.get('/', autenticacion,PedidosController.ListarPedidos);
+router.get('/recogida', autenticacion,PedidosController.FechaAlquiler);
+router.get('/devolucion', autenticacion,PedidosController.FechaDevolucion);
 
 
 module.exports = router;

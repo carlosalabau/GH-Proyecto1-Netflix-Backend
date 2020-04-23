@@ -15,7 +15,7 @@ const GenerosController = {
         try{
             const body = req.body;
             const nuevoGenero = await Generos.create({...body});
-            res.status(200).send({mensaje: 'Usuario creado',nuevoGenero});
+            res.status(200).send({mensaje: 'Genero creado',nuevoGenero});
         }
         catch(error){
             res.status(500).send(error);
@@ -32,7 +32,7 @@ const GenerosController = {
                 id:_id
             }
         });
-            res.status(200).send({mensaje: 'Usuario editado', editarGenero})
+            res.status(200).send({mensaje: 'Genero editado', editarGenero})
         } catch (error) {
             res.status(500).send(error)   
         } 
@@ -43,7 +43,7 @@ const GenerosController = {
             const eliminarGenero = await Generos.destroy({
                 where: { id: _id}
             });
-            res.status(500).send({mensaje: 'Usuario eliminado con ID: ' + _id, eliminarGenero})
+            res.status(500).send({mensaje: 'Genero eliminado con ID: ' + _id, eliminarGenero})
         } catch (error) {
             res.status(500).send(error)
         }

@@ -6,32 +6,39 @@ const {Op} = require('sequelize')
 
 const LoginController = {
     async ListarUsuarios(req,res){
-        let _id = req.params.id;
+        try {
+            let _id = req.params.id;
         const listadoUsuarios = await Usuarios.findOne({
             where: {
                 id: _id
             }
         });
         res.send(listadoUsuarios);
+        } catch (error) {+
+            console.log(error);
+            res.status(401).send({mensaje: 'No es posible listar usuarios'})
+        }
     },
 
     async EditarUsuario(req,res){
+       try {
         let body =  req.body;
-        let _id = req.params.id;
-        const edit = await Usuarios.update({
-            nombre: body.nombre,
-            apellidos: body.apellidos,
-            ciudad: body.ciudad,
-            telefono: body.telefono
-        },{
-        where: {
-            id: _id
+        req.body.rol = req.user.rol;
+        
+        if(body.password){
+            const coincide = await bcrypt.compare(body.oldPassword, req.user.password)
+            if(!coincide) res.status(500).send({mensaje: 'Las contraseña no coinciden'})
+            body.password = bcrypt.hash(body.password, 10);
         }
-        })
-        res.send({mensaje: 'Usuario actualizado', edit})
+        const user = await Usuarios.update({...body})
+        res.send({mensaje: 'Usuario actualizado', user})
+       } catch (error) {
+           res.status(500).send({mensaje: 'No se ha podido actualizar el usuario'})
+       }
     },
 
     async BorrarUsuario(req,res){
+       try {
         let _id = req.params.id;
         const eliminar = await Usuarios.destroy({
             where:{
@@ -39,45 +46,55 @@ const LoginController = {
             }
         });
         res.send({mensaje: 'Usuario eliminado'})
+       } catch (error) {
+           res.status(500).send({mnensaje: 'No se ha podido borrar el usuario'})
+       }
     },
 
     async NuevoUsuario(req, res){
-         await Usuarios.create({
-            nombre: req.body.nombre,
-            apellidos: req.body.apellidos,
-            ciudad: req.body.ciudad,
-            email: req.body.email,
-            telefono: req.body.telefono,
-            password: bcrypt.hashSync(req.body.password, 10),
-            rol: req.body.rol
-        })
-        res.status(200).send({mensaje: 'Usuario creado'})
+         try {
+            await Usuarios.create({
+                nombre: req.body.nombre,
+                apellidos: req.body.apellidos,
+                ciudad: req.body.ciudad,
+                email: req.body.email,
+                telefono: req.body.telefono,
+                password: bcrypt.hashSync(req.body.password, 10),
+                rol: 'usuario'
+            })
+            res.status(200).send({mensaje: 'Usuario creado'})
+         } catch (error) {
+             res.status(500).send({mensaje: 'No se ha podido eliminar el usuario'})
+         }
     },
 
     async LoginUsuario(req, res){
-        const usuario = await Usuarios.findOne({
-            where: {
-                email: req.body.email
-            }
-        })
-    if(!usuario){
-        return res.status(400).send({mensaje: 'Usuario o contraseña incorrectos'})
-    }
-    const coincide = await bcrypt.compare(req.body.password, usuario.password);
-    if(!coincide){
-        console.log('aqui')
-     return res.status(400).send({mensaje: 'Usuario o contraseña incorrectos'})
-    }
-    const token = jwt.sign({
-        id: usuario.id
-    }, key.llave);
-    await Token.create({
-        token,
-        UserId: usuario.id
-    });
-    res.send({mensaje: 'Bienvenido' + usuario.nombre, usuario, token})
+        try {
+            const usuario = await Usuarios.findOne({
+                where: {
+                    email: req.body.email
+                }
+            })
+        if(!usuario){
+            return res.status(400).send({mensaje: 'Usuario o contraseña incorrectos'})
+        }
+        const coincide = await bcrypt.compare(req.body.password, usuario.password);
+        if(!coincide){
+            console.log('aqui')
+         return res.status(400).send({mensaje: 'Usuario o contraseña incorrectos'})
+        }
+        const token = jwt.sign({
+            id: usuario.id
+        }, key.llave);
+        await Token.create({
+            token,
+            UserId: usuario.id
+        });
+        res.send({mensaje: 'Bienvenido ' + usuario.nombre, usuario, token})
+        } catch (error) {
+            res.status(500).send({mensaje: 'No se puede iniciar sesion'})
+        }
 },
-
     async Logout(req, res){
         try {
             console.log('Estoy en logout')
@@ -94,9 +111,9 @@ const LoginController = {
         }
         
     },
-
     async PorPedidos(req,res){
-        let _id = req.params.id;
+        try {
+            let _id = req.params.id;
         const peli = await Usuarios.findAll({
             include: [Pedidos]
         },
@@ -106,7 +123,11 @@ const LoginController = {
             }
         })
         res.send(peli)
-    }
+    }catch (error) {
+            
+        }
+}
+
 }
 
 module.exports = LoginController;

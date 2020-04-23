@@ -8,8 +8,8 @@ const UsuarioController = require('../controllers/usuario')
 
 
 router.get('/pedidos/:id', autenticacion, UsuarioController.PorPedidos);
-router.put('/actualizar/:id', UsuarioController.EditarUsuario);
-router.delete('/eliminar/:id', UsuarioController.BorrarUsuario);
+router.put('/actualizar', autenticacion, UsuarioController.EditarUsuario);
+router.delete('/eliminar/:id', autenticacion,isAdmin, UsuarioController.BorrarUsuario);
 router.post('/registro', UsuarioController.NuevoUsuario);
 router.post('/login', UsuarioController.LoginUsuario);
 router.get('/logout', autenticacion, UsuarioController.Logout);

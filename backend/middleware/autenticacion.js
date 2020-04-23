@@ -28,12 +28,14 @@ const autenticacion = async (req, res, next) => {
 };
     const isAdmin = async (req,res,next) => {
         try {
-            const admins = 'Admin';
-            if(!admins.includes(req.body.rol)){
+            console.log(req.user)
+            if(req.user.rol !== 'Admin'){
+                console.log(req.user.rol)
                 return res.status(403).send({mensaje: 'No tienes permiso para ver esta seccion'})
             }
             next();
         } catch (error) {
+            console.log(error)
             res.status(500).send(error);
         }
        

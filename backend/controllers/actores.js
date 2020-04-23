@@ -15,7 +15,7 @@ const ActoresController = {
         try{
             const body = req.body;
             const nuevoActor = await Actores.create({...body});
-            res.status(200).send({mensaje: 'Usuario creado',nuevoActor});
+            res.status(200).send({mensaje: 'Actor creado',nuevoActor});
         }
         catch(error){
             res.status(500).send(error);
@@ -32,7 +32,7 @@ const ActoresController = {
                 id:_id
             }
         });
-            res.status(200).send({mensaje: 'Usuario editado', editarActor})
+            res.status(200).send({mensaje: 'Actor editado', editarActor})
         } catch (error) {
             res.status(500).send(error)   
         } 
@@ -43,7 +43,7 @@ const ActoresController = {
             const eliminarActor = await Actores.destroy({
                 where: { id: _id}
             });
-            res.status(500).send({mensaje: 'Usuario eliminado con ID: ' + _id, eliminarActor})
+            res.status(500).send({mensaje: 'Actor eliminado con ID: ' + _id, eliminarActor})
         } catch (error) {
             res.status(500).send(error)
         }
