@@ -30,13 +30,13 @@
                <a href="http://www.vk.com" data-toggle="tooltip" data-placement="left" title="" data-original-title="VK" target="_blank"><i class="fa fa-vk"></i></a>
            </li>
            <div class="col-auto add-seperator logIn">
-             <div class="sequex-user-menu text-right" *ngIf="showLog" > 
+             <div class="sequex-user-menu text-right" *ngIf="!usersService.getUser()" > 
               <a routerLink="login" data-toggle="modal" data-target="#sequex-loginform">
                   <span>Log in </span><i class="fa fa-sign-in"></i></a>
              </div>
-             <div class="sequex-user-menu text-right" *ngIf="!showLog" > 
-              <a routerLink="login" data-toggle="modal" data-target="#sequex-loginform">
-                  <span>Log out </span><i class="fa fa-sign-in"></i></a>
+             <div class="sequex-user-menu text-right"  *ngIf="usersService.getUser()" > 
+              <a routerLink="" data-toggle="modal" data-target="#sequex-loginform">
+                  <span (click)="logout()">Log out </span><i class="fa fa-sign-in"></i></a>
              </div>
            </div>
          </ul>
@@ -55,19 +55,18 @@
           <a class="nav-link" routerLink="movie" routerLinkActive="active">Movie</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="login"  *ngIf="showLog" routerLinkActive="active">Log in</a>
+          <a class="nav-link" routerLink="login"  *ngIf="!usersService.getUser()" routerLinkActive="active">Log in</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="register" *ngIf="showLog" routerLinkActive="active">Register</a>
+          <a class="nav-link" routerLink="register" *ngIf="!usersService.getUser()" routerLinkActive="active">Register</a>
         </li>
         <li class="nav-item">
-
-          <div class="dropdown show" *ngIf="!showLog">
+          <div class="dropdown">
             <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-user"></i>
             </a>
           
-            <div class="dropdown-menu nav-link"  aria-labelledby="dropdownMenuLink">
+            <div class="dropdown-menu " aria-labelledby="dropdownMenuLink">
               <a class="dropdown-item" routerLink="/user/profile" >Profile</a>
                 <a class="dropdown-item" id="input-custom-file">+AddImagen
                 </a>

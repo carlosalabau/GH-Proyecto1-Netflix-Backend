@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import EventBus from 'src/app/bus/EventBus';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-header',
@@ -7,13 +8,21 @@ import EventBus from 'src/app/bus/EventBus';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-showLog = true;
 
-  constructor() { }
+  constructor(public usersService: UsersService) { }
 
 
 ngOnInit(): void {
-  EventBus.getInstance().listen('onloggin', () => this.showLog = false);
+  this.usersService.getUser();
   }
+
+
+  logout(){
+      this.usersService.userLogout()
+      .subscribe((log: any) => {
+        console.log(log);
+      }, err => console.log(err)
+      );
+    }
 
 }

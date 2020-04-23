@@ -19,7 +19,7 @@ private _user: any;
   getPedidosUser(id: number){
     return this.http.get<any>(environment.API_URL + `/usuarios/pedidos${id}`);
   }
-  getUserLogout(){
+  userLogout(){
     return this.http.get<any>(environment.API_URL + 'usuarios/logout');
   }
 

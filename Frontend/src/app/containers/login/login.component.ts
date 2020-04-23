@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-  }
+ }
 
   loginIn(userform: NgForm) {
     if (!userform.valid){
@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
           this.notification.success('Successfully Login', res['message']);
           localStorage.setItem('authToken', res['token']);
           this.userService.setUser(res['user']);
-          EventBus.getInstance().emit('onloggin', undefined);
           setTimeout(() => this.router.navigate(['/movie']), 2000);
         },
           (error: HttpErrorResponse) => {
