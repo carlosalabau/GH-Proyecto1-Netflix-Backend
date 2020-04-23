@@ -69,10 +69,10 @@
          <h3 class="widget-title">
            Quick Search
          </h3>
-         <form>
+         <form #titleform="ngForm">
            <div class="input-group"> 
-             <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Enter a keyword..." name="s" autocomplete="off"> 
-             <button type="submit" class="btn btn-outline-success mb-2 mb-sm-0">
+             <input type="text" ngModel (keyup)="getTitleMovie(titleform)" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Enter a keyword..." name="titulo" autocomplete="off"> 
+             <button type="submit" class="btn btn-outline-success mb-2 mb-sm-0" >
                Search
              </button>
            </div>
@@ -90,7 +90,7 @@
        </div>    
        <div class="form-group">
          <label for="exampleSelect1">Actors</label>
-         <select [(ngModel)]="optionSelect" (change)="catchSelection()" class="form-control" id="exampleSelect1" >
+         <select [(ngModel)]="optionSelect" (change)="getActores()" class="form-control" id="exampleSelect1" >
           <option value="0">choose one actor</option>
           
            <option *ngFor="let actores of allActors" value="{{actores.nombre}}">    
@@ -102,7 +102,7 @@
       
          <div class="form-group">
          <label for="exampleSelect1">Genre</label>
-         <select [(ngModel)]="optionSelect" (change)="catchSelection()" class="form-control" id="exampleSelect1">
+         <select [(ngModel)]="optionSelect" (change)="getGenre()" class="form-control" id="exampleSelect1">
           <option value="0">choose one genre</option>
            <option *ngFor="let genre of allGenre" value="{{genre.tipo}}">
             {{genre.tipo}}

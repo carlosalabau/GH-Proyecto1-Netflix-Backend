@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
 
   constructor(public movieServices: MoviesService, private sanitizer: DomSanitizer) { }
   listMovie = [] ;
+  Genre = [] ;
   cont = 0;
   ngOnInit(): void {
     this.getAllMovies();
@@ -29,6 +30,7 @@ export class HomeComponent implements OnInit {
         for (let i = 0; i < movies.length; i++) {
           if (movies[i].isEstreno) {
             this.listMovie.push(movies[i]);
+            this.Genre[i] = this.listMovie[i].Generos;
             // tslint:disable-next-line: no-unused-expression
             console.log(this.listMovie);
           }

@@ -30,21 +30,25 @@ getAllMovies(){
 this.movieServices.getAllMovies()
 .subscribe(
   movies => {
-    this.listMovie = movies;
-    this.getActores();
-    this.getGenre();
-    // tslint:disable-next-line: prefer-for-of
-    for (let i = 0; i < this.listMovie.length; i++) {
-
-      this.Genre[i] = this.listMovie[i].Generos;
-    }
-    console.log(movies, this.Genre, this.Genre[1][0].tipo);
+    console.log(movies);
+    this.listar(movies);
 },
  err => console.log(err)
 );
 }
 
+listar(movies){
+  this.listMovie = movies;
+  // tslint:disable-next-line: prefer-for-of
+  for (let i = 0; i < this.listMovie.length; i++) {
+    this.Genre[i] = this.listMovie[i].Generos;
+  }
+  this.getAllGenre();
+  this.getActores();
+}
+
 getActores(){
+  this.seeSelect = this.optionSelect;
   this.movieServices.getActores()
   .subscribe((actores: any) => {
     this.allActors = actores;
@@ -53,16 +57,19 @@ getActores(){
   );
 }
 
-catchSelection(){
-this.seeSelect = this.optionSelect;
-console.log(this.seeSelect);
-}
-
 getGenre(){
+  this.seeSelect = this.optionSelect;
+  this.movieServices.getMovieGenre(this.seeSelect)
+  .subscribe((genre: any) => {
+    console.log(genre);
+    this.listar(genre);
+  }, err => console.log(err)
+  );
+}
+getAllGenre(){
   this.movieServices.getAllGenre()
   .subscribe((genre: any) => {
     this.allGenre = genre;
-    console.log(this.allGenre[0].tipo);
   }, err => console.log(err)
   );
 }
@@ -78,10 +85,22 @@ getactualMovie(movie: any){
 this.movieServices.getactualMovie(movie);
 }
 
-setMovie(taskform: NgForm){
-  this.movieServices.setMovie(taskform.value)
+setMovie(titleform: NgForm){
+  this.movieServices.setMovie(titleform.value)
   .subscribe((movies: any) => {
     console.log(movies);
+  }, err => console.log(err)
+  );
+}
+
+getTitleMovie(titleform: NgForm){
+  if(!titleform.value.titulo){
+    this.getAllMovies();
+    return ;
+  }
+  this.movieServices.getTitulo(titleform.value)
+  .subscribe((movies: any) => {
+    this.listar(movies.titulo);
   }, err => console.log(err)
   );
 }

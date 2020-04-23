@@ -85,13 +85,16 @@ const PeliculaController = {
     },
     async BusquedaGeneros(req,res){
        try {
-           console.log('Estoy en el try')
         let _tipo = req.params.tipo;
-        const generos = await db.sequelize.query(`SELECT Peliculas.titulo, Generos.tipo FROM ((GenerosByPeliculas INNER JOIN Peliculas ON GenerosByPeliculas.PeliculaId = Peliculas.id)
-        INNER JOIN Generos ON GenerosByPeliculas.GeneroId = Generos.id) WHERE Generos.tipo = '${_tipo}'`);
-        res.send(generos)
+        /* const generos = await db.sequelize.query(`SELECT DISTINCT Peliculas.titulo, Generos.tipo FROM Peliculas, Generos, GenerosByPeliculas WHERE GenerosByPeliculas.GeneroId = Generos.id AND GenerosByPeliculas.PeliculaId = Peliculas.id AND Generos.tipo = '${_tipo}'`); */
+        const genres = await Peliculas.findAll({
+            include: [{
+                model:Generos,
+                where: {tipo: _tipo}
+            }],
+        })
+        res.send(genres)
        } catch (error) {
-           console.log('Estoy en el catch')
            res.status(500).send({mensaje: 'Ha ocurrido un error', error})
        } 
     }

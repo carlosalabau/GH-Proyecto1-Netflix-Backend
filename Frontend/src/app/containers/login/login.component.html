@@ -8,10 +8,10 @@
     </div>
 
     <!-- Login Form -->
-    <form #userform="ngForm">
-      <input type="text" ngModel id="login" class="fadeIn second" required autofocus name="email" placeholder="email">
-      <input type="password" ngModel id="password" required class="fadeIn third login" name="password" placeholder="password">
-      <input type="submit" (click)="addUserLogin(userform)" class="fadeIn fourth" value="Log In">
+    <form #userform="ngForm" (submit)="loginIn(userform)">
+      <input type="email" ngModel id="login" class="fadeIn second" required autofocus name="email" placeholder="email">
+      <input type="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$" ngModel id="password" required class="fadeIn third login" name="password" placeholder="password">
+      <input type="submit" class="fadeIn fourth" value="Log In">
       <input type="submit" class="fadeIn fourth" value="Invite">
     </form>
 
@@ -21,7 +21,5 @@
     </div>
 
   </div>
-  <div *ngIf="showALert" class="alert alert-danger" role="alert">
-    wrong authentification
-  </div>
+
 </div>
