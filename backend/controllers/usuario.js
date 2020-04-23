@@ -7,11 +7,6 @@ const {Op} = require('sequelize')
 const LoginController = {
     async ListarUsuarios(req,res){
         try {
-            const token = await Token.findOne({
-                where:{
-                    id: req.user.id
-                }
-            })
         res.send(req.user);
         } catch (error) {
             console.log(error);
