@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import EventBus from 'src/app/bus/EventBus';
 import { UsersService } from '../../services/users.service';
+import { Router } from '@angular/router';
+import { NzNotificationService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,9 @@ import { UsersService } from '../../services/users.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public usersService: UsersService) { }
+  constructor(public usersService: UsersService,
+              private router: Router,
+              private notification: NzNotificationService) { }
 
 
 ngOnInit(): void {
@@ -18,11 +21,16 @@ ngOnInit(): void {
 
 
   logout(){
-      this.usersService.userLogout()
-      .subscribe((log: any) => {
-        console.log(log);
-      }, err => console.log(err)
-      );
-    }
-
+    const token = localStorage.getItem('authToken');
+    this.usersService.userLogout(token)
+    .subscribe((res: any) => {
+      this.notification.success('Successfully Login', res['message']);
+      localStorage.setItem('authToken', res['token']);
+      this.usersService.setUser(res['user']);
+      setTimeout(() => this.router.navigate(['/']), 2000);
+    },
+      (error) => {
+        console.error(error);
+    });
+  }
 }

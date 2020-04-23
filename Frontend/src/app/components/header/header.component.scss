@@ -1,11 +1,103 @@
-.topRight ul > li {
-    display: flex;
-    justify-content:space-around;
-    width: 20px;
-    margin-right: 20px;
-    color: gray;
+header {
+    padding: 30px 0;
 }
 
-.logIn > a, i, span{
-    color: gray; 
-} 
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    width: 150px;
+}
+
+header nav a {
+    color: #aaaaaa;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+header nav a:hover {
+    color:whitesmoke;
+    text-decoration: none;
+}
+
+header nav a.active {
+    color:thistle;
+}
+
+header nav .avatar {
+    // background-color: transparent;
+    border: none;
+}
+
+.dropdown-menu .drop {
+    color: var(--bg);
+}
+
+.dropdown-menu .drop:hover {
+    color: var(--bg);
+}
+
+.dropdown-toggle {
+    color: white;
+}
+
+header nav .login-btn {
+    background-image: linear-gradient(to right, #e50914, #cc0d1f, #b50f27);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    background-size: 200%;
+    transition: .5s ease;
+}
+
+header nav .login-btn:hover {
+    background-position: right;
+}
+
+.searchbar {
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 60px;
+    background-color: var(--bg);
+    border-radius: 30px;
+    padding: 10px;
+    }
+
+    .search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+    border-bottom: 1px solid #aaaaaa;
+    }
+
+    .searchbar:hover > .search_input{
+    padding: 0 10px;
+    width: 300px;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar:hover > .search_icon{
+    background: var(--bg);
+    }
+
+    .search_icon{
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+    text-decoration:none;
+    }
