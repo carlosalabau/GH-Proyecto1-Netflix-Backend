@@ -26,6 +26,7 @@ import { es_ES } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import es from '@angular/common/locales/es';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
+import { RecoverComponent } from './containers/recover/recover.component';
 
 registerLocaleData(es);
 
@@ -45,7 +46,8 @@ registerLocaleData(es);
     DetallsComponent,
     ProfileComponent,
     EditProfileComponent,
-    OrdersComponent
+    OrdersComponent,
+    RecoverComponent
   ],
   imports: [
     BrowserModule,

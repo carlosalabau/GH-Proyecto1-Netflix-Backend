@@ -3,6 +3,7 @@ export interface User{
     apellidos: string;
     ciudad: string;
     email: string;
+    telefono: string;
     password: string;
     rol: string;
 }

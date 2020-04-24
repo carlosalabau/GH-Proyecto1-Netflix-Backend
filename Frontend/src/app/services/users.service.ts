@@ -39,13 +39,19 @@ private _user: any;
     // POST
       setNewRegister(body: any){
         console.log(body);
-      return this.http.post<any>(environment.API_URL + '/usuarios/registro', body);
+        return this.http.post<any>(environment.API_URL + '/usuarios/registro', body);
     }
     setNewLogin(body: any){
       this.user = body.email;
       console.log(body);
       return this.http.post<any>(environment.API_URL + '/usuarios/login', body);
     }
+
+    resetPassword(password, recoverToken) {
+      return this.http.post(environment.API_URL + '/users/resetPassword', {recoverToken, password });
+
+    }
+
     // PUT
   updateUser(body: any, id: number){
     return this.http.put<any>(environment.API_URL + `usuarios/actualizar/${id}`, body);
