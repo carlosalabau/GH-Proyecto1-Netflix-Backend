@@ -1,8 +1,9 @@
 const { Usuarios, Token, Pedidos } = require('../models/index');
+const db = require('../models/index');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const key = require('../key/config');
-const {Op} = require('sequelize')
+const {Op} = require('sequelize');
 
 const LoginController = {
     async ListarUsuarios(req,res){
@@ -47,12 +48,15 @@ const LoginController = {
 
     async NuevoUsuario(req, res){
          try {
-             const emailExiste = await Usuarios.findOne({
-                 email: req.body.email
-             })
+            let _email = req.body.email;
+            const emailExiste = await Usuarios.findOne({
+                where: {
+                    email: _email
+                }
+            })
              if(emailExiste){
-                 res.status(500).send({mensaje: 'El email ya existe'})
-             }else{ 
+                return res.status(500).send({mensaje: 'El email ya existe'})
+             } 
                 await Usuarios.create({
                     nombre: req.body.nombre,
                     apellidos: req.body.apellidos,
@@ -62,10 +66,10 @@ const LoginController = {
                     password: bcrypt.hashSync(req.body.password, 10),
                     rol: 'usuario'
                 })
-            }
             res.status(200).send({mensaje: 'Usuario creado'})
          } catch (error) {
-             res.status(500).send({mensaje: 'No se ha podido eliminar el usuario'})
+             console.log(error);
+             res.status(500).send({mensaje: 'No se ha podido crear el usuario'})
          }
     },
 
