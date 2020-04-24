@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const Pedidos = sequelize.define('Pedidos', {
     fechaRecogida: {type: DataTypes.DATE, defaultValue: DataTypes.NOW},
     fechaDevolucion: DataTypes.DATE,
+    estado: DataTypes.STRING,
     UsuarioId: DataTypes.INTEGER,
     PeliculaId: DataTypes.INTEGER
   }, {});
