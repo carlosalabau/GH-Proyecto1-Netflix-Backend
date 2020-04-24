@@ -25,6 +25,7 @@ ngOnInit(): void {
     const token = localStorage.getItem('authToken');
     this.usersService.userLogout(token)
     .subscribe((res: any) => {
+       // tslint:disable-next-line: no-string-literal
       this.notification.success('Successfully Logout', res['message']);
       localStorage.removeItem('authToken');
       this.usersService.setUser(null);

@@ -7,3 +7,7 @@ export interface User{
     password: string;
     rol: string;
 }
+export interface UserLogin{
+    email: string;
+    password: string;
+}
