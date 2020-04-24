@@ -16,7 +16,6 @@ export class AppComponent {
       console.log('info');
       this.usersService.getInfo(token)
         .subscribe((res: any) => {
-          console.log(res);
           this.usersService.setUser(res);
         },
           (error) => {

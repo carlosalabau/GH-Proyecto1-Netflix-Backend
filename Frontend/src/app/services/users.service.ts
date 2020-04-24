@@ -19,8 +19,13 @@ private _user: any;
   getPedidosUser(id: number){
     return this.http.get<any>(environment.API_URL + `/usuarios/pedidos${id}`);
   }
-  getUserLogout(){
-    return this.http.get<any>(environment.API_URL + 'usuarios/logout');
+  userLogout(token): Observable<any>{
+    console.log(token);
+    return this.http.get<any>(environment.API_URL + '/usuarios/logout', {
+      headers: {
+        Authorization: token
+      }
+    });
   }
 
   getInfo(token): Observable<any> {

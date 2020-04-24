@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
 import {NgForm} from '@angular/forms';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-movie',
@@ -9,7 +10,12 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
   styleUrls: ['./movie.component.scss']
 })
 export class MovieComponent implements OnInit {
-  constructor(public movieServices: MoviesService, private sanitizer: DomSanitizer) { }
+  constructor(
+    public movieServices: MoviesService,
+    private sanitizer: DomSanitizer,
+    public usersService: UsersService) { }
+
+
 listMovie ;
 Genre = [] ;
 allGenre = [];
@@ -27,6 +33,7 @@ optionSelect = '0';
 }
 
 getAllMovies(){
+this.usersService.getUser();
 this.movieServices.getAllMovies()
 .subscribe(
   movies => {

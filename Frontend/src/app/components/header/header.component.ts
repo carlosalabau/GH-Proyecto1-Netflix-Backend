@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import EventBus from 'src/app/bus/EventBus';
+import { UsersService } from '../../services/users.service';
+import { Router } from '@angular/router';
+import { NzNotificationService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-header',
@@ -7,13 +9,28 @@ import EventBus from 'src/app/bus/EventBus';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-showLog = true;
 
-  constructor() { }
+  constructor(public usersService: UsersService,
+              private router: Router,
+              private notification: NzNotificationService) { }
 
 
 ngOnInit(): void {
-  EventBus.getInstance().listen('onloggin', () => this.showLog = false);
+  this.usersService.getUser();
   }
 
+
+  logout(){
+    const token = localStorage.getItem('authToken');
+    this.usersService.userLogout(token)
+    .subscribe((res: any) => {
+      this.notification.success('Successfully Login', res['message']);
+      localStorage.setItem('authToken', res['token']);
+      this.usersService.setUser(res['user']);
+      setTimeout(() => this.router.navigate(['/']), 2000);
+    },
+      (error) => {
+        console.error(error);
+    });
+  }
 }

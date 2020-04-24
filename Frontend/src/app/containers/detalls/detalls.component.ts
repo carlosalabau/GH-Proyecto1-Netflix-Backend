@@ -15,6 +15,7 @@ newUser ;
 selectMovie = [] ;
 Genre = [] ;
 Actors = [];
+
   constructor(public detallsServices: MoviesService, public userService: UsersService) { }
   ngOnInit(): void {
     this.getDetails();
@@ -41,5 +42,7 @@ Actors = [];
     // this.title =  this.userService.getPedidosUser(this.newUser);
     console.log('aqui');
    }
-
+   setPedidos(){
+    console.log("aqui se add pedidso")
+   }
 }
