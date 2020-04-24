@@ -10,6 +10,7 @@ import { DetallsComponent } from './containers/detalls/detalls.component';
 import { EditProfileComponent } from './containers/user/edit-profile/edit-profile.component';
 import { OrdersComponent } from './containers/user/orders/orders.component';
 import { ProfileComponent } from './containers/user/profile/profile.component';
+import { RecoverComponent } from './containers/recover/recover.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path: 'user/editProfile', component: EditProfileComponent },
   {path: 'user/orders', component: OrdersComponent },
   {path: 'detalls', component: DetallsComponent },
-  {path: 'admin', component: AdminComponent }
+  {path: 'admin', component: AdminComponent },
+  {path: 'recover', component: RecoverComponent }
 
 ];
 

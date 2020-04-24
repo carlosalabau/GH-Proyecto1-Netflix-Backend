@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import {UsersService} from '../../services/users.service';
 import { NgForm } from '@angular/forms';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
+import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -35,6 +36,10 @@ users: {
         .subscribe(() => {
           this.notification.success('User created', 'User successfully created', { nzDuration: 2000 });
           setTimeout(() => this.router.navigate(['/login']), 2000);
+        },
+        (error: HttpErrorResponse) => {
+          console.error(error.error['mensaje']);
+          this.notification.error('Wrong register', error.error['mensaje']);
         });
 
   }

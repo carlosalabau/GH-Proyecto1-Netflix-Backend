@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { Router } from '@angular/router';
 import { NzNotificationService } from 'ng-zorro-antd';
+import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-header',
@@ -24,13 +25,14 @@ ngOnInit(): void {
     const token = localStorage.getItem('authToken');
     this.usersService.userLogout(token)
     .subscribe((res: any) => {
-      this.notification.success('Successfully Login', res['message']);
-      localStorage.setItem('authToken', res['token']);
-      this.usersService.setUser(res['user']);
+      this.notification.success('Successfully Logout', res['message']);
+      localStorage.removeItem('authToken');
+      this.usersService.setUser(null);
       setTimeout(() => this.router.navigate(['/']), 2000);
     },
-      (error) => {
-        console.error(error);
+    (error: HttpErrorResponse) => {
+      console.error(error);
+      this.notification.error('Wrong Logout', 'There was a problem trying to log in');
     });
   }
 }
