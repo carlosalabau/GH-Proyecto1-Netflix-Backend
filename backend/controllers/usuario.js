@@ -47,15 +47,22 @@ const LoginController = {
 
     async NuevoUsuario(req, res){
          try {
-            await Usuarios.create({
-                nombre: req.body.nombre,
-                apellidos: req.body.apellidos,
-                ciudad: req.body.ciudad,
-                email: req.body.email,
-                telefono: req.body.telefono,
-                password: bcrypt.hashSync(req.body.password, 10),
-                rol: 'usuario'
-            })
+             const emailExiste = await Usuarios.findOne({
+                 email: req.body.email
+             })
+             if(emailExiste){
+                 res.status(500).send({mensaje: 'El email ya existe'})
+             }else{ 
+                await Usuarios.create({
+                    nombre: req.body.nombre,
+                    apellidos: req.body.apellidos,
+                    ciudad: req.body.ciudad,
+                    email: req.body.email,
+                    telefono: req.body.telefono,
+                    password: bcrypt.hashSync(req.body.password, 10),
+                    rol: 'usuario'
+                })
+            }
             res.status(200).send({mensaje: 'Usuario creado'})
          } catch (error) {
              res.status(500).send({mensaje: 'No se ha podido eliminar el usuario'})
