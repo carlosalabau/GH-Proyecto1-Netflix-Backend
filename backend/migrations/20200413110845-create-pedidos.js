@@ -14,6 +14,9 @@ module.exports = {
       fechaDevolucion: {
         type: Sequelize.DATE
       },
+      estado: {
+        type: Sequelize.STRING
+      },
       UsuarioId: {
         type: Sequelize.INTEGER
       },
