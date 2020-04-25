@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
     {
       this.userService.setNewLogin(userform.value)
         .subscribe((res: HttpResponse<object>) => {
+          console.log(userform.value);
           // tslint:disable-next-line: no-string-literal
           this.notification.success('Successfully Login', res['mensaje']);
           // tslint:disable-next-line: no-string-literal

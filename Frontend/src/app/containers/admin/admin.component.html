@@ -1,28 +1,107 @@
-<!-- <div class="container">
-    <div class="content">
-      <div class="header">
-        <p>imagenupload</p>
-    </div>
-    <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span id="btnUpload " class="input-group-text upload" (click="upload()")>
-              subir
-            </span>
-          </div>
-          <div class="custom-file">
-            <form action="">
-              <input type="file" class="custom-file-input" id="input-custom-file" (change)="filechange($event)">
-              <label for="custom-file-label">slect</label>
-  
-            </form>
-          </div>
+<div class="container">
+  <div class="row">
+    <div class="col listMovie">
+      <a (click)="showAllMovies()" type="buttom" class="">
+        Movies
+      </a>
+      <form  *ngIf="showMovies" class="example-form">
+        <div class="addMovies">
+           <div class="element">
+             <input class="form-control form -control-lg" name="name"  ngModel placeholder="Title"> 
+             <i  class="fa fa-info" (click)="showAllMoviesDetaills()"></i>
+             <i  class="fa fa-plus"></i>
+             <i  class="fa fa-edit"></i>
+              <i  class="fa fa-trash"></i>
+             
+            </div> 
+                <div class="detalls col" *ngIf="showMoviesDetaills">
+                 <div class="row">
+                  <input class="form-control form -control-lg" name="name" ngModel placeholder="Titulo"> 
+                  <i  class="fa fa-edit"></i>
+                  <i  class="fa fa-trash"></i>
+                 </div>
+                 <div class="row">
+                  <input class="form-control form -control-lg" name="name"  ngModel placeholder="description"> 
+                  <i  class="fa fa-edit"></i>
+                  <i  class="fa fa-trash"></i>
+                 </div>
+                 <div class="row">
+                  <input class="form-control form -control-lg" name="name"  ngModel placeholder="year"> 
+                  <i  class="fa fa-edit"></i>
+                  <i  class="fa fa-trash"></i>
+                 </div>
+                 <div class="row">
+                  <input class="form-control form -control-lg" name="name"  ngModel placeholder="imagen"> 
+                  <i  class="fa fa-edit"></i>
+                  <i  class="fa fa-trash"></i>
+                 </div>
+                 <div class="row">
+                  <input class="form-control form -control-lg" name="name"  ngModel placeholder="Estreno"> 
+                  <i  class="fa fa-edit"></i>
+                  <i  class="fa fa-trash"></i>
+                 </div>
+                 <div class="row">
+                  <input class="form-control form -control-lg" name="name"  ngModel placeholder="available"> 
+                  <i  class="fa fa-edit"></i>
+                  <i  class="fa fa-trash"></i>
+                 </div> 
+                </div>
         </div>
-  
-      </div>
-      <div class="col-md-4"></div>
+      </form>
     </div>
+    <div class="col listUser">
+      <a  (click)="showAllUsers()" class="usuarios">
+       Usuarios
+      </a>
+      <form *ngIf="showUsers" class="example-form">
+        <div class="addUser">
+           <div class="element">
+             <input class="form-control form -control-lg" name="name" ngModel placeholder="Name"> 
+             <i  class="fa fa-info" (click)="showAllUsersDetaills()"></i>
+             <i  class="fa fa-plus"></i>
+             <i  class="fa fa-edit"></i>
+              <i  class="fa fa-trash"></i>
+           </div> 
+           <div class="detalls col" *ngIf="showUsersDetaills">
+            <div class="row">
+             <input class="form-control form -control-lg" name="name" ngModel placeholder="name"> 
+             <i  class="fa fa-edit"></i>
+             <i  class="fa fa-trash"></i>
+            </div>
+            <div class="row">
+             <input class="form-control form -control-lg" name="name"  ngModel placeholder="lastname"> 
+             <i  class="fa fa-edit"></i>
+             <i  class="fa fa-trash"></i>
+            </div>
+            <div class="row">
+             <input class="form-control form -control-lg" name="name"  ngModel placeholder="city"> 
+             <i  class="fa fa-edit"></i>
+             <i  class="fa fa-trash"></i>
+            </div>
+            <div class="row">
+             <input class="form-control form -control-lg" name="name"  ngModel placeholder="teelfono"> 
+             <i  class="fa fa-edit"></i>
+             <i  class="fa fa-trash"></i>
+            </div>
+            <div class="row">
+             <input class="form-control form -control-lg" name="name"  ngModel placeholder="email"> 
+             <i  class="fa fa-edit"></i>
+             <i  class="fa fa-trash"></i>
+            </div>
+            <div class="row">
+             <input class="form-control form -control-lg" name="name"  ngModel placeholder="password"> 
+             <i  class="fa fa-edit"></i>
+             <i  class="fa fa-trash"></i>
+            </div> 
+            <div class="row">
+              <input class="form-control form -control-lg" name="name"  ngModel placeholder="rol"> 
+              <i  class="fa fa-edit"></i>
+              <i  class="fa fa-trash"></i>
+             </div> 
+           </div>
+        </div>
+      </form>
   </div>
-  </div> -->
+</div>
+
+

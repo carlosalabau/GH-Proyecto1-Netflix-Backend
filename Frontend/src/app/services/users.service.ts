@@ -14,6 +14,9 @@ private _user: any;
   constructor(private http: HttpClient) { }
 
   //#region Get user
+  getAllUsers(){
+    return this.http.get<any>(`http://localhost:3000/usuarios`);
+  }
   getUserId(id: number){
     return this.http.get<any>(`http://localhost:3000/usuarios/${id}`);
   }
@@ -38,17 +41,18 @@ private _user: any;
 
 //#endregion
   //#region Get Pedidos
-  setNewOrder(fecha: any){
-    console.log(fecha);
+  setNewOrder( PeliculaId , token){
 
-    return this.http.post<any>(environment.API_URL + '/pedidos/agregar', fecha);
+    return this.http.post<any>(environment.API_URL + '/pedidos/agregar',  PeliculaId, {
+      headers: {
+        Authorization: token
+      }
+    });
   }
     getAllOrder(){
       return this.http.get<any>(environment.API_URL + '/pedidos');
       }
-    getPickOrder(){
-      return this.http.get<any>(environment.API_URL + '/pedidos/recogida');
-      }
+
     getReturnOrder(){
       return this.http.get<any>(environment.API_URL + '/pedidos/devolucion');
       }

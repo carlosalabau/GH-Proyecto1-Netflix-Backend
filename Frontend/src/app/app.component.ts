@@ -12,11 +12,13 @@ export class AppComponent {
   // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit() {
     const token = localStorage.getItem('authToken');
+    console.log(token);
     if (token) {
       console.log('info');
       this.usersService.getInfo(token)
         .subscribe((res: any) => {
           this.usersService.setUser(res);
+          console.log(this.usersService.setUser(res));
         },
           (error) => {
             console.error(error);

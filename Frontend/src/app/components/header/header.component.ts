@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
 
 ngOnInit(): void {
   this.usersService.getUser();
+  console.log(this.usersService.getUser());
   }
 
 

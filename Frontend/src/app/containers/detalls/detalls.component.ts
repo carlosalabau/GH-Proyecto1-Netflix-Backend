@@ -4,6 +4,8 @@ import {UsersService} from '../../services/users.service';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { Router } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import * as moment from 'moment';
+import { Pedido } from "../../models/user.models";
 
 @Component({
   selector: 'app-detalls',
@@ -11,11 +13,13 @@ import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./detalls.component.scss']
 })
 export class DetallsComponent implements OnInit {
- fecha  = {
-   "PeliculaId": "2",
- "fechaRecogida": "2020-08-24T11:14:44.472Z"
- };
- 
+pedido: Pedido = {
+  fechaDevolucion: 'any',
+    PeliculaId: 0
+};
+fechaDevolucion: any;
+PeliculaId : number;
+ data = moment();
 moviesDetall ;
 pedidosList ;
 title;
@@ -33,6 +37,9 @@ Actors = [];
   ngOnInit(): void {
     this.getDetails();
     this.getPedidos();
+    this.pedido.fechaDevolucion= this.data.add(3, 'days').calendar();
+    this.pedido.PeliculaId = this.selectMovie[0].id;
+    console.log(this.pedido);
     {}
   }
   getTitles(title: string){
@@ -57,17 +64,23 @@ Actors = [];
    }
 
    setPedidos(){
-    console.log(this.selectMovie[0].id);
-    this.userService.setNewOrder(this.fecha)
+
+    const token = localStorage.getItem('authToken');
+    // console.log(this.fecha);
+    this.userService.setNewOrder(this.pedido, token)
     .subscribe((res: any) => {
        // tslint:disable-next-line: no-string-literal
+      //  console.log(res.id);
       this.notification.success('Successfully order', res['mensaje']);
       setTimeout(() => this.router.navigate(['movie']), 2000);
+
     },
     (error: HttpErrorResponse) => {
       console.error(error);
       this.notification.error('Wrong order', 'There was a problem trying to orders');
     });
   }
-   
+ 
+ 
+
 }
