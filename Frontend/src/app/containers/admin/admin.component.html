@@ -8,44 +8,11 @@
         <div class="addMovies">
            <div class="element">
              <input class="form-control form -control-lg" name="name"  ngModel placeholder="Title"> 
-             <i  class="fa fa-info" (click)="showAllMoviesDetaills()"></i>
-             <i  class="fa fa-plus"></i>
-             <i  class="fa fa-edit"></i>
-              <i  class="fa fa-trash"></i>
-             
-            </div> 
-                <div class="detalls col" *ngIf="showMoviesDetaills">
-                 <div class="row">
-                  <input class="form-control form -control-lg" name="name" ngModel placeholder="Titulo"> 
-                  <i  class="fa fa-edit"></i>
-                  <i  class="fa fa-trash"></i>
-                 </div>
-                 <div class="row">
-                  <input class="form-control form -control-lg" name="name"  ngModel placeholder="description"> 
-                  <i  class="fa fa-edit"></i>
-                  <i  class="fa fa-trash"></i>
-                 </div>
-                 <div class="row">
-                  <input class="form-control form -control-lg" name="name"  ngModel placeholder="year"> 
-                  <i  class="fa fa-edit"></i>
-                  <i  class="fa fa-trash"></i>
-                 </div>
-                 <div class="row">
-                  <input class="form-control form -control-lg" name="name"  ngModel placeholder="imagen"> 
-                  <i  class="fa fa-edit"></i>
-                  <i  class="fa fa-trash"></i>
-                 </div>
-                 <div class="row">
-                  <input class="form-control form -control-lg" name="name"  ngModel placeholder="Estreno"> 
-                  <i  class="fa fa-edit"></i>
-                  <i  class="fa fa-trash"></i>
-                 </div>
-                 <div class="row">
-                  <input class="form-control form -control-lg" name="name"  ngModel placeholder="available"> 
-                  <i  class="fa fa-edit"></i>
-                  <i  class="fa fa-trash"></i>
-                 </div> 
-                </div>
+             <i  class="fa fa-info" routerLink="infoMovie"></i>
+             <i  class="fa fa-plus" routerLink="addMovie"></i>
+             <i  class="fa fa-edit"routerLink="editMovie"></i>
+              <i  class="fa fa-trash"> </i>
+            </div>    
         </div>
       </form>
     </div>
@@ -57,48 +24,11 @@
         <div class="addUser">
            <div class="element">
              <input class="form-control form -control-lg" name="name" ngModel placeholder="Name"> 
-             <i  class="fa fa-info" (click)="showAllUsersDetaills()"></i>
-             <i  class="fa fa-plus"></i>
-             <i  class="fa fa-edit"></i>
-              <i  class="fa fa-trash"></i>
+             <i  class="fa fa-info" routerLink="infoUser"></i>
+             <i  class="fa fa-plus" routerLink="addUser"></i>
+             <i  class="fa fa-edit"routerLink="editUser"></i>
+             <i  class="fa fa-trash"> </i>
            </div> 
-           <div class="detalls col" *ngIf="showUsersDetaills">
-            <div class="row">
-             <input class="form-control form -control-lg" name="name" ngModel placeholder="name"> 
-             <i  class="fa fa-edit"></i>
-             <i  class="fa fa-trash"></i>
-            </div>
-            <div class="row">
-             <input class="form-control form -control-lg" name="name"  ngModel placeholder="lastname"> 
-             <i  class="fa fa-edit"></i>
-             <i  class="fa fa-trash"></i>
-            </div>
-            <div class="row">
-             <input class="form-control form -control-lg" name="name"  ngModel placeholder="city"> 
-             <i  class="fa fa-edit"></i>
-             <i  class="fa fa-trash"></i>
-            </div>
-            <div class="row">
-             <input class="form-control form -control-lg" name="name"  ngModel placeholder="teelfono"> 
-             <i  class="fa fa-edit"></i>
-             <i  class="fa fa-trash"></i>
-            </div>
-            <div class="row">
-             <input class="form-control form -control-lg" name="name"  ngModel placeholder="email"> 
-             <i  class="fa fa-edit"></i>
-             <i  class="fa fa-trash"></i>
-            </div>
-            <div class="row">
-             <input class="form-control form -control-lg" name="name"  ngModel placeholder="password"> 
-             <i  class="fa fa-edit"></i>
-             <i  class="fa fa-trash"></i>
-            </div> 
-            <div class="row">
-              <input class="form-control form -control-lg" name="name"  ngModel placeholder="rol"> 
-              <i  class="fa fa-edit"></i>
-              <i  class="fa fa-trash"></i>
-             </div> 
-           </div>
         </div>
       </form>
   </div>
