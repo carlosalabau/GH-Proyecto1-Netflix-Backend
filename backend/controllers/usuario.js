@@ -8,7 +8,8 @@ const {Op} = require('sequelize');
 const LoginController = {
     async ListarUsuarios(req,res){
         try {
-        res.send(req.user);
+            const usuarios = await Usuarios.findAll();
+            res.send(usuarios);
         } catch (error) {
             console.log(error);
             res.status(401).send({mensaje: 'No es posible listar usuarios'})
