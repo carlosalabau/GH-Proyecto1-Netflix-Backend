@@ -1,37 +1,102 @@
 <div class="container">
   <div class="row">
-    <div class="col listMovie">
+    <div class="col list">
       <a (click)="showAllMovies()" type="buttom" class="">
         Movies
       </a>
       <form  *ngIf="showMovies" class="example-form">
         <div class="addMovies">
-           <div class="element">
-             <input class="form-control form -control-lg" name="name"  ngModel placeholder="Title"> 
-             <i  class="fa fa-info" routerLink="infoMovie"></i>
-             <i  class="fa fa-plus" routerLink="addMovie"></i>
-             <i  class="fa fa-edit"routerLink="editMovie"></i>
-              <i  class="fa fa-trash"> </i>
-            </div>    
+           <div class="element" *ngFor="let movie of listMovie; let i = index">
+             <input class="form-control form -control-lg" name="name"  ngModel placeholder=" {{movie.titulo}} "> 
+             <i  class="fa fa-info" (click)="setId(i)" routerLink="infoMovie"></i>
+             <i  class="fa fa-edit" (click)="movieService.setId(i)" routerLink="editMovie"></i>
+             <i  class="fa fa-trash" (click)="deleteMovie(i)"> </i>
+            </div>  
+            <i  class="fa fa-plus" routerLink="addMovie"></i>
         </div>
       </form>
     </div>
-    <div class="col listUser">
+    <div class="col list">
+      <a  (click)="showAllGenre()" class="usuarios">
+       Genre
+      </a>
+      <form #genreform="ngForm"  *ngIf="showGenre" class="example-form">
+        <div class="addUser">
+           <div class="element" >
+           <div class="col">
+             <div class="row basic" *ngFor="let genre of listGenre; let i = index" >
+                <input class="form-control form -control-lg" name="name"  placeholder="{{genre.tipo}}"> 
+                <button class="btn" type="submit">
+                  <i  class="fa fa-trash" (click)="deleteGenre(i)" > </i>
+                </button> 
+             </div>
+              <div class="row">
+                <input class="form-control form -control-lg" name="tipo" ngModel placeholder="tipo"> 
+               <button class="btn" type="submit" (click)="addGenre(genreform)">
+                 <i  class="fa fa-plus" type="submit"></i>
+               </button> 
+             </div>
+           </div> 
+          </div>
+         </div> 
+      </form>
+     </div>
+     <div class="col list">
+    <a  (click)="showAllActors()" class="usuarios">
+     Actors
+    </a>
+    <form #actorsform="ngForm" *ngIf="showActors" class="example-form">
+      <div class="addUser">
+         <div class="element" >
+           <div class="col">
+            <div class="row basic" *ngFor="let actors of listActors; let i = index">
+              <input class="form-control form -control-lg" name="name"  placeholder="{{actors.nombre}}"> 
+              <button class="btn" (click)="deleteActors(i)">
+                <i  class="fa fa-trash"> </i>
+              </button> 
+            </div>
+            <div class="row">
+              <input class="form-control form -control-lg" name="nombre" ngModel placeholder="Name"> 
+             <button class="btn" type="submit" (click)="addActors(actorsform)">
+               <i  class="fa fa-plus" type="submit"></i>
+             </button> 
+             
+            </div>
+           </div>
+         </div> 
+      </div>
+    </form>
+     </div>
+    <div class="col list">
       <a  (click)="showAllUsers()" class="usuarios">
        Usuarios
       </a>
       <form *ngIf="showUsers" class="example-form">
-        <div class="addUser">
-           <div class="element">
-             <input class="form-control form -control-lg" name="name" ngModel placeholder="Name"> 
-             <i  class="fa fa-info" routerLink="infoUser"></i>
-             <i  class="fa fa-plus" routerLink="addUser"></i>
-             <i  class="fa fa-edit"routerLink="editUser"></i>
-             <i  class="fa fa-trash"> </i>
-           </div> 
-        </div>
-      </form>
-  </div>
+    <div class="addUser">
+       <div class="element" *ngFor="let user of listUsers">
+         <input class="form-control form -control-lg" name="name" ngModel placeholder="{{user[0]["nombre"]}}"> 
+         <i  class="fa fa-info" routerLink="infoUser"></i>
+         <i  class="fa fa-plus" routerLink="addUser"></i>
+         <i  class="fa fa-edit"routerLink="editUser"></i>
+         <i  class="fa fa-trash"> </i>
+       </div> 
+    </div>
+     </form>
+       </div>
+     <div class="col list">
+  <a  (click)="showAllOrders()" class="usuarios">
+   Orders
+  </a>
+  <form *ngIf="showOrders" class="example-form">
+    <div class="addUser">
+       <div class="element">
+         <input class="form-control form -control-lg" name="name" ngModel placeholder="Name"> 
+         <i  class="fa fa-plus" routerLink="addorder"></i>
+         <i  class="fa fa-trash"> </i>
+       </div> 
+    </div>
+  </form>
+    </div>
+    </div>
 </div>
-
 

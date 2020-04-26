@@ -14,8 +14,13 @@ private _user: any;
   constructor(private http: HttpClient) { }
 
   //#region Get user
-  getAllUsers(){
-    return this.http.get<any>(`http://localhost:3000/usuarios`);
+  getAllUsers(token){
+    console.log()
+    return this.http.get<any>(`http://localhost:3000/usuarios`, {
+      headers: {
+        Authorization: token
+      }
+    });
   }
   getUserId(id: number){
     return this.http.get<any>(`http://localhost:3000/usuarios/${id}`);

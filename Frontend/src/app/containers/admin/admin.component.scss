@@ -1,9 +1,10 @@
 .container{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+   
 }
-.listMovie, .listUser{
-width: 50em;
+.list{
+width: 25em;
     a{
       display: flex;
       justify-content: center;  
@@ -11,12 +12,11 @@ width: 50em;
     .element{
         display: flex;
         justify-content: space-evenly;
-        width: 25em;
         .form-control{
-            width: 20em;
+            width: 10em;
             margin: 10px;
         }
-        i{
+           i{
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -32,24 +32,17 @@ width: 50em;
                     width: 20em;
                     margin: 10px;
                 }
-                i{
+                i, .btn{
                     display: flex;
+                    height: 2em;
                     flex-direction: column;
                     justify-content: center;
-                    margin: 4px;
                 }
             }
 
 }
-.listMovie{
 
-}
 
-.movie{
-    all: unset;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    margin: 1em;
-    width: 30em;
+.basic{
+    width: 20em;
 }

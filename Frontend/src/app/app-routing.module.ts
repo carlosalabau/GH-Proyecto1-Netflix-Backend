@@ -17,6 +17,7 @@ import { InfoMovieComponent } from './containers/admin/movie/info-movie/info-mov
 import { AddUserComponent } from './containers/admin/users/add-user/add-user.component';
 import { EditUserComponent } from './containers/admin/users/edit-user/edit-user.component';
 import { InfoUserComponent } from './containers/admin/users/info-user/info-user.component';
+import { AddOrderComponent } from './containers/admin/add-order/add-order.component';
 
 
 const routes: Routes = [
@@ -36,7 +37,8 @@ const routes: Routes = [
   {path: 'admin/infoMovie', component: InfoMovieComponent },
   {path: 'admin/addUser', component: AddUserComponent },
   {path: 'admin/editUser', component: EditUserComponent },
-  {path: 'admin/infoUser', component: InfoUserComponent }
+  {path: 'admin/infoUser', component: InfoUserComponent },
+  {path: 'admin/addorder', component: AddOrderComponent }
 
 ];
 

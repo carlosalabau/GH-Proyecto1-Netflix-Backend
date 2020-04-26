@@ -31,12 +31,9 @@ import { InfoMovieComponent } from './containers/admin/movie/info-movie/info-mov
 import { AddUserComponent } from './containers/admin/users/add-user/add-user.component';
 import { EditUserComponent } from './containers/admin/users/edit-user/edit-user.component';
 import { InfoUserComponent } from './containers/admin/users/info-user/info-user.component';
-import { AddGenreComponent } from './containers/admin/genre/add-genre/add-genre.component';
-import { DeleteGenreComponent } from './containers/admin/genre/delete-genre/delete-genre.component';
-import { DeleteActorsComponent } from './containers/admin/actors/delete-actors/delete-actors.component';
-import { AddActorsComponent } from './containers/admin/actors/add-actors/add-actors.component';
-import { AddOrderComponent } from './containers/admin/orders/add-order/add-order.component';
-import { DeleteOrderComponent } from './containers/admin/orders/delete-order/delete-order.component';
+import { AddOrderComponent } from './containers/admin/add-order/add-order.component';
+import { AddMovieComponent } from './containers/admin/movie/add-movie/add-movie.component';
+import { EditMovieComponent } from './containers/admin/movie/edit-movie/edit-movie.component';
 
 registerLocaleData(es);
 
@@ -62,12 +59,9 @@ registerLocaleData(es);
     InfoUserComponent,
     AddUserComponent,
     EditUserComponent,
-    AddGenreComponent,
-    DeleteGenreComponent,
-    DeleteActorsComponent,
-    AddActorsComponent,
     AddOrderComponent,
-    DeleteOrderComponent,
+    AddMovieComponent,
+    EditMovieComponent
   ],
   imports: [
     BrowserModule,

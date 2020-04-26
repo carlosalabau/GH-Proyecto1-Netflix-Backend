@@ -1,26 +1,36 @@
 <div class="container">
+    <form #movieform="ngForm"  class="example-form">
     <div class="detalls col">
         <div class="row">
-         <input class="form-control form -control-lg" name="name" ngModel placeholder="Titulo"> 
+         <input class="form-control form -control-lg" name="titulo" ngModel placeholder="Titulo"> 
         </div>
         <div class="row">
-         <input class="form-control form -control-lg" name="name"  ngModel placeholder="description"> 
+         <input class="form-control form -control-lg" name="descripcion"  ngModel placeholder="description"> 
         </div>
         <div class="row">
-         <input class="form-control form -control-lg" name="name"  ngModel placeholder="year"> 
+         <input class="form-control form -control-lg" name="anyo"  ngModel placeholder="year"> 
         </div>
         <div class="row">
-         <input class="form-control form -control-lg" name="name"  ngModel placeholder="imagen"> 
+         <input class="form-control form -control-lg" name="imagen"  ngModel placeholder="image"> 
         </div>
         <div class="row">
-         <input class="form-control form -control-lg" name="name"  ngModel placeholder="Estreno"> 
+         <input class="form-control form -control-lg" name="isEstreno"  ngModel placeholder="Estreno"> 
         </div>
         <div class="row">
-         <input class="form-control form -control-lg" name="name"  ngModel placeholder="available"> 
+         <input class="form-control form -control-lg" name="isDisponible"  ngModel placeholder="available"> 
+        </div>
+        <div class="row">
+            <input class="form-control form -control-lg" name="GeneroId"  ngModel placeholder="GneeroId"> 
+        </div>
+        <div class="row">
+            <input class="form-control form -control-lg" name="ActorId"  ngModel placeholder="ActorId"> 
         </div> 
     </div>
     <div class="bot">
-        <a >Save</a>
+       <button class="btn" type="submit" (click)="addMovie(movieform)">
+           save
+      </button> 
         <a routerLink="admin" >Back</a>
     </div>
+</form>
 </div>

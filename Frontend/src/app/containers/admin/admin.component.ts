@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UsersService} from '../../services/users.service';
-import { MoviesService } from "../../services/movies.service";
+import { MoviesService } from '../../services/movies.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-admin',
@@ -12,19 +13,32 @@ export class AdminComponent implements OnInit {
   //  formData;
   constructor(
     private userService: UsersService,
-    private movieService: MoviesService
+    public movieService: MoviesService
     ) { }
 showMovies = false;
 showUsers = false;
-showMoviesDetaills = false;
-showUsersDetaills = false;
+showGenre = false;
+showActors = false;
+showOrders = false;
+id = 0;
 listMovie = {};
-listUsers = {};
+listUsers: [] ;
+listGenre = {};
+listActors = {};
+listOrders = {};
 
 ngOnInit(): void {
   this.getAllMovies();
   this.getAllusers();
+  this.getAllActors();
+  this.getAllGenre();
   }
+//#region  getALL
+setId(index){
+ this.id = this.listMovie[index].id;
+ this.movieService.setId(this.id);
+
+}
 
 getAllMovies(){
   this.movieService.getAllMovies()
@@ -37,8 +51,31 @@ getAllMovies(){
   );
  }
 
+ getAllGenre(){
+  this.movieService.getAllGenre()
+  .subscribe(
+    genre => {
+      this.listGenre = genre;
+      console.log(this.listGenre);
+  },
+   err => console.log(err)
+  );
+ }
+
+ getAllActors(){
+  this.movieService.getAllActors()
+  .subscribe(
+    actors => {
+      this.listActors = actors;
+      console.log(this.listActors);
+  },
+   err => console.log(err)
+  );
+ }
+
  getAllusers(){
-  this.userService.getAllUsers()
+  const token = localStorage.getItem('authToken');
+  this.userService.getAllUsers(token)
   .subscribe(
     users => {
       this.listUsers = users;
@@ -48,20 +85,104 @@ getAllMovies(){
   );
  }
 
-showAllMovies(){
+getAllOrders(){
+
+}
+
+//#endregion
+
+//#region AddAll
+addActors(actorsform: NgForm){
+  const token = localStorage.getItem('authToken');
+  this.movieService.setActor(actorsform.value, token)
+  .subscribe(
+    actors => {
+      this.listActors = actors;
+      console.log(this.listActors);
+      this.getAllActors();
+  },
+   err => console.log(err)
+  );
+}
+
+addGenre(genreform: NgForm){
+  const token = localStorage.getItem('authToken');
+  this.movieService.setGenre(genreform.value, token)
+  .subscribe(
+    genre => {
+      this.listGenre = genre;
+      console.log(this.listGenre);
+      this.getAllGenre();
+  },
+   err => console.log(err)
+  );
+}
+//#endregion
+
+//#region deleteAll
+deleteActors(i: number){
+  const token = localStorage.getItem('authToken');
+  this.movieService.deleteActor(this.listActors[i].id, token)
+  .subscribe(
+    actors => {
+      console.log(actors);
+      this.getAllActors();
+  },
+   err => console.log(err)
+  );
+}
+
+deleteGenre(i: number){
+  const token = localStorage.getItem('authToken');
+  this.movieService.deleteGenre(this.listGenre[i].id, token)
+  .subscribe(
+    genre => {
+      console.log(genre);
+      this.getAllGenre();
+  },
+   err => console.log(err)
+  );
+}
+
+deleteMovie(index: number){
+  this.id = this.listMovie[index].id;
+  const token = localStorage.getItem('authToken');
+  this.movieService.deleteMovie(this.id, token)
+  .subscribe(
+    genre => {
+      console.log(genre);
+      this.getAllGenre();
+  },
+   err => console.log(err)
+  );
+}
+// }
+//#endregion
+
+//#region show info
+
+  showAllMovies(){
 this.showMovies = !this.showMovies;
 }
-showAllMoviesDetaills(){
-  this.showMoviesDetaills = !this.showMoviesDetaills;
-}
+
 
 showAllUsers(){
 this.showUsers = !this.showUsers;
 }
+showAllActors(){
+  this.showActors = !this.showActors;
+  }
 
-showAllUsersDetaills(){
-  this.showUsersDetaills = !this.showUsersDetaills;
-}
+showAllGenre(){
+  this.showGenre = !this.showGenre;
+  }
+
+showAllOrders(){
+    this.showOrders = !this.showOrders;
+    }
+
+//#endregion
+
 
 // upload(){
 // let  formData = new formData();
