@@ -8,22 +8,32 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsersService {
-user = '' ;
+id = 0;
 // tslint:disable-next-line: variable-name
-private _user: any;
+public user: any;
   constructor(private http: HttpClient) { }
 
+
+
+  getId(){
+    return this.id;
+    }
+
+    setId(id: number){
+      this.id = id;
+      console.log(this.id);
+    }
   //#region Get user
   getAllUsers(token){
-    console.log()
-    return this.http.get<any>(`http://localhost:3000/usuarios`, {
+    console.log();
+    return this.http.get<any>(environment.API_URL + '/usuarios', {
       headers: {
         Authorization: token
       }
     });
   }
   getUserId(id: number){
-    return this.http.get<any>(`http://localhost:3000/usuarios/${id}`);
+    return this.http.get<any>(environment.API_URL + `/usuarios/${id}`);
   }
   getPedidosUser(id: number){
     return this.http.get<any>(environment.API_URL + `/usuarios/pedidos${id}`);
@@ -47,6 +57,7 @@ private _user: any;
 //#endregion
   //#region Get Pedidos
   setNewOrder( PeliculaId , token){
+    console.log(PeliculaId, token);
 
     return this.http.post<any>(environment.API_URL + '/pedidos/agregar',  PeliculaId, {
       headers: {
@@ -79,21 +90,29 @@ private _user: any;
 //#endregion
 
     // UPDATE
-     updateUser(body: User, id: number){
-    return this.http.put<any>(environment.API_URL + `usuarios/actualizar/${id}`, body);
+     updateUser(body: User, id: number, token){
+    return this.http.put<any>(environment.API_URL + `usuarios/actualizar/${id}`, body, {
+      headers: {
+        Authorization: token
+      }
+    });
      }
 
   // DELETE
-    deleteUser(id: number){
-      return this.http.delete(environment.API_URL + `/usuarios/eliminar/${id}`);
+    deleteUser(id: number, token){
+      return this.http.delete(environment.API_URL + `/usuarios/eliminar/${id}`, {
+        headers: {
+          Authorization: token
+        }
+      });
      }
  //#region  get set user
      // tslint:disable-next-line: variable-name
     setUser(_user: any) {
-      this._user = _user;
+      this.user = _user;
       }
     getUser(): any {
-      return this._user;
+      return this.user;
       }
 //#endregion
   // Load Imagen

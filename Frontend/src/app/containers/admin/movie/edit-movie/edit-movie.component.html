@@ -2,28 +2,28 @@
  <form #movieform="ngForm"  class="example-form">
     <div class="detalls col">
         <div class="row">
-         <input class="form-control form -control-lg" value=" {{infomovie[0].titulo}}" name="name"  placeholder=""> 
+         <input class="form-control form -control-lg" ngModel value=" {{infomovie[0].titulo}}" name="name"  placeholder=""> 
         
         </div>
         <div class="row">
-         <input class="form-control form -control-lg" name="name"   value="{{infomovie[0].descripcion}}"> 
+         <input class="form-control form -control-lg" name="name"  ngModel value="{{infomovie[0].descripcion}}"> 
         </div>
         <div class="row">
-         <input class="form-control form -control-lg" name="name"   value="{{infomovie[0].anyo}}"> 
+         <input class="form-control form -control-lg" name="name" ngModel  value="{{infomovie[0].anyo}}"> 
         </div>
         <div class="row">
-         <input class="form-control form -control-lg" name="name"   value="{{infomovie[0].imagen}}"> 
+         <input class="form-control form -control-lg" name="name"  ngModel value="{{infomovie[0].imagen}}"> 
         </div>
         <div class="row">
-         <input class="form-control form -control-lg" name="name"   value="{{infomovie[0].isEstreno}}"> 
+         <input class="form-control form -control-lg" name="name"  ngModel value="{{infomovie[0].isEstreno}}"> 
         </div>
         <div class="row">
-         <input class="form-control form -control-lg" name="name"  ngodel value="{{infomovie[0].isDisponible}}"> 
+         <input class="form-control form -control-lg" name="name"  ngModel value="{{infomovie[0].isDisponible}}"> 
         </div> 
     </div>
     <button class="btn bot" type="submit" (click)="editMovie(movieform)">
         save
    </button> 
-     <a routerLink="admin" >Back</a>
+     <a routerLink="../" >Back</a>
 </form>
 </div>

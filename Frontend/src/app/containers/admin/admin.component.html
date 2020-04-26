@@ -8,7 +8,7 @@
         <div class="addMovies">
            <div class="element" *ngFor="let movie of listMovie; let i = index">
              <input class="form-control form -control-lg" name="name"  ngModel placeholder=" {{movie.titulo}} "> 
-             <i  class="fa fa-info" (click)="setId(i)" routerLink="infoMovie"></i>
+             <i  class="fa fa-info" (click)="setIdMovie(i)" routerLink="infoMovie"></i>
              <i  class="fa fa-edit" (click)="movieService.setId(i)" routerLink="editMovie"></i>
              <i  class="fa fa-trash" (click)="deleteMovie(i)"> </i>
             </div>  
@@ -71,17 +71,17 @@
       <a  (click)="showAllUsers()" class="usuarios">
        Usuarios
       </a>
-      <form *ngIf="showUsers" class="example-form">
-    <div class="addUser">
-       <div class="element" *ngFor="let user of listUsers">
-         <input class="form-control form -control-lg" name="name" ngModel placeholder="{{user[0]["nombre"]}}"> 
-         <i  class="fa fa-info" routerLink="infoUser"></i>
-         <i  class="fa fa-plus" routerLink="addUser"></i>
-         <i  class="fa fa-edit"routerLink="editUser"></i>
-         <i  class="fa fa-trash"> </i>
-       </div> 
-    </div>
-     </form>
+      <form  *ngIf="showUsers" class="example-form">
+        <div class="addMovies">
+           <div class="element" *ngFor="let users of listUsers; let i = index">
+             <input class="form-control form -control-lg" name="name"  ngModel placeholder=" {{users.nombre}} "> 
+             <i  class="fa fa-info" (click)="setIdUser(i)" routerLink="infoUser"></i>
+             <i  class="fa fa-edit" (click)="userService.setId(i)" routerLink="editUser"></i>
+             <i  class="fa fa-trash" (click)="deleteUser(i)"> </i>
+            </div>  
+            <i  class="fa fa-plus" routerLink="addUser"></i>
+        </div>
+      </form>
        </div>
      <div class="col list">
   <a  (click)="showAllOrders()" class="usuarios">

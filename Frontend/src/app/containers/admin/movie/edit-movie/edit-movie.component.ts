@@ -22,7 +22,7 @@ export class EditMovieComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMovie();
-    
+
   }
 
   getMovie(){

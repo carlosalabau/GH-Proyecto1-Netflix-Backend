@@ -1,27 +1,29 @@
-<div class="detalls col">
+<div class="container">
+
+  <form #Usersform="ngForm"  class="example-form">
+  <div class="detalls col">
     <div class="row">
-     <input class="form-control form -control-lg" name="name" ngModel placeholder="name"> 
+     <input class="form-control form -control-lg" name="name" ngModel value="{{infouser[0].nombre}}"> 
     </div>
     <div class="row">
-     <input class="form-control form -control-lg" name="name"  ngModel placeholder="lastname"> 
+     <input class="form-control form -control-lg" name="name"  ngModel value="{{infouser[0].apellidos}}"> 
     </div>
     <div class="row">
-     <input class="form-control form -control-lg" name="name"  ngModel placeholder="city"> 
+     <input class="form-control form -control-lg" name="name"  ngModel value="{{infouser[0].ciudad}}"> 
     </div>
     <div class="row">
-     <input class="form-control form -control-lg" name="name"  ngModel placeholder="teelfono"> 
+     <input class="form-control form -control-lg" name="name"  ngModel value="{{infouser[0].telefono}}"> 
     </div>
     <div class="row">
-     <input class="form-control form -control-lg" name="name"  ngModel placeholder="email"> 
+     <input class="form-control form -control-lg" name="name"  ngModel value="{{infouser[0].email}}"> 
     </div>
     <div class="row">
-     <input class="form-control form -control-lg" name="name"  ngModel placeholder="password"> 
+     <input class="form-control form -control-lg" name="name"  ngModel value="{{infouser[0].password}}"> 
     </div> 
-    <div class="row">
-      <input class="form-control form -control-lg" name="name"  ngModel placeholder="rol"> 
-     </div> 
-     <div class="bot">
-        <a >Save</a>
-        <a routerLink="admin" >Back</a>
-    </div>
+    <button class="btn bot" type="submit" (click)="editUsers(Usersform)">
+      save
+    </button> 
+     <a routerLink="../" >Back</a>
    </div>
+  </form>
+  </div>

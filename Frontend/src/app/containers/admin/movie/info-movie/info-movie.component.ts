@@ -17,7 +17,7 @@ infomovie = [];
   this.movieService.getAllMovies()
   .subscribe(
     movie => {
-      this.infomovie[0] = movie[this.movieService.getId()];
+      this.infomovie[0] = movie[this.movieService.getId()-1];
       console.log(this.infomovie[0]);
   },
    err => console.log(err)

@@ -12,7 +12,7 @@ export class AdminComponent implements OnInit {
   // uploadedFiles: Array <File>;
   //  formData;
   constructor(
-    private userService: UsersService,
+    public userService: UsersService,
     public movieService: MoviesService
     ) { }
 showMovies = false;
@@ -22,7 +22,7 @@ showActors = false;
 showOrders = false;
 id = 0;
 listMovie = {};
-listUsers: [] ;
+listUsers: {} ;
 listGenre = {};
 listActors = {};
 listOrders = {};
@@ -34,12 +34,15 @@ ngOnInit(): void {
   this.getAllGenre();
   }
 //#region  getALL
-setId(index){
+setIdMovie(index){
  this.id = this.listMovie[index].id;
  this.movieService.setId(this.id);
-
 }
-
+setIdUser(index){
+  this.id = this.listUsers[index].id;
+  console.log(index);
+  this.userService.setId(this.id);
+ }
 getAllMovies(){
   this.movieService.getAllMovies()
   .subscribe(
@@ -149,9 +152,21 @@ deleteMovie(index: number){
   const token = localStorage.getItem('authToken');
   this.movieService.deleteMovie(this.id, token)
   .subscribe(
-    genre => {
-      console.log(genre);
-      this.getAllGenre();
+    movie => {
+      console.log(movie);
+      this.getAllMovies();
+  },
+   err => console.log(err)
+  );
+}
+deleteUser(index: number){
+  this.id = this.listUsers[index].id;
+  const token = localStorage.getItem('authToken');
+  this.userService.deleteUser(this.id, token)
+  .subscribe(
+    users => {
+      console.log(users);
+      this.getAllusers();
   },
    err => console.log(err)
   );
