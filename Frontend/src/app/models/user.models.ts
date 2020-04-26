@@ -7,3 +7,11 @@ export interface User{
     password: string;
     rol: string;
 }
+export interface UserLogin{
+    email: string;
+    password: string;
+}
+export interface Pedido{
+    fechaDevolucion: any;
+    PeliculaId: number;
+}

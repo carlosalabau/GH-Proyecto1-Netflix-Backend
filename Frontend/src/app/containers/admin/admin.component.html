@@ -1,28 +1,37 @@
-<!-- <div class="container">
-    <div class="content">
-      <div class="header">
-        <p>imagenupload</p>
-    </div>
-    <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span id="btnUpload " class="input-group-text upload" (click="upload()")>
-              subir
-            </span>
-          </div>
-          <div class="custom-file">
-            <form action="">
-              <input type="file" class="custom-file-input" id="input-custom-file" (change)="filechange($event)">
-              <label for="custom-file-label">slect</label>
-  
-            </form>
-          </div>
+<div class="container">
+  <div class="row">
+    <div class="col listMovie">
+      <a (click)="showAllMovies()" type="buttom" class="">
+        Movies
+      </a>
+      <form  *ngIf="showMovies" class="example-form">
+        <div class="addMovies">
+           <div class="element">
+             <input class="form-control form -control-lg" name="name"  ngModel placeholder="Title"> 
+             <i  class="fa fa-info" routerLink="infoMovie"></i>
+             <i  class="fa fa-plus" routerLink="addMovie"></i>
+             <i  class="fa fa-edit"routerLink="editMovie"></i>
+              <i  class="fa fa-trash"> </i>
+            </div>    
         </div>
-  
-      </div>
-      <div class="col-md-4"></div>
+      </form>
     </div>
+    <div class="col listUser">
+      <a  (click)="showAllUsers()" class="usuarios">
+       Usuarios
+      </a>
+      <form *ngIf="showUsers" class="example-form">
+        <div class="addUser">
+           <div class="element">
+             <input class="form-control form -control-lg" name="name" ngModel placeholder="Name"> 
+             <i  class="fa fa-info" routerLink="infoUser"></i>
+             <i  class="fa fa-plus" routerLink="addUser"></i>
+             <i  class="fa fa-edit"routerLink="editUser"></i>
+             <i  class="fa fa-trash"> </i>
+           </div> 
+        </div>
+      </form>
   </div>
-  </div> -->
+</div>
+
+

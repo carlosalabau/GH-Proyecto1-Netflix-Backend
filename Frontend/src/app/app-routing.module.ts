@@ -11,6 +11,12 @@ import { EditProfileComponent } from './containers/user/edit-profile/edit-profil
 import { OrdersComponent } from './containers/user/orders/orders.component';
 import { ProfileComponent } from './containers/user/profile/profile.component';
 import { RecoverComponent } from './containers/recover/recover.component';
+import { AddMovieComponent } from './containers/admin/movie/add-movie/add-movie.component';
+import { EditMovieComponent } from './containers/admin/movie/edit-movie/edit-movie.component';
+import { InfoMovieComponent } from './containers/admin/movie/info-movie/info-movie.component';
+import { AddUserComponent } from './containers/admin/users/add-user/add-user.component';
+import { EditUserComponent } from './containers/admin/users/edit-user/edit-user.component';
+import { InfoUserComponent } from './containers/admin/users/info-user/info-user.component';
 
 
 const routes: Routes = [
@@ -24,7 +30,13 @@ const routes: Routes = [
   {path: 'user/orders', component: OrdersComponent },
   {path: 'detalls', component: DetallsComponent },
   {path: 'admin', component: AdminComponent },
-  {path: 'recover', component: RecoverComponent }
+  {path: 'recover', component: RecoverComponent },
+  {path: 'admin/addMovie', component: AddMovieComponent },
+  {path: 'admin/editMovie', component: EditMovieComponent },
+  {path: 'admin/infoMovie', component: InfoMovieComponent },
+  {path: 'admin/addUser', component: AddUserComponent },
+  {path: 'admin/editUser', component: EditUserComponent },
+  {path: 'admin/infoUser', component: InfoUserComponent }
 
 ];
 

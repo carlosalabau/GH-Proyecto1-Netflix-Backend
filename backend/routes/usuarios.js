@@ -13,6 +13,7 @@ router.delete('/eliminar/:id', autenticacion,isAdmin, UsuarioController.BorrarUs
 router.post('/registro', UsuarioController.NuevoUsuario);
 router.post('/login', UsuarioController.LoginUsuario);
 router.get('/logout', autenticacion, UsuarioController.Logout);
-router.get('/', autenticacion, UsuarioController.ListarUsuarios);
+router.get('/user', autenticacion, UsuarioController.UserId);
+router.get('/', autenticacion, isAdmin, UsuarioController.ListarUsuarios);
 
 module.exports = router;

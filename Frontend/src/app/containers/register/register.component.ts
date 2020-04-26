@@ -38,7 +38,7 @@ users: {
           setTimeout(() => this.router.navigate(['/login']), 2000);
         },
         (error: HttpErrorResponse) => {
-          console.error(error.error['mensaje']);
+           // tslint:disable-next-line: no-string-literal
           this.notification.error('Wrong register', error.error['mensaje']);
         });
 

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {UsersService} from '../../services/users.service';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
+import { Router } from '@angular/router';
+import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-pedidos',
@@ -7,9 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PedidosComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public userService: UsersService
+    ) { }
 
   ngOnInit(): void {
   }
-
+  
 }

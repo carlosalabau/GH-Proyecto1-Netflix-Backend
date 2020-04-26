@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
 import {UsersService} from '../../services/users.service';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
+import { Router } from '@angular/router';
+import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import * as moment from 'moment';
+import { Pedido } from "../../models/user.models";
 
 @Component({
   selector: 'app-detalls',
@@ -8,6 +13,13 @@ import {UsersService} from '../../services/users.service';
   styleUrls: ['./detalls.component.scss']
 })
 export class DetallsComponent implements OnInit {
+pedido: Pedido = {
+  fechaDevolucion: 'any',
+    PeliculaId: 0
+};
+fechaDevolucion: any;
+PeliculaId : number;
+ data = moment();
 moviesDetall ;
 pedidosList ;
 title;
@@ -16,10 +28,18 @@ selectMovie = [] ;
 Genre = [] ;
 Actors = [];
 
-  constructor(public detallsServices: MoviesService, public userService: UsersService) { }
+  constructor(
+    public detallsServices: MoviesService,
+     public userService: UsersService,
+     private router: Router,
+     private notification: NzNotificationService) { }
+
   ngOnInit(): void {
     this.getDetails();
     this.getPedidos();
+    this.pedido.fechaDevolucion= this.data.add(3, 'days').calendar();
+    this.pedido.PeliculaId = this.selectMovie[0].id;
+    console.log(this.pedido);
     {}
   }
   getTitles(title: string){
@@ -42,7 +62,25 @@ Actors = [];
     // this.title =  this.userService.getPedidosUser(this.newUser);
     console.log('aqui');
    }
+
    setPedidos(){
-    console.log("aqui se add pedidso")
-   }
+
+    const token = localStorage.getItem('authToken');
+    // console.log(this.fecha);
+    this.userService.setNewOrder(this.pedido, token)
+    .subscribe((res: any) => {
+       // tslint:disable-next-line: no-string-literal
+      //  console.log(res.id);
+      this.notification.success('Successfully order', res['mensaje']);
+      setTimeout(() => this.router.navigate(['movie']), 2000);
+
+    },
+    (error: HttpErrorResponse) => {
+      console.error(error);
+      this.notification.error('Wrong order', 'There was a problem trying to orders');
+    });
+  }
+ 
+ 
+
 }

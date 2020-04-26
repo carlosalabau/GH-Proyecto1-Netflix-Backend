@@ -27,6 +27,16 @@ import { registerLocaleData } from '@angular/common';
 import es from '@angular/common/locales/es';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { RecoverComponent } from './containers/recover/recover.component';
+import { InfoMovieComponent } from './containers/admin/movie/info-movie/info-movie.component';
+import { AddUserComponent } from './containers/admin/users/add-user/add-user.component';
+import { EditUserComponent } from './containers/admin/users/edit-user/edit-user.component';
+import { InfoUserComponent } from './containers/admin/users/info-user/info-user.component';
+import { AddGenreComponent } from './containers/admin/genre/add-genre/add-genre.component';
+import { DeleteGenreComponent } from './containers/admin/genre/delete-genre/delete-genre.component';
+import { DeleteActorsComponent } from './containers/admin/actors/delete-actors/delete-actors.component';
+import { AddActorsComponent } from './containers/admin/actors/add-actors/add-actors.component';
+import { AddOrderComponent } from './containers/admin/orders/add-order/add-order.component';
+import { DeleteOrderComponent } from './containers/admin/orders/delete-order/delete-order.component';
 
 registerLocaleData(es);
 
@@ -47,7 +57,17 @@ registerLocaleData(es);
     ProfileComponent,
     EditProfileComponent,
     OrdersComponent,
-    RecoverComponent
+    RecoverComponent,
+    InfoMovieComponent,
+    InfoUserComponent,
+    AddUserComponent,
+    EditUserComponent,
+    AddGenreComponent,
+    DeleteGenreComponent,
+    DeleteActorsComponent,
+    AddActorsComponent,
+    AddOrderComponent,
+    DeleteOrderComponent,
   ],
   imports: [
     BrowserModule,
