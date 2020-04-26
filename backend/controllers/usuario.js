@@ -15,6 +15,13 @@ const LoginController = {
             res.status(401).send({mensaje: 'No es posible listar usuarios'})
         }
     },
+    async UserId(req,res){
+        try {
+            res.send(req.user)
+        } catch (error) {
+            res.status(500).send({mensaje: 'Ha ocurrido un problema'})
+        }
+    },
 
     async EditarUsuario(req,res){
        try {
