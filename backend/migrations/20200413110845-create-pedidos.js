@@ -9,10 +9,10 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       fechaRecogida: {
-        type: Sequelize.DATE
+        type: Sequelize.STRING
       },
       fechaDevolucion: {
-        type: Sequelize.DATE
+        type: Sequelize.STRING
       },
       estado: {
         type: Sequelize.STRING

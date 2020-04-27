@@ -1,8 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Pedidos = sequelize.define('Pedidos', {
-    fechaRecogida: DataTypes.DATE,
-    fechaDevolucion: DataTypes.DATE,
+    fechaRecogida: DataTypes.STRING,
+    fechaDevolucion: DataTypes.STRING,
     estado: DataTypes.STRING,
     UsuarioId: DataTypes.INTEGER,
     PeliculaId: DataTypes.INTEGER
