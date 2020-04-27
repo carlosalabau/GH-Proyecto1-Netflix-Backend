@@ -15,7 +15,6 @@ import { AdminComponent } from './containers/admin/admin.component';
 import { MovieComponent } from './containers/movie/movie.component';
 import { LoginComponent } from './containers/login/login.component';
 import { RegisterComponent } from './containers/register/register.component';
-import { PedidosComponent } from './containers/pedidos/pedidos.component';
 import { DetallsComponent } from './containers/detalls/detalls.component';
 import { EditProfileComponent } from './containers/user/edit-profile/edit-profile.component';
 import { OrdersComponent } from './containers/user/orders/orders.component';
@@ -48,7 +47,6 @@ registerLocaleData(es);
     MovieComponent,
     LoginComponent,
     RegisterComponent,
-    PedidosComponent,
     DetallsComponent,
     ProfileComponent,
     EditProfileComponent,

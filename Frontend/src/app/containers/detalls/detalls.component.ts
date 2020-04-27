@@ -17,13 +17,14 @@ export class DetallsComponent implements OnInit {
 
  data = moment();
 moviesDetall ;
-pedidosList ;
+pedidosList= [] ;
 title;
 newUser ;
 selectMovie = [] ;
 Genre = [] ;
 Actors = [];
-str: string;
+fechaDev: string;
+fechaRec : string;
 
   constructor(
     public detallsServices: MoviesService,
@@ -34,7 +35,10 @@ str: string;
   ngOnInit(): void {
     this.getDetails();
     this.getPedidos();
-    this.str= this.data.add(3, 'days').calendar();
+    this.fechaRec = this.data.format();
+    this.fechaDev = this.data.add(3, 'days').calendar();
+    console.log(this.fechaRec);
+
   }
   getTitles(title: string){
     this.detallsServices.getTitulo(title)
@@ -45,20 +49,30 @@ str: string;
   }
 
   getDetails(){
-   this.selectMovie[0] = this.detallsServices.actualMovie;
+   this.selectMovie[0] = this.detallsServices.getactualMovie();
    this.Genre = this.selectMovie[0].Generos;
    this.Actors = this.selectMovie[0].Actores;
    console.log(this.Genre, this.Actors);
    }
 
    getPedidos(){
-    this.newUser = this.userService.user;
-    // this.title =  this.userService.getPedidosUser(this.newUser);
-    console.log('aqui');
-   }
+    const token = localStorage.getItem('authToken');
+    this.userService.getPedidosUser(this.userService.getId(), token)
+    .subscribe((res: any) => {
+        this.pedidosList= res;
+        console.log(this.pedidosList)
+     this.notification.success('Successfully order', res['mensaje']);
+
+   },
+   (error: HttpErrorResponse) => {
+     console.error(error);
+     this.notification.error('Wrong order', 'There was a problem trying to orders');
+   });
+ }
+
 
    setPedidos(){
-    let pedido = {fechaDevolucion: this.str, PeliculaId: this.selectMovie[0].id}
+    let pedido = {fechaRecogida: this.fechaRec, fechaDevolucion: this.fechaDev,  PeliculaId: this.selectMovie[0].id}
     const token = localStorage.getItem('authToken');
     // console.log(this.fecha);
     this.userService.setNewOrder(pedido, token)

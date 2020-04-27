@@ -89,9 +89,12 @@ getEstrenos(){
   }, err => console.log(err)
   );
 }
-getactualMovie(movie: any){
-this.movieServices.getactualMovie(movie);
+setactualMovie(movie: any){
+this.movieServices.setactualMovie(movie);
+console.log(this.usersService.getUser()[0].id);
+this.usersService.setId(this.usersService.getUser()[0].id);
 }
+
 
 getTitleMovie(titleform: NgForm){
   if(!titleform.value.titulo){

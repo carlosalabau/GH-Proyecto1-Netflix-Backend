@@ -111,10 +111,12 @@ setId(id: number){
       });
   }
 
-  getactualMovie(movie: any): object{
+  setactualMovie(movie: any): object{
   this.actualMovie = movie;
   return;
   }
-
+getactualMovie(){
+  return this.actualMovie;
+}
 
 }
