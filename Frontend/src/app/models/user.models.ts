@@ -12,6 +12,6 @@ export interface UserLogin{
     password: string;
 }
 export interface Pedido{
-    fechaDevolucion: any;
-    PeliculaId: number;
+    fechaDevolucion: string;
+    PeliculaId: any;
 }

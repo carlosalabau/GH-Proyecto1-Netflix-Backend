@@ -5,7 +5,7 @@ import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { Router } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import * as moment from 'moment';
-import { Pedido } from "../../models/user.models";
+import { Pedido } from '../../models/user.models';
 
 @Component({
   selector: 'app-detalls',
@@ -13,12 +13,7 @@ import { Pedido } from "../../models/user.models";
   styleUrls: ['./detalls.component.scss']
 })
 export class DetallsComponent implements OnInit {
-pedido: Pedido = {
-  fechaDevolucion: 'any',
-    PeliculaId: 0
-};
-fechaDevolucion: any;
-PeliculaId : number;
+pedido: Pedido;
  data = moment();
 moviesDetall ;
 pedidosList ;
@@ -27,20 +22,20 @@ newUser ;
 selectMovie = [] ;
 Genre = [] ;
 Actors = [];
+str: string;
 
   constructor(
     public detallsServices: MoviesService,
-     public userService: UsersService,
-     private router: Router,
-     private notification: NzNotificationService) { }
+    public userService: UsersService,
+    private router: Router,
+    private notification: NzNotificationService) { }
 
   ngOnInit(): void {
     this.getDetails();
     this.getPedidos();
-    this.pedido.fechaDevolucion= this.data.add(3, 'days').calendar();
+    // this.pedido.fechaDevolucion = this.data.add(3, 'days').calendar();
     this.pedido.PeliculaId = this.selectMovie[0].id;
-    console.log(this.pedido);
-    {}
+    console.log(this.data.add(3, 'days').calendar(), this.pedido.PeliculaId);
   }
   getTitles(title: string){
     this.detallsServices.getTitulo(title)
@@ -64,23 +59,23 @@ Actors = [];
    }
 
    setPedidos(){
+    this.pedido.fechaDevolucion = this.data.add(3, 'days').calendar();
+    this.pedido.PeliculaId = this.selectMovie[0].id;
+    console.log(this.pedido.fechaDevolucion, this.pedido.PeliculaId);
+    // const token = localStorage.getItem('authToken');
+    // // console.log(this.fecha);
+    // this.userService.setNewOrder(this.pedido, token)
+    // .subscribe((res: any) => {
+    //    // tslint:disable-next-line: no-string-literal
+    //   //  console.log(res.id);
+    //   this.notification.success('Successfully order', res['mensaje']);
+    //   setTimeout(() => this.router.navigate(['movie']), 2000);
 
-    const token = localStorage.getItem('authToken');
-    // console.log(this.fecha);
-    this.userService.setNewOrder(this.pedido, token)
-    .subscribe((res: any) => {
-       // tslint:disable-next-line: no-string-literal
-      //  console.log(res.id);
-      this.notification.success('Successfully order', res['mensaje']);
-      setTimeout(() => this.router.navigate(['movie']), 2000);
-
-    },
-    (error: HttpErrorResponse) => {
-      console.error(error);
-      this.notification.error('Wrong order', 'There was a problem trying to orders');
-    });
+    // },
+    // (error: HttpErrorResponse) => {
+    //   console.error(error);
+    //   this.notification.error('Wrong order', 'There was a problem trying to orders');
+    // });
   }
- 
- 
 
 }

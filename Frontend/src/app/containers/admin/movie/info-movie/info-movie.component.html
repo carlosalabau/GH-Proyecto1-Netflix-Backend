@@ -1,25 +1,25 @@
 <div class="container">
     <div class="detalls col">
         <div class="row">
-         <input class="form-control form -control-lg" name="name" ngModel placeholder="Titulo"> 
+         <input class="form-control form -control-lg" name="name"  placeholder="{{infomovie[0].titulo}}"> 
         </div>
         <div class="row">
-         <input class="form-control form -control-lg" name="name"  ngModel placeholder="description"> 
+         <input class="form-control form -control-lg" name="name"   placeholder="{{infomovie[0].descripcion}}"> 
         </div>
         <div class="row">
-         <input class="form-control form -control-lg" name="name"  ngModel placeholder="year"> 
+         <input class="form-control form -control-lg" name="name"   placeholder="{{infomovie[0].anyo}}"> 
         </div>
         <div class="row">
-         <input class="form-control form -control-lg" name="name"  ngModel placeholder="imagen"> 
+         <input class="form-control form -control-lg" name="name"   placeholder="{{infomovie[0].imagen}}"> 
         </div>
         <div class="row">
-         <input class="form-control form -control-lg" name="name"  ngModel placeholder="Estreno"> 
+         <input class="form-control form -control-lg" name="name"   placeholder="{{infomovie[0].isEstreno}}"> 
         </div>
         <div class="row">
-         <input class="form-control form -control-lg" name="name"  ngModel placeholder="available"> 
+         <input class="form-control form -control-lg" name="name"  ngodel placeholder="{{infomovie[0].isDisponible}}"> 
         </div> 
     </div>
     <div class="bot">
-        <a routerLink="admin" >Back</a>
+        <a routerLink="../" >Back</a>
     </div>
 </div>

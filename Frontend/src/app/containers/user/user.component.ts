@@ -28,19 +28,4 @@ export class UserComponent implements OnInit {
       );
  }
 
-  updateUser(taskform: NgForm, i: number){
-    this.userService.updateUser(taskform.value, i)
-    .subscribe(msn =>  console.log(msn));
   }
-
-   addNewUser(taskform: NgForm){
-    this.userService.setNewLogin(taskform.value)
-    .subscribe(msn =>  console.log(msn));
-   }
-
-  delUser(i: number){
-    this.userService.deleteUser(i)
-    .subscribe(msn => console.log(msn));
-  }
-
-}

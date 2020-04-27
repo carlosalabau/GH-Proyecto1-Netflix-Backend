@@ -75,7 +75,8 @@ getGenre(){
 }
 getAllGenre(){
   this.movieServices.getAllGenre()
-  .subscribe((genre: any) => {
+  .subscribe(
+    genre => {
     this.allGenre = genre;
   }, err => console.log(err)
   );
@@ -92,14 +93,6 @@ getactualMovie(movie: any){
 this.movieServices.getactualMovie(movie);
 }
 
-setMovie(titleform: NgForm){
-  this.movieServices.setMovie(titleform.value)
-  .subscribe((movies: any) => {
-    console.log(movies);
-  }, err => console.log(err)
-  );
-}
-
 getTitleMovie(titleform: NgForm){
   if(!titleform.value.titulo){
     this.getAllMovies();
@@ -111,23 +104,6 @@ getTitleMovie(titleform: NgForm){
   }, err => console.log(err)
   );
 }
-
-updateMovie(taskform: NgForm, i: number){
-  this.movieServices.updateMovie(taskform.value, i)
-  .subscribe((movies: any) => {
-    console.log(movies);
-  }, err => console.log(err)
-  );
-}
-
-deleteMovie(i: number){
-  this.movieServices.deleteMovie(i)
-  .subscribe((movies: any) => {
-    console.log(movies);
-  }, err => console.log(err)
-  );
-}
-
 }
 
 
