@@ -7,9 +7,10 @@ const   PedidosController = require('../controllers/pedidos')
 //
 
 
-router.get('/recogida', autenticacion,PedidosController.FechaAlquiler);
-router.get('/cambiarEstado', autenticacion,PedidosController.CambiarEstado);
+/* router.get('/recogida', autenticacion,PedidosController.FechaAlquiler); */
+router.post('/cambiarEstado', autenticacion,PedidosController.CambiarEstado);
 router.post('/agregar', autenticacion, PedidosController.NuevoPedido)
+/* router.post('/devolucion', autenticacion, PedidosController.FechaDevolucion); */
 router.get('/', autenticacion,PedidosController.ListarPedidos);
 
 module.exports = router;

@@ -9,7 +9,7 @@ const PedidosController = {
             const nuevoPedido = await Pedidos.create({UsuarioId: userId,estado: _estado,...req.body});
             res.send(nuevoPedido);
         } catch (error) {
-            res.status(500).send({mensaje: 'Pedido creado'})
+            res.status(500).send({mensaje: 'No se ha podido crear el pedido'})
         }
     },
     async ListarPedidos(req,res){
@@ -19,7 +19,7 @@ const PedidosController = {
         res.status(500).send({mensaje: 'Ha habido un problema'})
        }
     },
-    async FechaAlquiler(req,res){
+    /* async FechaAlquiler(req,res){
            try{
             const recogida = await Pedidos.findAll({
                 where: 
@@ -30,7 +30,7 @@ const PedidosController = {
                res.status(500).send({mensaje: 'Ha habido un problema'})
            }
         
-    },
+    }, */
 /*     async FechaDevolucion(req,res){
             const devolucion = await Pedidos.findAll({
             attributes: ['id','fechaDevolucion']
@@ -51,7 +51,17 @@ const PedidosController = {
         }catch(error){
             res.status(500).send({mensaje: 'Ha habido un problema'})
         }
-    }
+    },
+   /*  async FechaDevolucion(req,res){
+       try {
+        const devolucion = await Pedidos.update({
+            fechaDevolucion: req.body.fechaDevolucion
+        })
+        res.send(devolucion)
+       } catch (error) {
+           res.status(500).send({mensaje: 'Ha habido un problema'})
+       } 
+    } */
 }
 
 module.exports = PedidosController;
