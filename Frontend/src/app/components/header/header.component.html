@@ -47,6 +47,7 @@
   <div class="container">
       <!-- <a routerLink="/"><img src="" alt="logo" class="logo"></a> -->
       <nav class="ml-auto">
+        <a routerLink="/admin" class="admin">Administrador</a>
         <a routerLink="" routerLinkActive="active">Home</a>
         <a routerLink="movie" routerLinkActive="active">Movies</a>
         <a routerLink="login" *ngIf="!usersService.getUser()" routerLinkActive="active">Login</a>

@@ -11,7 +11,7 @@ export interface UserLogin{
     email: string;
     password: string;
 }
-export interface Pedido{
-    fechaDevolucion: string;
+export interface Pedido {
+    fechaDevolucion: any;
     PeliculaId: any;
 }
