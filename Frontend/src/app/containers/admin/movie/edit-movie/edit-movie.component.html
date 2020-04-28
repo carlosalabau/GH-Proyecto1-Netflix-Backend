@@ -2,23 +2,23 @@
  <form #movieform="ngForm"  class="example-form">
     <div class="detalls col">
         <div class="row">
-         <input class="form-control form -control-lg" ngModel value=" {{infomovie[0].titulo}}" name="name"  placeholder=""> 
+         <input class="form-control form -control-lg" [(ngModel)]="infomovie[0].titulo"  name="titulo"  placeholder=""> 
         
         </div>
         <div class="row">
-         <input class="form-control form -control-lg" name="name"  ngModel value="{{infomovie[0].descripcion}}"> 
+         <input class="form-control form -control-lg" name="descripcion"  [(ngModel)]="infomovie[0].descripcion"> 
         </div>
         <div class="row">
-         <input class="form-control form -control-lg" name="name" ngModel  value="{{infomovie[0].anyo}}"> 
+         <input class="form-control form -control-lg" name="anyo" [(ngModel)]="infomovie[0].anyo"> 
         </div>
         <div class="row">
-         <input class="form-control form -control-lg" name="name"  ngModel value="{{infomovie[0].imagen}}"> 
+         <input class="form-control form -control-lg" name="imagen"  [(ngModel)]="infomovie[0].imagen"> 
         </div>
         <div class="row">
-         <input class="form-control form -control-lg" name="name"  ngModel value="{{infomovie[0].isEstreno}}"> 
+         <input class="form-control form -control-lg" name="isEstreno"  [(ngModel)]="infomovie[0].isEstreno"> 
         </div>
         <div class="row">
-         <input class="form-control form -control-lg" name="name"  ngModel value="{{infomovie[0].isDisponible}}"> 
+         <input class="form-control form -control-lg" name="isDisponible"  [(ngModel)]="infomovie[0].isDisponible"> 
         </div> 
     </div>
     <button class="btn bot" type="submit" (click)="editMovie(movieform)">
