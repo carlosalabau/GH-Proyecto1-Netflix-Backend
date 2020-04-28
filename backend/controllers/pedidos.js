@@ -19,6 +19,11 @@ const PedidosController = {
         res.status(500).send({mensaje: 'Ha habido un problema'})
        }
     },
+    async PedidosId(req,res){
+        const pedidosId = await Pedidos.findOne({
+            where: { id: req.user.id}
+        })
+    },
     /* async FechaAlquiler(req,res){
            try{
             const recogida = await Pedidos.findAll({
