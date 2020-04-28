@@ -19,6 +19,19 @@ const PedidosController = {
         res.status(500).send({mensaje: 'Ha habido un problema'})
        }
     },
+    async PedidosId(req,res){
+        const pedidosId = await Pedidos.findOne({
+            where: { id: req.user.id}
+        })
+    },
+    async EliminarPedido(req,res){
+        let _id = req.params.id;
+        const eliminarPedido = await Pedidos.destroy({
+            where: {
+                id: _id
+            }
+        })
+    },
     /* async FechaAlquiler(req,res){
            try{
             const recogida = await Pedidos.findAll({

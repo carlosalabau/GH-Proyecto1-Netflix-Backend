@@ -33,9 +33,14 @@ const LoginController = {
             if(!coincide) res.status(500).send({mensaje: 'Las contraseña no coinciden'})
             body.password = bcrypt.hash(body.password, 10);
         }
-        const user = await Usuarios.update({...body})
+        const user = await Usuarios.update({
+            ...body
+        }, 
+        {where: 
+            {id: req.user.id}})
         res.send({mensaje: 'Usuario actualizado', user})
        } catch (error) {
+           console.log(error)
            res.status(500).send({mensaje: 'No se ha podido actualizar el usuario'})
        }
     },
@@ -104,6 +109,7 @@ const LoginController = {
         });
         res.send({mensaje: 'Bienvenido ' + usuario.nombre, usuario, token})
         } catch (error) {
+            console.log(error)
             res.status(500).send({mensaje: 'No se puede iniciar sesion'})
         }
 },
