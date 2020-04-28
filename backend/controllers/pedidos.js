@@ -24,6 +24,14 @@ const PedidosController = {
             where: { id: req.user.id}
         })
     },
+    async EliminarPedido(req,res){
+        let _id = req.params.id;
+        const eliminarPedido = await Pedidos.destroy({
+            where: {
+                id: _id
+            }
+        })
+    },
     /* async FechaAlquiler(req,res){
            try{
             const recogida = await Pedidos.findAll({
