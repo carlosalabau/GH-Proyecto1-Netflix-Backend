@@ -18,8 +18,8 @@ export class InfoUserComponent implements OnInit {
     const token = localStorage.getItem('authToken');
     this.userService.getAllUsers(token)
       .subscribe(
-    users => {console.log(this.userService.getId());
-        this.infouser[0] = users[this.userService.getId()-1];
+    users => {console.log(this.userService.getId(),users[1]);
+        this.infouser[0] = users[this.userService.getId()];
         console.log(this.infouser[0]);
     },
      err => console.log(err)

@@ -13,6 +13,7 @@ import { id_ID } from 'ng-zorro-antd';
 })
 export class EditMovieComponent implements OnInit {
   infomovie = [];
+  titulo : string;
   id = 0;
   constructor(
     private movieService: MoviesService,
@@ -30,7 +31,8 @@ export class EditMovieComponent implements OnInit {
     .subscribe(
       movie => {
         this.infomovie[0] = movie[this.movieService.getId()];
-        console.log(this.infomovie[0]);
+        this.titulo = this.infomovie[0].titulo;
+        console.log(this.infomovie[0], this.titulo);
     },
      err => console.log(err)
     );

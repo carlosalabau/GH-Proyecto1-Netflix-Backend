@@ -39,7 +39,7 @@
 <div class="content">
   <div class="row">
   <div class="col-md-4" *ngFor="let movies of listMovie; let i = index" >
-    <a routerLink="/detalls" (click)="getactualMovie(movies)">
+    <a routerLink="/detalls" (click)="setactualMovie(movies)">
    <img style="height: 300px; width: 200px; display: block;" src="{{movies.imagen}}" alt="Card image">
     </a>
     <h3 class="text-muted">
@@ -62,8 +62,7 @@
   </div>
   </div >
   </div>
-  <a routerLink="/admin" class="admin">Administrador</a>
-    <div class="col-md-4">
+      <div class="col-md-4">
       <div class="sticky-top">
         <div class="so-panel widget widget_search panel-first-child">
          <div class="sequex-sidebar-box">

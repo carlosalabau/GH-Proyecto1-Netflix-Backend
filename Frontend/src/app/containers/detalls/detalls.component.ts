@@ -13,16 +13,18 @@ import { Pedido } from '../../models/user.models';
   styleUrls: ['./detalls.component.scss']
 })
 export class DetallsComponent implements OnInit {
-pedido: Pedido;
+// pedido: Pedido;
+
  data = moment();
 moviesDetall ;
-pedidosList ;
+pedidosList= [] ;
 title;
 newUser ;
 selectMovie = [] ;
 Genre = [] ;
 Actors = [];
-str: string;
+fechaDev: string;
+fechaRec : string;
 
   constructor(
     public detallsServices: MoviesService,
@@ -33,9 +35,10 @@ str: string;
   ngOnInit(): void {
     this.getDetails();
     this.getPedidos();
-    // this.pedido.fechaDevolucion = this.data.add(3, 'days').calendar();
-    this.pedido.PeliculaId = this.selectMovie[0].id;
-    console.log(this.data.add(3, 'days').calendar(), this.pedido.PeliculaId);
+    this.fechaRec = this.data.format();
+    this.fechaDev = this.data.add(3, 'days').calendar();
+    console.log(this.fechaRec);
+
   }
   getTitles(title: string){
     this.detallsServices.getTitulo(title)
@@ -46,36 +49,44 @@ str: string;
   }
 
   getDetails(){
-   this.selectMovie[0] = this.detallsServices.actualMovie;
+   this.selectMovie[0] = this.detallsServices.getactualMovie();
    this.Genre = this.selectMovie[0].Generos;
    this.Actors = this.selectMovie[0].Actores;
    console.log(this.Genre, this.Actors);
    }
 
    getPedidos(){
-    this.newUser = this.userService.user;
-    // this.title =  this.userService.getPedidosUser(this.newUser);
-    console.log('aqui');
-   }
+    const token = localStorage.getItem('authToken');
+    this.userService.getPedidosUser(this.userService.getId(), token)
+    .subscribe((res: any) => {
+        this.pedidosList= res;
+        console.log(this.pedidosList)
+     this.notification.success('Successfully order', res['mensaje']);
+
+   },
+   (error: HttpErrorResponse) => {
+     console.error(error);
+     this.notification.error('Wrong order', 'There was a problem trying to orders');
+   });
+ }
+
 
    setPedidos(){
-    this.pedido.fechaDevolucion = this.data.add(3, 'days').calendar();
-    this.pedido.PeliculaId = this.selectMovie[0].id;
-    console.log(this.pedido.fechaDevolucion, this.pedido.PeliculaId);
-    // const token = localStorage.getItem('authToken');
-    // // console.log(this.fecha);
-    // this.userService.setNewOrder(this.pedido, token)
-    // .subscribe((res: any) => {
-    //    // tslint:disable-next-line: no-string-literal
-    //   //  console.log(res.id);
-    //   this.notification.success('Successfully order', res['mensaje']);
-    //   setTimeout(() => this.router.navigate(['movie']), 2000);
+    let pedido = {fechaRecogida: this.fechaRec, fechaDevolucion: this.fechaDev,  PeliculaId: this.selectMovie[0].id}
+    const token = localStorage.getItem('authToken');
+    // console.log(this.fecha);
+    this.userService.setNewOrder(pedido, token)
+    .subscribe((res: any) => {
+       // tslint:disable-next-line: no-string-literal
+      //  console.log(res.id);
+      this.notification.success('Successfully order', res['mensaje']);
+      setTimeout(() => this.router.navigate(['movie']), 2000);
 
-    // },
-    // (error: HttpErrorResponse) => {
-    //   console.error(error);
-    //   this.notification.error('Wrong order', 'There was a problem trying to orders');
-    // });
+    },
+    (error: HttpErrorResponse) => {
+      console.error(error);
+      this.notification.error('Wrong order', 'There was a problem trying to orders');
+    });
   }
 
 }

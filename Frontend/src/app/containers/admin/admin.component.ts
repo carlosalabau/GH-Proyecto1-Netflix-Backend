@@ -27,6 +27,7 @@ listGenre = {};
 listActors = {};
 listOrders = {};
 
+
 ngOnInit(): void {
   this.getAllMovies();
   this.getAllusers();
@@ -39,9 +40,9 @@ setIdMovie(index){
  this.movieService.setId(this.id);
 }
 setIdUser(index){
-  this.id = this.listUsers[index].id;
-  console.log(index);
-  this.userService.setId(this.id);
+  // this.id = this.listUsers[index].id;
+  // console.log(index);
+  this.userService.setId(index);
  }
 getAllMovies(){
   this.movieService.getAllMovies()

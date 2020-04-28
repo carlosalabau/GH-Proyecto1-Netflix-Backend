@@ -35,8 +35,12 @@ public user: any;
   getUserId(id: number){
     return this.http.get<any>(environment.API_URL + `/usuarios/${id}`);
   }
-  getPedidosUser(id: number){
-    return this.http.get<any>(environment.API_URL + `/usuarios/pedidos${id}`);
+  getPedidosUser(id: number, token){
+    return this.http.get<any>(environment.API_URL + `/usuarios/pedidos/${id}`, {
+      headers: {
+        Authorization: token
+      }
+    });
   }
   userLogout(token): Observable<any>{
     return this.http.get<any>(environment.API_URL + '/usuarios/logout', {

@@ -15,7 +15,6 @@ import { AdminComponent } from './containers/admin/admin.component';
 import { MovieComponent } from './containers/movie/movie.component';
 import { LoginComponent } from './containers/login/login.component';
 import { RegisterComponent } from './containers/register/register.component';
-import { PedidosComponent } from './containers/pedidos/pedidos.component';
 import { DetallsComponent } from './containers/detalls/detalls.component';
 import { EditProfileComponent } from './containers/user/edit-profile/edit-profile.component';
 import { OrdersComponent } from './containers/user/orders/orders.component';
@@ -29,7 +28,6 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { RecoverComponent } from './containers/recover/recover.component';
 import { InfoMovieComponent } from './containers/admin/movie/info-movie/info-movie.component';
 import { AddUserComponent } from './containers/admin/users/add-user/add-user.component';
-import { EditUserComponent } from './containers/admin/users/edit-user/edit-user.component';
 import { InfoUserComponent } from './containers/admin/users/info-user/info-user.component';
 import { AddOrderComponent } from './containers/admin/add-order/add-order.component';
 import { AddMovieComponent } from './containers/admin/movie/add-movie/add-movie.component';
@@ -49,7 +47,6 @@ registerLocaleData(es);
     MovieComponent,
     LoginComponent,
     RegisterComponent,
-    PedidosComponent,
     DetallsComponent,
     ProfileComponent,
     EditProfileComponent,
@@ -58,7 +55,6 @@ registerLocaleData(es);
     InfoMovieComponent,
     InfoUserComponent,
     AddUserComponent,
-    EditUserComponent,
     AddOrderComponent,
     AddMovieComponent,
     EditMovieComponent
