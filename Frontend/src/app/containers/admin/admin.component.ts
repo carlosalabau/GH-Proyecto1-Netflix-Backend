@@ -11,10 +11,14 @@ import { NgForm } from '@angular/forms';
 export class AdminComponent implements OnInit {
   // uploadedFiles: Array <File>;
   //  formData;
+  name=[];
+  movie=[];
   constructor(
     public userService: UsersService,
     public movieService: MoviesService
     ) { }
+
+
 showMovies = false;
 showUsers = false;
 showGenre = false;
@@ -33,6 +37,7 @@ ngOnInit(): void {
   this.getAllusers();
   this.getAllActors();
   this.getAllGenre();
+  this.getAllOrders();
   }
 //#region  getALL
 setIdMovie(index){
@@ -89,10 +94,39 @@ getAllMovies(){
   );
  }
 
-getAllOrders(){
+obtenerUsrMovie(){
+for (let j = 0; j < this.listOrders["length"]; j++){
 
+  for (let i = 0; i < this.listUsers["length"]; i++) {
+    if(this.listOrders[j].UsuarioId === this.listUsers[i].id)
+    {this.name[j] = this.listUsers[i].nombre;
+
+     break;
+    }
+    }
+  for (let h = 0; h < this.listMovie["length"]; h++){
+   if(this.listOrders[j].PeliculaId === this.listMovie[h].id){
+    this.movie[j] = this.listMovie[h].titulo;
+      }
+    }
+  console.log(this.name[j], this.movie[j]);
+ }
 }
 
+getAllOrders(){
+  const token = localStorage.getItem('authToken');
+  this.userService.getAllOrder(token)
+  .subscribe(
+    orders => {
+      this.listOrders = orders;
+      console.log(this.listOrders);
+      this.obtenerUsrMovie();
+     
+  },
+   err => console.log(err)
+  );
+
+}
 //#endregion
 
 //#region AddAll
@@ -172,6 +206,21 @@ deleteUser(index: number){
    err => console.log(err)
   );
 }
+
+deleteOrders(index){
+  this.id = this.listUsers[index].id;
+  const token = localStorage.getItem('authToken');
+  this.userService.deleteUser(this.id, token)
+  .subscribe(
+    users => {
+      console.log(users);
+      this.getAllusers();
+  },
+   err => console.log(err)
+  );
+}
+
+
 // }
 //#endregion
 

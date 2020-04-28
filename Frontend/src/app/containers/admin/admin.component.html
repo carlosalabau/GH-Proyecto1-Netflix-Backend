@@ -88,10 +88,9 @@
   </a>
   <form *ngIf="showOrders" class="example-form">
     <div class="addUser">
-       <div class="element">
-         <input class="form-control form -control-lg" name="name" ngModel placeholder="Name"> 
-         <i  class="fa fa-plus" routerLink="addorder"></i>
-         <i  class="fa fa-trash"> </i>
+       <div class="element" *ngFor="let Name of name; let i = index">
+         <input class="form-control form -control-lg" name="name" ngModel placeholder="{{Name}}, {{movie[i]}} "> 
+         <i  class="fa fa-trash" (click)="deleteOrders(i)"> </i>
        </div> 
     </div>
   </form>
