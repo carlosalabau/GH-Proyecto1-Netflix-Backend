@@ -2,44 +2,44 @@
 <div class="jumbotron">
     <div class="container">
       <div class="row">
-          <div class="col-md-3">
-              <div class="osahan-account-page-left shadow-sm bg-white h-100">
-                  <div class="border-bottom p-4">
-                      <div class="osahan-user text-center">
-                          <div class="osahan-user-media">
-                              <img class="mb-3 rounded-pill shadow-sm mt-1" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="gurdeep singh osahan">
-                              <div class="osahan-user-media-body">
-                                <h6 class="mb-2">
-                                <strong>
-                                     {{users[0].nombre}}
-                                 </strong>
-                                 </h6>
-                                  <p class="mb-1">{{users[0].telefono}}</p>
-                                  <p>{{users[0].email}}</p>
-                                  <p class="mb-0 text-black font-weight-bold"><a class="text-primary mr-3" href="#"><i class="icofont-ui-edit"></i> EDIT</a></p>
-                              </div>
+        <div class="col-md-3">
+          <div class="osahan-account-page-left shadow-sm bg-white h-100">
+              <div class="border-bottom p-4">
+                  <div class="osahan-user text-center">
+                      <div class="osahan-user-media">
+                          <img class="mb-3 rounded-pill shadow-sm mt-1" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="gurdeep singh osahan">
+                          <div class="osahan-user-media-body">
+                            <h6 class="mb-2">
+                            <strong>
+                                {{users["nombre"]}}
+                             </strong>
+                             </h6>
+                              <p class="mb-1">   {{users["telefono"]}}</p>
+                              <p>   {{users["email"]}}</p>
+                              <p class="mb-0 text-black font-weight-bold"><a class="text-primary mr-3" href="#"><i class="icofont-ui-edit"></i> EDIT</a></p>
                           </div>
                       </div>
                   </div>
-                  <ul class="nav flex-column border-0 pt-4 pl-4 pb-4">
-                      <li class="nav-item">
-                        <a class="nav-link active item" routerLink="/user/profile" routerLinkActive="active" >
-                            <i class="icofont icofont-ui-user"></i>
-                            Perfil
-                          </a>
-                          <a class="nav-link active item" routerLink="/user/editProfile">
-                            <i class="icofont icofont-ui-edit"></i>
-                          Editar Perfil
-                        </a>
-                          <a class="nav-link active item" routerLink="/user/orders">
-                            <i class="icofont icofont-ui-cart"></i>
-                          Pedidos
-                          <span class="badge badge-primary badge-pill">5</span>
-                        </a>
-                      </li>
-                  </ul>
               </div>
+              <ul class="nav flex-column border-0 pt-4 pl-4 pb-4">
+                  <li class="nav-item">
+                      <a class="nav-link active item" routerLink="/user/profile" routerLinkActive="active" >
+                        <i class="icofont icofont-ui-user"></i>
+                        Profile
+                      </a>
+                      <a class="nav-link active item" routerLink="/user/editProfile">
+                        <i class="icofont icofont-ui-edit"></i>
+                      Edit Profile
+                    </a>
+                      <a class="nav-link active item" routerLink="/user/orders">
+                        <i class="icofont icofont-ui-cart"></i>
+                      Pedidos
+                      <span class="badge badge-primary badge-pill"> {{list.length}} </span>
+                    </a>
+                  </li>
+              </ul>
           </div>
+        </div>
             <div class="col-md-9" id="editProfile">
                 <div class="osahan-account-page-right shadow-sm bg-white p-4 h-100">
                   <form #userform="ngForm" >

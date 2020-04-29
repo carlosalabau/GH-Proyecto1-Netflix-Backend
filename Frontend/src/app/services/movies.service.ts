@@ -37,9 +37,9 @@ setId(id: number){
   }
   // POST
 
-  setEstado(body: any, token): Observable<any> {
-    console.log(body);
-    return this.http.post<any>(environment.API_URL + '/pedidos/cambiarEstado', body, {
+  setEstado(id: number, token): Observable<any> {
+    console.log(id);
+    return this.http.post<any>(environment.API_URL + `/pedidos/cambiarEstado/${id}`,{
     headers: {
       Authorization: token
     }
