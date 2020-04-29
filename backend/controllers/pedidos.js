@@ -20,9 +20,15 @@ const PedidosController = {
        }
     },
     async PedidosId(req,res){
-        const pedidosId = await Pedidos.findOne({
-            where: { id: req.user.id}
-        })
+        try{ 
+            const pedidosId = await Pedidos.findAll({
+            where: { UsuarioId: req.user.id}
+        });
+        res.send(pedidosId);
+    }catch(error){
+        console.log(error)
+        res.status(500).send('Ha habido un problema')
+    }
     },
     async EliminarPedido(req,res){
         let _id = req.params.id;
@@ -56,7 +62,7 @@ const PedidosController = {
             fechaDevolucion: 'finalizado'
             },
             { where: {
-                    PeliculaId: req.body.PeliculaId,
+                    id: req.body.id,
                     UsuarioId: req.user.id
             }
                 })
