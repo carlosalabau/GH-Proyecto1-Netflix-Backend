@@ -4,36 +4,30 @@
     background-color: $fondo !important;
 }
 header {
-    background-color: rgb(95, 81, 221);
-}
-
-.container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background-color: #37628e;
 }
 
 header .logo {
     width: 200px;
 }
 
-header nav a {
+header nav a, header .nav {
     color: $colorWeb;
     text-decoration: none;
     margin-right: 20px;
     font-size: 18px
 }
 
-header nav a:hover {
+header .nav a:hover {
     color:$colorOscuro;
     text-decoration: none;
 }
 
-header nav a.active {
+header .nav a.active {
     color:$colorOscuro;
 }
 
-header nav .avatar {
+header .nav .avatar {
     // background-color: transparent;
     border: none;
     color: $colorWeb;
@@ -52,7 +46,7 @@ header nav .avatar {
     color: white;
 }
 
-header nav .login-btn {
+header .nav .login-btn {
     background-image: linear-gradient(to right, #e50914, #cc0d1f, #b50f27);
     color: white;
     padding: 8px 20px;
@@ -63,7 +57,7 @@ header nav .login-btn {
     transition: .5s ease;
 }
 
-header nav .login-btn:hover {
+header .nav .login-btn:hover {
     background-position: right;
 }
 

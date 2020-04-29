@@ -1,6 +1,6 @@
 <header>
   <div class="container">
-    <div class="row">
+    <div class="row d-flex justify-content-between">
       <ul class="nav">
         <li class="nav-item">
           <a class="nav-link active" href="#">Home</a>
@@ -15,32 +15,32 @@
           <a class="nav-link" href="#">About</a>
         </li>
       </ul>
-         <ul class="nav">
-           <li class="nav-item">
-               <a href="http://www.facebook.com"><i class="fa fa-facebook-f"></i></a>
-           </li>
-           <li class="nav-item">
-               <a href="http://www.twitter.com"><i class="fa fa-twitter"></i></a>
-           </li>
-           <li class="nav-item">
-               <a href="https://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
-           <li class="nav-item">
-               <a href="http://www.vk.com"><i class="fa fa-vk"></i></a>
-           </li>
-           <div class="col-auto add-seperator logIn">
-             <div class="sequex-user-menu text-right" *ngIf="!usersService.getUser()" > 
-              <a routerLink="login" data-toggle="modal" data-target="#sequex-loginform">
-                  <span>Log in </span><i class="fa fa-sign-in"></i></a>
-             </div>
-             <div class="sequex-user-menu text-right"  *ngIf="usersService.getUser()" > 
-              <a (click)="logout()" data-toggle="modal" data-target="#sequex-loginform">
-                  <span >Log out </span><i class="fa fa-sign-in"></i></a>
-             </div>
-           </div>
-         </ul>
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="http://www.facebook.com"><i class="fa fa-facebook-f"></i></a>
+        </li>
+        <li class="nav-item">
+          <a href="http://www.twitter.com"><i class="fa fa-twitter"></i></a>
+        </li>
+        <li class="nav-item">
+          <a href="https://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
+        <li class="nav-item">
+          <a href="http://www.vk.com"><i class="fa fa-vk"></i></a>
+        </li>
+        <div class="col-auto add-seperator logIn">
+          <div class="sequex-user-menu text-right" *ngIf="!usersService.getUser()">
+            <a routerLink="login" data-toggle="modal" data-target="#sequex-loginform">
+              <span>Log in </span><i class="fa fa-sign-in"></i></a>
+          </div>
+          <div class="sequex-user-menu text-right" *ngIf="usersService.getUser()">
+            <a (click)="logout()" data-toggle="modal" data-target="#sequex-loginform">
+              <span>Log out </span><i class="fa fa-sign-in"></i></a>
+          </div>
         </div>
-  <div class="row">
-      <a routerLink="/"><img src="../../../assets/image/log.jpeg" alt="logo" class="logo"></a>
+      </ul>
+    </div>
+    <div class="row d-flex justify-content-between">
+      <a routerLink="/"><img src="../../../assets/image/logo.png" alt="logo" class="logo"></a>
       <nav>
         <a routerLink="/admin" class="admin">Administrador</a>
         <a routerLink="" routerLinkActive="active">Home</a>
@@ -48,7 +48,8 @@
         <a routerLink="login" *ngIf="!usersService.getUser()" routerLinkActive="active">Login</a>
         <a routerLink="register" *ngIf="!usersService.getUser()" routerLinkActive="active">Register</a>
         <div class="btn-group" *ngIf="usersService.getUser()">
-          <button type="button" class="avatar dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button type="button" class="avatar dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
             <i class="fas fa-user"></i>
           </button>
           <div class="dropdown-menu">
@@ -67,11 +68,5 @@
         </div>
       </div> -->
     </div>
-    </div>
+  </div>
 </header>
-
-
-
-
-        
-      
