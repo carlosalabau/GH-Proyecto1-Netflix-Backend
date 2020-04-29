@@ -17,6 +17,7 @@ users = [];
 
   ngOnInit(): void {
     this.getDataUser();
+    console.log(this.getDataUser())
   }
   getDataUser(){
     this.users[0] = this.userservice.getActualUser();

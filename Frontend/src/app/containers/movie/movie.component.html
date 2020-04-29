@@ -1,6 +1,5 @@
-
 <!-- Navigation -->
-<header>
+<!-- <header>
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -8,17 +7,17 @@
       <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner" role="listbox">
-      <!-- Slide One - Set the background image for this slide in the line below -->
+
       <div class="carousel-item active" [style.background-image]=" getImgContent(listMovie[0]?.imagen)">
         <div class="carousel-caption d-none d-md-block">
         </div>
       </div>
-      <!-- Slide Two - Set the background image for this slide in the line below -->
+
       <div class="carousel-item" [style.background-image]=" getImgContent(listMovie[1]?.imagen)">
         <div class="carousel-caption d-none d-md-block">
         </div>
       </div>
-      <!-- Slide Three - Set the background image for this slide in the line below -->
+
       <div class="carousel-item" [style.background-image]=" getImgContent(listMovie[2]?.imagen)">
         <div class="carousel-caption d-none d-md-block">
         </div>
@@ -33,85 +32,71 @@
           <span class="sr-only">Next</span>
         </a>
   </div>
-</header>
+</header> -->
 
-<div class="container">    
-<div class="content">
-  <div class="row">
-  <div class="col-md-4" *ngFor="let movies of listMovie; let i = index" >
-    <a routerLink="/detalls" (click)="setactualMovie(movies)">
-   <img style="height: 300px; width: 200px; display: block;" src="{{movies.imagen}}" alt="Card image">
-    </a>
-    <h3 class="text-muted">
-      {{movies["titulo"] }}
-    </h3>
-       
-   <div>
-       <ul>
-         <li>
-           <i class="fa fa-calendar-o">
-           </i> {{movies.anyo}} </li>
-           <li>
-             <div *ngFor="let genre of Genre[i]; let j = index">
-             <i class="fa fa-tags">
-                 <a> {{ Genre[i][j].tipo}} </a>
-                </i > 
-              </div >
-         </li>
-       </ul>
-  </div>
-  </div >
-  </div>
-      <div class="col-md-4">
+<div class="container">
+  <div class="content">
+    <div class="row">
+      <div class="col-md-3 box" *ngFor="let movies of listMovie; let i = index">
+        <div class="condition">
+          <img src="{{movies.imagen}}" alt="Card image" />
+          <h6>
+            {{movies["titulo"] }}
+          </h6>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
       <div class="sticky-top">
         <div class="so-panel widget widget_search panel-first-child">
-         <div class="sequex-sidebar-box">
-         <h3 class="widget-title">
-           Quick Search
-         </h3>
-         <form #titleform="ngForm">
-           <div class="input-group"> 
-             <input type="text" ngModel (keyup)="getTitleMovie(titleform)" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Enter a keyword..." name="titulo" autocomplete="off"> 
-             <button type="submit" class="btn btn-outline-success mb-2 mb-sm-0" >
-               Search
-             </button>
-           </div>
-         </form>
-         </div>
+          <div class="sequex-sidebar-box">
+            <h3 class="widget-title">
+              Quick Search
+            </h3>
+            <form #titleform="ngForm">
+              <div class="input-group">
+                <input type="text" ngModel (keyup)="getTitleMovie(titleform)" class="form-control mb-2 mr-sm-2 mb-sm-0"
+                  placeholder="Enter a keyword..." name="titulo" autocomplete="off">
+                <button type="submit" class="btn btn-outline-success mb-2 mb-sm-0">
+                  Search
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
         <div class="card-header">
-      <div class="so-panel widget widget_sequex-custom-search" data-index="3">
-     
+          <div class="so-panel widget widget_sequex-custom-search" data-index="3">
+
+          </div>
+          <div class="sequex-sidebar-box panel-widget-style panel-widget-style-for-178-1-1-1">
+            <h3 class="widget-title">
+              Busqueda avanzada
+            </h3>
+          </div>
+          <div class="form-group">
+            <label for="exampleSelect1">Actores</label>
+            <select [(ngModel)]="optionSelect" (change)="getActores()" class="form-control" id="exampleSelect1">
+              <option value="0">Elige un actor</option>
+
+              <option *ngFor="let actores of allActors" value="{{actores.nombre}}">
+                {{actores.nombre}}
+              </option>
+            </select>
+            <p [hidden]="optionSelect == '0'">Haz seleccionado la opción {{ seeSelect }}</p>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleSelect1">Generos</label>
+            <select [(ngModel)]="optionSelect" (change)="getGenre()" class="form-control" id="exampleSelect1">
+              <option value="0">Elige un genero</option>
+              <option *ngFor="let genre of allGenre" value="{{genre.tipo}}">
+                {{genre.tipo}}
+              </option>
+            </select>
+            <p [hidden]="optionSelect == '0'">Haz seleccionado la opción {{ seeSelect }}</p>
+          </div>
+        </div>
       </div>
-       <div class="sequex-sidebar-box panel-widget-style panel-widget-style-for-178-1-1-1">
-         <h3 class="widget-title">
-           Advanced Search
-         </h3>
-       </div>    
-       <div class="form-group">
-         <label for="exampleSelect1">Actors</label>
-         <select [(ngModel)]="optionSelect" (change)="getActores()" class="form-control" id="exampleSelect1" >
-          <option value="0">choose one actor</option>
-          
-           <option *ngFor="let actores of allActors" value="{{actores.nombre}}">    
-            {{actores.nombre}} 
-          </option>
-         </select>
-         <p [hidden]="optionSelect == '0'">Haz seleccionado la opción # {{ seeSelect }}</p>
-       </div>
-      
-         <div class="form-group">
-         <label for="exampleSelect1">Genre</label>
-         <select [(ngModel)]="optionSelect" (change)="getGenre()" class="form-control" id="exampleSelect1">
-          <option value="0">choose one genre</option>
-           <option *ngFor="let genre of allGenre" value="{{genre.tipo}}">
-            {{genre.tipo}}
-            </option>
-         </select>
-         <p [hidden]="optionSelect == '0'">Haz seleccionado la opción # {{ seeSelect }}</p>
-       </div>
-        </div>  
-      </div>
-     </div>
+    </div>
   </div>
 </div>

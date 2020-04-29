@@ -56,7 +56,7 @@ const PedidosController = {
             fechaDevolucion: 'finalizado'
             },
             { where: {
-                    PeliculaId: req.body.PeliculaId,
+                    id: req.params.id,
                     UsuarioId: req.user.id
             }
                 })

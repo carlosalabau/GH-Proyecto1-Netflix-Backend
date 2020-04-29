@@ -1,7 +1,7 @@
 @import '../../../colors.scss';
 footer{
     margin-top: 8rem;
-    background-color: #37628e;
+    background-color: $colorFooter;
 }
 
 .downFooter {
@@ -16,3 +16,6 @@ footer{
 .logIn > a, i, span{
     color: gray; 
 } 
+.second-foot{
+    background-color: rgb(224, 224, 224);
+}
