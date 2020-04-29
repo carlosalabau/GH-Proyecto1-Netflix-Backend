@@ -1,35 +1,43 @@
+    @import '../../../colors.scss';
+
+.bg-light{
+    background-color: $fondo !important;
+}
 header {
-    padding: 30px 0;
+    background-color: rgb(95, 81, 221);
 }
 
-header .container {
+.container{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 header .logo {
-    width: 150px;
+    width: 200px;
 }
 
 header nav a {
-    color: #aaaaaa;
+    color: $colorWeb;
     text-decoration: none;
     margin-right: 20px;
+    font-size: 18px
 }
 
 header nav a:hover {
-    color:whitesmoke;
+    color:$colorOscuro;
     text-decoration: none;
 }
 
 header nav a.active {
-    color:thistle;
+    color:$colorOscuro;
 }
 
 header nav .avatar {
     // background-color: transparent;
     border: none;
+    color: $colorWeb;
+    background-color: white;
 }
 
 .dropdown-menu .drop {
@@ -59,45 +67,8 @@ header nav .login-btn:hover {
     background-position: right;
 }
 
-.searchbar {
-    margin-bottom: auto;
-    margin-top: auto;
-    height: 60px;
-    background-color: var(--bg);
-    border-radius: 30px;
-    padding: 10px;
-    }
 
-    .search_input{
-    color: white;
-    border: 0;
-    outline: 0;
-    background: none;
-    width: 0;
-    caret-color:transparent;
-    line-height: 40px;
-    transition: width 0.4s linear;
-    border-bottom: 1px solid #aaaaaa;
-    }
 
-    .searchbar:hover > .search_input{
-    padding: 0 10px;
-    width: 300px;
-    transition: width 0.4s linear;
-    }
 
-    .searchbar:hover > .search_icon{
-    background: var(--bg);
-    }
 
-    .search_icon{
-    height: 40px;
-    width: 40px;
-    float: right;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    color:white;
-    text-decoration:none;
-    }
+

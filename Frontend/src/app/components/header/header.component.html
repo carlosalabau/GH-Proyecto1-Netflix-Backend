@@ -1,9 +1,9 @@
 <header>
-<nav class="navbar-expand-lg navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarColor03">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+  <div class="container">
+    <div class="row">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Features</a>
@@ -15,19 +15,17 @@
           <a class="nav-link" href="#">About</a>
         </li>
       </ul>
-     <div class="topRight">
-
-         <ul class="navbar-nav ml-auto">
+         <ul class="nav">
            <li class="nav-item">
-               <a href="http://www.facebook.com" data-toggle="tooltip" data-placement="left" title="" data-original-title="Facebook" target="_blank"><i class="fa fa-facebook-f"></i></a>
+               <a href="http://www.facebook.com"><i class="fa fa-facebook-f"></i></a>
            </li>
            <li class="nav-item">
-               <a href="http://www.twitter.com" data-toggle="tooltip" data-placement="left" title="" data-original-title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+               <a href="http://www.twitter.com"><i class="fa fa-twitter"></i></a>
            </li>
            <li class="nav-item">
-               <a href="https://plus.google.com" data-toggle="tooltip" data-placement="left" title="" data-original-title="Google Plus" target="_blank"><i class="fa fa-google-plus"></i></a>        </li>
+               <a href="https://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
            <li class="nav-item">
-               <a href="http://www.vk.com" data-toggle="tooltip" data-placement="left" title="" data-original-title="VK" target="_blank"><i class="fa fa-vk"></i></a>
+               <a href="http://www.vk.com"><i class="fa fa-vk"></i></a>
            </li>
            <div class="col-auto add-seperator logIn">
              <div class="sequex-user-menu text-right" *ngIf="!usersService.getUser()" > 
@@ -41,12 +39,9 @@
            </div>
          </ul>
         </div>
-    </div> 
-</nav>
-
-  <div class="container">
+  <div class="row">
       <a routerLink="/"><img src="../../../assets/image/log.jpeg" alt="logo" class="logo"></a>
-      <nav class="ml-auto">
+      <nav>
         <a routerLink="/admin" class="admin">Administrador</a>
         <a routerLink="" routerLinkActive="active">Home</a>
         <a routerLink="movie" routerLinkActive="active">Movies</a>
@@ -71,6 +66,7 @@
             <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
         </div>
       </div> -->
+    </div>
     </div>
 </header>
 
