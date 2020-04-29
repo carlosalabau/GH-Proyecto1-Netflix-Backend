@@ -16,7 +16,6 @@ return this.id;
 }
 
 setId(id: number){
-  this.id = id;
 }
   // GET
   getAllMovies(){
@@ -39,7 +38,7 @@ setId(id: number){
 
   setEstado(id: number, token): Observable<any> {
     console.log(id);
-    return this.http.post<any>(environment.API_URL + `/pedidos/cambiarEstado/${id}`,{
+    return this.http.put<any>(environment.API_URL + `/pedidos/cambiarEstado/${id}`, {
     headers: {
       Authorization: token
     }

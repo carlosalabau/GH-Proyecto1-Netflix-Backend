@@ -68,7 +68,7 @@
                                    <img src="{{orders.imagen}}" alt=""> 
                                </a>
                                <div class="check" *ngIf="checkstat(i+colOrder2.length)">
-                               <div class="change" (click)="setEnd(i)">
+                               <div class="change" (click)="setEnd(i+colOrder2.length)">
                                 <a class="text-danger" data-toggle="modal" data-target="#check-address-modal" href="#">
                                      <i class="icofont-ui-check"></i> 
                                 CHECK

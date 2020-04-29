@@ -14,6 +14,7 @@ list = [];
 colOrder1 = [];
 colOrder2 = [];
 Pedidos = [];
+
   constructor(
     public userservice: UsersService,
     public movieServices: MoviesService
@@ -53,7 +54,7 @@ checkstat(i){
 
 setEnd(i){
   const token = localStorage.getItem('authToken');
-  this.movieServices.setEstado(i, token)
+  this.movieServices.setEstado(i + 1, token)
   .subscribe((estado: any) => {
           console.log(estado);
 },
