@@ -38,8 +38,9 @@
   <div class="content">
     <div class="row">
       <div class="col-md-3 box" *ngFor="let movies of listMovie; let i = index">
-        <div class="condition">
-          <img src="{{movies.imagen}}" alt="Card image" />
+        <div class="condition"*ngIf="getDisp(i)">
+          <a routerLink="/detalls"  (click)="setactualMovie(movies)">
+          <img src="{{movies.imagen}}" alt="Card image" /></a>
           <h6>
             {{movies["titulo"] }}
           </h6>
