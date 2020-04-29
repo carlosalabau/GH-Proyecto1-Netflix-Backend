@@ -115,6 +115,14 @@ public userActual: any;
         }
       });
      }
+
+     deleteOrder(id: number, token){
+      return this.http.delete(environment.API_URL + `/pedidos/eliminar/${id}`, {
+        headers: {
+          Authorization: token
+        }
+      });
+     }
  //#region  get set user
      // tslint:disable-next-line: variable-name
     setUser(_user: any) {

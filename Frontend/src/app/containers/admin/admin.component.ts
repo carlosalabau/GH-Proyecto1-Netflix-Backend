@@ -121,7 +121,7 @@ getAllOrders(){
       this.listOrders = orders;
       console.log(this.listOrders);
       this.obtenerUsrMovie();
-     
+
   },
    err => console.log(err)
   );
@@ -208,13 +208,13 @@ deleteUser(index: number){
 }
 
 deleteOrders(index){
-  this.id = this.listUsers[index].id;
+  // this.id = this.listUsers[index].id;
   const token = localStorage.getItem('authToken');
-  this.userService.deleteUser(this.id, token)
+  this.userService.deleteOrder(index, token)
   .subscribe(
-    users => {
-      console.log(users);
-      this.getAllusers();
+    orders => {
+      console.log(orders);
+      this.getAllOrders();
   },
    err => console.log(err)
   );

@@ -36,6 +36,16 @@ setId(id: number){
 
   }
   // POST
+
+  setEstado(body: any, token): Observable<any> {
+    console.log(body);
+    return this.http.post<any>(environment.API_URL + '/pedidos/cambiarEstado', body, {
+    headers: {
+      Authorization: token
+    }
+  });
+}
+
     setMovie(body: any, token): Observable<any> {
       console.log(body);
       return this.http.post<any>(environment.API_URL + '/peliculas/agregar', body, {

@@ -23,11 +23,14 @@
         <button type="submit" (click)="setPedidos()" class="btn btn-info disabled">Rent</button>
       </div>
     </div>
-    <h3 (click)="getMoviePedidos()"  class="my-4">Recently rent movies</h3>
+    <h3 class="my-4">Recently rent movies</h3>
     <div class="row" *ngFor="let movies of moviePedido">
       <div class="col-md-3 col-sm-6 mb-4">
         <a href="">
-              <img class="img-fluid" src=" {{movies.imagen}} " alt="">
+          <p>
+            {{movies.titulo}}
+          </p> 
+              <img class="img-fluid" src="{{movies.imagen}}" alt="">
             </a>
       </div>
     </div>

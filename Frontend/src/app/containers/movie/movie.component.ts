@@ -44,6 +44,21 @@ this.movieServices.getAllMovies()
 );
 }
 
+getDisp(i){
+//   console.log(this.listMovie)
+//   for (let i = 0; i < this.listMovie.length; i++) {
+//     if (this.listMovie[i].isDisponible === 1)
+//    { this.listMovie[i].isDisponible = true;}
+//   else
+//   {
+//     this.listMovie[i].isDisponible = false;
+//   } 
+//   console.log(this.listMovie[i].isDisponible)
+// }
+console.log(this.listMovie[i].isDisponible)
+return this.listMovie[i].isDisponible;
+}
+
 listar(movies){
   this.listMovie = movies;
   // tslint:disable-next-line: prefer-for-of
@@ -97,7 +112,7 @@ this.usersService.setId(this.usersService.getUser()[0].id);
 
 
 getTitleMovie(titleform: NgForm){
-  if(!titleform.value.titulo){
+  if (!titleform.value.titulo){
     this.getAllMovies();
     return ;
   }
