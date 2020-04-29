@@ -38,7 +38,7 @@ this.movieServices.getAllMovies()
 .subscribe(
   movies => {
     console.log(movies);
-    this.listar(movies);
+     this.listar(movies);
 },
  err => console.log(err)
 );

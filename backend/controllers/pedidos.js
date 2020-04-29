@@ -62,7 +62,7 @@ const PedidosController = {
             fechaDevolucion: 'finalizado'
             },
             { where: {
-                    id: req.body.id,
+                    id: req.params.id,
                     UsuarioId: req.user.id
             }
                 })

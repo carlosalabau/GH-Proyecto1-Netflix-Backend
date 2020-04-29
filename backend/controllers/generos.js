@@ -45,6 +45,7 @@ const GenerosController = {
             });
             res.status(500).send({mensaje: 'Genero eliminado con ID: ' + _id, eliminarGenero})
         } catch (error) {
+            console.log(error)
             res.status(500).send(error)
         }
     }
