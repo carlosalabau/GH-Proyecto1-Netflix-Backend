@@ -37,9 +37,9 @@
 
 <div class="container">    
 <div class="content">
-  <div class="row">
-  <div class="col-md-4" *ngFor="let movies of listMovie; let i = index" >
-    <a routerLink="/detalls" (click)="setactualMovie(movies)">
+  <div class="row"  *ngFor="let movies of listMovie; let i = index">
+  <div class="col-md-4"*ngIf="getDisp(i)" >
+    <a routerLink="/detalls"  (click)="setactualMovie(movies)">
    <img style="height: 300px; width: 200px; display: block;" src="{{movies.imagen}}" alt="Card image">
     </a>
     <h3 class="text-muted">

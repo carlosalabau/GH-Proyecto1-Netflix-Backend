@@ -1,6 +1,6 @@
 <div class="jumbotron">
-    <div class="container">
-      <div class="row">
+  <div class="container">
+    <div class="row">
         <div class="col-md-3">
             <div class="osahan-account-page-left shadow-sm bg-white h-100">
                 <div class="border-bottom p-4">
@@ -10,11 +10,11 @@
                             <div class="osahan-user-media-body">
                               <h6 class="mb-2">
                               <strong>
-                                   {{users["nombre"]}}
+                                  {{users["nombre"]}}
                                </strong>
                                </h6>
-                                <p class="mb-1">{{users["telefono"]}}</p>
-                                <p>{{users["email"]}}</p>
+                                <p class="mb-1">   {{users["telefono"]}}</p>
+                                <p>   {{users["email"]}}</p>
                                 <p class="mb-0 text-black font-weight-bold"><a class="text-primary mr-3" href="#"><i class="icofont-ui-edit"></i> EDIT</a></p>
                             </div>
                         </div>
@@ -22,7 +22,7 @@
                 </div>
                 <ul class="nav flex-column border-0 pt-4 pl-4 pb-4">
                     <li class="nav-item">
-                      <a class="nav-link active item" routerLink="/user/profile" routerLinkActive="active" >
+                        <a class="nav-link active item" routerLink="/user/profile" routerLinkActive="active" >
                           <i class="icofont icofont-ui-user"></i>
                           Profile
                         </a>
@@ -39,41 +39,50 @@
                 </ul>
             </div>
         </div>
-          <div class="col-md-9" id="showProfile">
+         <div class="col-md-9" id="showProfile">
               <div class="osahan-account-page-right shadow-sm bg-white p-4 h-100">
                   <div class="tab-content">
                       <div class="tab-pane fade active show">
                           <h4 class="font-weight-bold mt-0 mb-4">Pedidos</h4>
                           <div class="row" >
-                              <div class="col-md-6"*ngFor="let orders of colOrder1">
-                                  <div class="bg-white card payments-item mb-4 shadow-sm">
-                                                  <a href="#">
-                                                      <h6 class="mb-1"> {{orders.titulo}} </h6>
-                                                     <img src="{{orders.imagen}}" alt=""> 
-                                                  </a>
-                                                  <p class="mb-0 text-black font-weight-bold">
-                                                      <a href="#">
-                                                      </a><a class="text-danger" data-toggle="modal" data-target="#delete-address-modal" href="#"><i class="icofont-ui-delete"></i> DELETE</a></p>
-                                  </div>
+                            <div class="col-md-6"*ngFor="let orders of colOrder1; let i = index">
+                              <div class="bg-white card payments-item mb-4 shadow-sm">
+                                <a href="#">
+                                   <h6 class="mb-1"> {{orders.titulo}} </h6>
+                                     <img src="{{orders.imagen}}" alt=""> 
+                                 </a>
+                                 <div class="check" *ngIf="checkstat(i)">
+                                 <div class="change" (click)="setEnd(i)">
+                                  <a class="text-danger" data-toggle="modal" data-target="#check-address-modal" href="#">
+                                       <i class="icofont-ui-check"></i> 
+                                  CHECK
+                                  </a>
+                                </div>
+                                 </div> 
+                              </div>    
+                           </div>   
+                           <div class="col-md-6" *ngFor="let orders of colOrder2; let i = index">
+                            <div class="bg-white card payments-item mb-4 shadow-sm">
+                              <a href="#">
+                                 <h6 class="mb-1"> {{orders.titulo}} </h6>
+                                   <img src="{{orders.imagen}}" alt=""> 
+                               </a>
+                               <div class="check" *ngIf="checkstat(i+colOrder2.length)">
+                               <div class="change" (click)="setEnd(i)">
+                                <a class="text-danger" data-toggle="modal" data-target="#check-address-modal" href="#">
+                                     <i class="icofont-ui-check"></i> 
+                                CHECK
+                                </a>
                               </div>
-                                    <div class="col-md-6" *ngFor="let order of colOrder2">
-                                        <div class="bg-white card payments-item mb-4 shadow-sm">
-                                             <a href="#">
-                                             <h6 class="mb-1"> {{order.titulo}} </h6>
-                                           <img src="{{order.imagen}}" alt="">
-                                                </a>
-                                              <p class="mb-0 text-black font-weight-bold">
-                                           <a href="#">
-                                            </a><a class="text-danger" data-toggle="modal" data-target="#delete-address-modal" href="#"><i class="icofont-ui-delete"></i> DELETE</a></p>
-                                  </div>
-                              </div>
+                               </div> 
+                            </div>    
+                         </div> 
                           </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-         
-      </div>
+                       </div>
+                   </div>
+               </div>
+         </div> 
+     </div>           
   </div>
 </div>
 

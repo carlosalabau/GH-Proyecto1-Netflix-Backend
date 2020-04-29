@@ -40,6 +40,28 @@ getPedidos(){
    err => console.log(err)
   );
 }
+checkstat(i){
+    if (this.list[i].estado === 'pendiente') {
+      console.log(this.list[i].estado);
+      return true;
+    }
+    else {
+      console.log(this.list[i].estado);
+      return false;
+     }
+}
+
+setEnd(i){
+  const token = localStorage.getItem('authToken');
+  this.movieServices.setEstado(i, token)
+  .subscribe((estado: any) => {
+          console.log(estado);
+},
+(error: HttpErrorResponse) => {
+ console.error(error);
+});
+}
+
 
 movieOrder(){
   for (let i = 0; i < this.list.length; i++) {

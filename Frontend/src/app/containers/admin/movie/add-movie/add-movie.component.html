@@ -20,10 +20,12 @@
          <input class="form-control form -control-lg" name="isDisponible"  ngModel placeholder="available"> 
         </div>
         <div class="row">
-            <input class="form-control form -control-lg" name="GeneroId"  ngModel placeholder="GneeroId"> 
+            <input class="form-control form -control-lg"  name="GeneroId"  ngModel placeholder="GneeroId"> 
+            <i  class="fa fa-plus" (click)="addGenre(movieform)"></i>
         </div>
         <div class="row">
             <input class="form-control form -control-lg" name="ActorId"  ngModel placeholder="ActorId"> 
+            <i  class="fa fa-plus" (click)="addActor(movieform)"></i>
         </div> 
     </div>
     <div class="bot">
