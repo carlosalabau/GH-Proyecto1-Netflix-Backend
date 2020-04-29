@@ -11,6 +11,7 @@ export class UsersService {
 id = 0;
 // tslint:disable-next-line: variable-name
 public user: any;
+public userActual: any;
   constructor(private http: HttpClient) { }
 
 
@@ -69,8 +70,12 @@ public user: any;
       }
     });
   }
-    getAllOrder(){
-      return this.http.get<any>(environment.API_URL + '/pedidos');
+    getAllOrder(token){
+      return this.http.get<any>(environment.API_URL + '/pedidos',{
+        headers: {
+          Authorization: token
+        }
+      });
       }
 
     getReturnOrder(){
@@ -94,8 +99,8 @@ public user: any;
 //#endregion
 
     // UPDATE
-     updateUser(body: User, id: number, token){
-    return this.http.put<any>(environment.API_URL + `usuarios/actualizar/${id}`, body, {
+     updateUser(body: any, token){
+    return this.http.put<any>(environment.API_URL + 'usuarios/actualizar', body, {
       headers: {
         Authorization: token
       }
@@ -110,14 +115,31 @@ public user: any;
         }
       });
      }
+
+     deleteOrder(id: number, token){
+      return this.http.delete(environment.API_URL + `/pedidos/eliminar/${id}`, {
+        headers: {
+          Authorization: token
+        }
+      });
+     }
  //#region  get set user
      // tslint:disable-next-line: variable-name
     setUser(_user: any) {
+
       this.user = _user;
       }
     getUser(): any {
       return this.user;
       }
+
+      setActualUser(_user: any) {
+      
+        this.userActual = _user;
+        }
+      getActualUser(): any {
+        return this.userActual;
+        }
 //#endregion
   // Load Imagen
   uploadFile(formData){

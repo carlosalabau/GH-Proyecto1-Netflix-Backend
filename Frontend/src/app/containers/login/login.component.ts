@@ -29,13 +29,13 @@ export class LoginComponent implements OnInit {
     {
       this.userService.setNewLogin(userform.value)
         .subscribe((res: HttpResponse<object>) => {
-          console.log(userform.value);
           // tslint:disable-next-line: no-string-literal
           this.notification.success('Successfully Login', res['mensaje']);
           // tslint:disable-next-line: no-string-literal
           localStorage.setItem('authToken', res['token']);
            // tslint:disable-next-line: no-string-literal
-          this.userService.setUser(res['usuario']);
+           console.log(res['usuario']);
+          this.userService.setActualUser(res['usuario']);
           setTimeout(() => this.router.navigate(['/movie']), 2000);
         },
           (error: HttpErrorResponse) => {

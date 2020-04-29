@@ -15,17 +15,6 @@ export class UserComponent implements OnInit {
   userList: any;
   constructor(public userService: UsersService) { }
   ngOnInit(): void {
-     }
-
-    getUser(id: number){
-  this.userService.getUserId(id)
-  // tslint:disable-next-line: no-shadowed-variable
-  .subscribe(( user: any) =>
-      {
-        this.userList = user;
-      },
-      err => console.log(err)
-      );
- }
 
   }
+}

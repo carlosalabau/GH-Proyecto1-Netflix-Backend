@@ -14,20 +14,21 @@ import { Pedido } from '../../models/user.models';
 })
 export class DetallsComponent implements OnInit {
 // pedido: Pedido;
-
+idMovie : number;
+moviePedido = [];
  data = moment();
 moviesDetall ;
-pedidosList= [] ;
+pedidosList = [] ;
 title;
 newUser ;
 selectMovie = [] ;
 Genre = [] ;
 Actors = [];
 fechaDev: string;
-fechaRec : string;
+fechaRec: string;
 
   constructor(
-    public detallsServices: MoviesService,
+    public movieServices: MoviesService,
     public userService: UsersService,
     private router: Router,
     private notification: NzNotificationService) { }
@@ -35,13 +36,14 @@ fechaRec : string;
   ngOnInit(): void {
     this.getDetails();
     this.getPedidos();
+    
     this.fechaRec = this.data.format();
     this.fechaDev = this.data.add(3, 'days').calendar();
     console.log(this.fechaRec);
 
   }
   getTitles(title: string){
-    this.detallsServices.getTitulo(title)
+    this.movieServices.getTitulo(title)
     .subscribe((movies: any) => {
       console.log(movies);
     }, err => console.log(err)
@@ -49,19 +51,21 @@ fechaRec : string;
   }
 
   getDetails(){
-   this.selectMovie[0] = this.detallsServices.getactualMovie();
+   this.selectMovie[0] = this.movieServices.getactualMovie();
    this.Genre = this.selectMovie[0].Generos;
    this.Actors = this.selectMovie[0].Actores;
    console.log(this.Genre, this.Actors);
    }
-
+ 
    getPedidos(){
     const token = localStorage.getItem('authToken');
     this.userService.getPedidosUser(this.userService.getId(), token)
     .subscribe((res: any) => {
-        this.pedidosList= res;
-        console.log(this.pedidosList)
-     this.notification.success('Successfully order', res['mensaje']);
+        this.pedidosList = res;
+        this.idMovie = this.pedidosList[0].Pedidos[0].PeliculaId;
+        console.log(this.idMovie);
+        this.getMoviePedidos();
+        this.notification.success('Successfully order', res['mensaje']);
 
    },
    (error: HttpErrorResponse) => {
@@ -70,9 +74,19 @@ fechaRec : string;
    });
  }
 
-
+ getMoviePedidos(){
+  console.log(this.idMovie);
+  this.movieServices.getAllMoviesId(this.idMovie)
+  .subscribe((movie: any) => {
+              this.moviePedido[0] = movie;
+              console.log(this.moviePedido[0], movie);
+},
+(error: HttpErrorResponse) => {
+ console.error(error);
+});
+}
    setPedidos(){
-    let pedido = {fechaRecogida: this.fechaRec, fechaDevolucion: this.fechaDev,  PeliculaId: this.selectMovie[0].id}
+    const pedido = {fechaRecogida: this.fechaRec, fechaDevolucion: this.fechaDev,  PeliculaId: this.selectMovie[0].id};
     const token = localStorage.getItem('authToken');
     // console.log(this.fecha);
     this.userService.setNewOrder(pedido, token)

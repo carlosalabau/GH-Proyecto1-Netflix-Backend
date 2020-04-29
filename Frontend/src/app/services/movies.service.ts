@@ -22,6 +22,9 @@ setId(id: number){
   getAllMovies(){
     return this.http.get<any>(environment.API_URL + '/peliculas');
   }
+  getAllMoviesId(id){
+    return this.http.get<any>(environment.API_URL + `/peliculas/${id}`);
+  }
   getEstrenos(){
     return this.http.get<any>(environment.API_URL + '/peliculas/estrenos');
   }
