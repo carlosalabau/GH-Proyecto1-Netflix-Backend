@@ -11,7 +11,9 @@ export class UsersService {
 id = 0;
 // tslint:disable-next-line: variable-name
 public user: any;
+public pedidos = [];
 public userActual: any;
+public rol: boolean;
   constructor(private http: HttpClient) { }
 
 
@@ -125,19 +127,40 @@ public userActual: any;
      }
  //#region  get set user
      // tslint:disable-next-line: variable-name
-    setUser(_user: any) {
 
+     setCantPedidos(Pedidos){
+      this.pedidos = Pedidos;
+    }
+    getCantPedidos(){
+      return this.pedidos;
+    }
+
+    // tslint:disable-next-line: variable-name
+    setUser(_user: any) {
       this.user = _user;
       }
     getUser(): any {
+      console.log(this.user);
       return this.user;
       }
-
+      setRol(_rol: string) {
+        if (_rol === "Admin"){
+            this.rol = true;
+        }else {
+          this.rol = false;
+        }
+        this.rol = this.rol;
+        }
+      getRol(): any {
+        console.log(this.rol);
+        return this.rol;
+        }
+  
       setActualUser(_user: any) {
-      
         this.userActual = _user;
         }
       getActualUser(): any {
+        console.log(this.userActual)
         return this.userActual;
         }
 //#endregion

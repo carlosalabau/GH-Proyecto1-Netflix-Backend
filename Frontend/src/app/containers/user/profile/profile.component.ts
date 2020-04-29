@@ -33,6 +33,7 @@ getPedidos(){
     order => {
       this.list = order;
       this.list = this.list[this.users["id"] - 1].Pedidos;
+      this.userservice.setCantPedidos(this.list)
       console.log(this.list);
       this.movieOrder();
   },

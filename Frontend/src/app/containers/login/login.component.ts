@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import {Router} from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
+import { HelperServiceService } from '../../services/helper-service.service';
 
 @Component({
   selector: 'app-login',
@@ -12,15 +13,22 @@ import { NzNotificationService } from 'ng-zorro-antd/notification';
 })
 export class LoginComponent implements OnInit {
   users: {  };
-
+  // message: string;
+  // editMessage: string;
   constructor(
     public userService: UsersService,
     private router: Router,
-    private notification: NzNotificationService
+    private notification: NzNotificationService,
+    private helper: HelperServiceService
     ) { }
 
   ngOnInit(): void {
+    // this.helper.customMessage.subscribe(msg => this.message = msg);
  }
+
+//  changeMessage() {
+//   this.helper.changeMessage(this.editMessage);
+// }
 
   loginIn(userform: NgForm) {
     if (!userform.valid){
@@ -34,7 +42,8 @@ export class LoginComponent implements OnInit {
           // tslint:disable-next-line: no-string-literal
           localStorage.setItem('authToken', res['token']);
            // tslint:disable-next-line: no-string-literal
-           console.log(res['usuario']);
+           console.log(res['usuario'],(res['usuario'].rol));
+           this.userService.setRol((res['usuario'].rol)); 
           this.userService.setActualUser(res['usuario']);
           setTimeout(() => this.router.navigate(['/movie']), 2000);
         },

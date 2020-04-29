@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class EditProfileComponent implements OnInit {
 users = [];
+list = [];
   constructor(
     public userservice: UsersService,
     private router: Router
@@ -17,6 +18,7 @@ users = [];
 
   ngOnInit(): void {
     this.getDataUser();
+    this.list = this.userservice.getCantPedidos();
   }
   getDataUser(){
     this.users[0] = this.userservice.getActualUser();
@@ -34,5 +36,5 @@ users = [];
   
     );
   }
-  
+ 
 }

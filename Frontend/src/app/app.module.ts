@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {UsersService} from './services/users.service';
+import { HelperServiceService } from './services/helper-service.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -67,7 +68,7 @@ registerLocaleData(es);
     BrowserAnimationsModule,
     NgZorroAntdModule
   ],
-  providers: [UsersService, { provide: NZ_I18N, useValue: es_ES }],
+  providers: [UsersService, HelperServiceService, { provide: NZ_I18N, useValue: es_ES }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
