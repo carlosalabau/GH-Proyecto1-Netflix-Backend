@@ -47,7 +47,7 @@
     <div class="row d-flex justify-content-between align-items-center">
       <a routerLink="/"><img src="../../../assets/image/logo.png" alt="logo" class="logo"></a>
       <nav>
-        <a routerLink="/admin" class="admin">Administrador</a>
+        <a routerLink="/admin" class="admin" *ngIf="usersService.getRol()">Administrador</a>
         <a routerLink="" routerLinkActive="active">Home</a>
         <a routerLink="movie" routerLinkActive="active">Movies</a>
         <a routerLink="login" *ngIf="!usersService.getUser()" routerLinkActive="active">Login</a>
