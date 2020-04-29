@@ -64,7 +64,7 @@ const PedidosController = {
     async CambiarEstado(req,res){
        try{
            const cambioEstado = await Pedidos.update({
-            fechaDevolucion: 'finalizado'
+            estado: 'finalizado'
             },
             { where: {
                     id: req.params.id,
