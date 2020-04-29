@@ -1,12 +1,19 @@
 <div class="container">
-  <div class="row">
-    <div class="col list">
-      <a (click)="showAllMovies()" type="buttom" class="">
-        Movies
-      </a>
+  <div class="row d-flex flex-column">
+
+      <button (click)="showAllMovies()" type="button">Peliculas</button>
+      <button (click)="showAllGenre()"  type="button">Generos</button>
+      <button (click)="showAllActors()" type="button">Actores</button>
+      <button (click)="showAllUsers()" type="button">Usuarios</button>
+      <button (click)="showAllOrders()" type="button">Pedidos</button> 
+  </div>  
+</div>    
+    <div class="container">  
+      <div class="row">
+
       <form  *ngIf="showMovies" class="example-form">
         <div class="addMovies">
-           <div class="element" *ngFor="let movie of listMovie; let i = index">
+           <div class="element d-flex flex-row" *ngFor="let movie of listMovie; let i = index">
              <input class="form-control form -control-lg" name="name"  ngModel placeholder=" {{movie.titulo}} "> 
              <i  class="fa fa-info" (click)="setIdMovie(i)" routerLink="infoMovie"></i>
              <i  class="fa fa-edit" (click)="movieService.setId(i)" routerLink="editMovie"></i>
@@ -15,11 +22,8 @@
             <i  class="fa fa-plus" routerLink="addMovie"></i>
         </div>
       </form>
-    </div>
-    <div class="col list">
-      <a  (click)="showAllGenre()" class="usuarios">
-       Genre
-      </a>
+
+    
       <form #genreform="ngForm"  *ngIf="showGenre" class="example-form">
         <div class="addUser">
            <div class="element" >
@@ -40,11 +44,8 @@
           </div>
          </div> 
       </form>
-     </div>
-     <div class="col list">
-    <a  (click)="showAllActors()" class="usuarios">
-     Actors
-    </a>
+
+
     <form #actorsform="ngForm" *ngIf="showActors" class="example-form">
       <div class="addUser">
          <div class="element" >
@@ -60,17 +61,13 @@
              <button class="btn" type="submit" (click)="addActors(actorsform)">
                <i  class="fa fa-plus" type="submit"></i>
              </button> 
-             
             </div>
            </div>
          </div> 
       </div>
     </form>
-     </div>
-    <div class="col list">
-      <a  (click)="showAllUsers()" class="usuarios">
-       Usuarios
-      </a>
+
+      
       <form  *ngIf="showUsers" class="example-form">
         <div class="addMovies">
            <div class="element" *ngFor="let users of listUsers; let i = index">
@@ -81,11 +78,9 @@
             <i  class="fa fa-plus" routerLink="addUser"></i>
         </div>
       </form>
-       </div>
-     <div class="col list">
-  <a  (click)="showAllOrders()" class="usuarios">
-   Orders
-  </a>
+
+
+
   <form *ngIf="showOrders" class="example-form">
     <div class="addUser">
        <div class="element" *ngFor="let Name of name; let i = index">
@@ -94,7 +89,7 @@
        </div> 
     </div>
   </form>
-    </div>
+
     </div>
 </div>
 
