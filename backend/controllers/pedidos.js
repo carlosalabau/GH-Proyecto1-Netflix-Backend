@@ -31,12 +31,17 @@ const PedidosController = {
     }
     },
     async EliminarPedido(req,res){
-        let _id = req.params.id;
-        const eliminarPedido = await Pedidos.destroy({
-            where: {
-                id: _id
-            }
+        try {
+            let _id = req.params.id;
+            const eliminarPedido = await Pedidos.destroy({
+                where: {
+                    id: _id
+                }
         })
+        } catch (error) {
+            res.status(500).send('Ha habido un problema');
+        }
+        
     },
     /* async FechaAlquiler(req,res){
            try{
