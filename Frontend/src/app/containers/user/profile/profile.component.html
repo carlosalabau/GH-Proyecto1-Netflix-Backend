@@ -33,7 +33,7 @@
                           <a class="nav-link active item" routerLink="/user/orders">
                             <i class="icofont icofont-ui-cart"></i>
                           Pedidos
-                          <span class="badge badge-primary badge-pill">5</span>
+                          <span class="badge badge-primary badge-pill"> {{list.length}} </span>
                         </a>
                       </li>
                   </ul>
@@ -51,17 +51,18 @@
                         </p>
                         <strong>City</strong>
                         <p>
-                            {{users                                                         ["ciudad"]}}
+                            {{users["ciudad"]}}
                         </p>
                     </div>
                        <div class="col-md-12">
-                        <h5 class="mt-2 mb-3"><span class="fa fa-clock-o ion-clock float-left"></span>Recent order</h5>
+                        <h5 class="mt-2 mb-3">
+                            <span class="fa fa-clock-o ion-clock float-left"></span>  Recent order</h5>
                         <table class="table table-hover table-striped">
                             <tbody>                                    
                                 <tr>
-                                    <div  *ngFor="let order of usr; let i = index">
+                                    <div  *ngFor="let orde of Order; let i = index">
                                         <td>
-                                            <strong>Order i</strong> 
+                                            <strong>{{orde.titulo}}</strong> 
                                         </td>
                                     </div>
                                 </tr>

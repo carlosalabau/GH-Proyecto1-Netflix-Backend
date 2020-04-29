@@ -15,7 +15,7 @@ import { Pedido } from '../../models/user.models';
 export class DetallsComponent implements OnInit {
 // pedido: Pedido;
 idMovie : number;
-moviePedido : [];
+moviePedido = [];
  data = moment();
 moviesDetall ;
 pedidosList = [] ;
@@ -36,6 +36,7 @@ fechaRec: string;
   ngOnInit(): void {
     this.getDetails();
     this.getPedidos();
+    
     this.fechaRec = this.data.format();
     this.fechaDev = this.data.add(3, 'days').calendar();
     console.log(this.fechaRec);
@@ -63,6 +64,7 @@ fechaRec: string;
         this.pedidosList = res;
         this.idMovie = this.pedidosList[0].Pedidos[0].PeliculaId;
         console.log(this.idMovie);
+        this.getMoviePedidos();
         this.notification.success('Successfully order', res['mensaje']);
 
    },
@@ -76,8 +78,8 @@ fechaRec: string;
   console.log(this.idMovie);
   this.movieServices.getAllMoviesId(this.idMovie)
   .subscribe((movie: any) => {
-              this.moviePedido = movie[0];
-              console.log(this.moviePedido, movie);
+              this.moviePedido[0] = movie;
+              console.log(this.moviePedido[0], movie);
 },
 (error: HttpErrorResponse) => {
  console.error(error);
