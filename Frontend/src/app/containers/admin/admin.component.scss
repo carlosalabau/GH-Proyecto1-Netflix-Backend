@@ -46,3 +46,27 @@ width: 25em;
 .basic{
     width: 20em;
 } */
+
+.botones a{
+    margin: 10px 0;
+}
+.formularios label{
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.formularios i:nth-child(1){
+padding-left: 10px;
+}           
+.formularios i{
+    padding: 5px;
+    font-size: 14px;
+}                                                                                  
+.fa-info{
+    color: blue;
+}
+.fa-edit{
+    color:green
+}
+.fa-trash{
+    color:red
+}
