@@ -79,3 +79,88 @@ Por favor lee el [CONTRIBUTING.md](https://github.com/carlosalabau/GH-Proyecto1-
 
 * **Giovanni Landaburo Del Arco** - *Trabajo Inicial* - [glandaburo](https://github.com/G1ovann16)
 * **Carlos Alabau Herrera** - *Trabajo Inicial* - [carlosalabau](https://github.com/carlosalabau)
+
+### EMGLISH
+
+## Starting with 🚀
+
+_This project is created for the all the public; it will allow you to watch the movies by types, actors and a detailed search by title. For this we have made various tabs where the user will be able to move around, giving them new movie premises that will gradually be added.._
+
+See **Deployment** to learn how to deploy the project.
+
+
+### Prerequisites 📋
+
+_-You will need a device contented to the internet that must contain a RAM memory preferably grader or equal to 4GB_
+_-You must have an e-mail account to register and you will obtain the possibility of rent and a greater visualization of the movies._
+### Code
+``` 
+ getPedidos(){
+    const token = localStorage.getItem('authToken');
+    this.userService.getPedidosUser(this.userService.getId(), token)
+    .subscribe((res: any) => {
+        this.pedidosList = res;
+        this.idMovie = this.pedidosList[0].Pedidos[0].PeliculaId;
+        this.getMoviePedidos();
+   },
+   (error: HttpErrorResponse) => {
+     console.error(error);
+     this.notification.error('Wrong order id', 'There was a problem trying to get orders');
+   });
+ }
+ 
+``` 
+_In this small code you will get the orders made by the user, obtaining from the local storage it's corresponding for the authentication. When you will obtain the ID of your order, you will identify what movie you have in that order, in order to show the results of it ._
+```
+deleteGenre(i: number){
+  const token = localStorage.getItem('authToken');
+  this.movieService.deleteGenre(this.listGenre[i].id, token)
+  .subscribe(
+    genre => {
+      this.getAllGenre();
+  },
+   err => console.log(err)
+  );
+}
+```
+### Service
+```
+deleteGenre(id: number, token): Observable<any> {
+    console.log(id);
+    return this.http.delete(environment.API_URL + `/generos/eliminar/${id}`, {
+        headers: {
+          Authorization: token
+        }
+      });
+  }
+```
+_In this other small code we proced to delete a genre. Of course that it can only be done by the administrator himself, so the service is accessed by sending the ID of the genre to be deleted and the appropriate authentication to carry out the mentioned operation. Once the service it's reached, the require information is sent to the database, in this case the ID per parameter and the token (authentication)_
+
+### Installation 🔧
+_It does not require installation as applications for the various operating systems that will be created later, having the appropriate compatibility._
+
+### And the coding style tests ⌨️
+
+_Different filters were made  and they are able to test the application bring it with it favorable results. A form will be implemented where the users can express their concerns and in this way we can make our service even better._
+
+
+## Built with 🛠️
+
+
+* [Angular cli] - Allows the creation of practically the entire fronted project. Through it, were created services, modules, components, models and events.  
+### Instalación 🔧    
+```npm install -g @angular/cli ```
+* [Bootswatch] - It was used as a variant of Boostrap, using the "simplex" theme, greatly helping the styling part and making the app responsive
+### Instalación 🔧 
+``` https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/simplex/bootstrap.min.css ```
+## Contribuyendo 🖇️
+
+Please, you can read [CONTRIBUTING.md](https://github.com/carlosalabau/GH-Proyecto1-Netflix-Backend/blob/master/README.md) for more dettals about our conduct, and you'll send your feedback.
+
+
+## Autores ✒️
+
+* **Giovanni Landaburo Del Arco** - *Trabajo Inicial* - [glandaburo](https://github.com/G1ovann16)
+* **Carlos Alabau Herrera** - *Trabajo Inicial* - [carlosalabau](https://github.com/carlosalabau)
+
+

@@ -31,13 +31,14 @@ setId(id: number){
     return this.http.get<any>(environment.API_URL + '/actores');
   }
   getTitulo(titulo: string){
+    // tslint:disable-next-line: no-string-literal
     return this.http.get<any>(environment.API_URL + `/peliculas/titulo/${titulo['titulo']}`);
 
   }
   // POST
 
-  setEstado(id: number, token): Observable<any> {
-    console.log(id);
+  setEstado(id: number, token) {
+    console.log(id, token);
     return this.http.put<any>(environment.API_URL + `/pedidos/cambiarEstado/${id}`, {
     headers: {
       Authorization: token

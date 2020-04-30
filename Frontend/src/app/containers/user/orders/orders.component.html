@@ -46,32 +46,38 @@
                           <h4 class="font-weight-bold mt-0 mb-4">Pedidos</h4>
                           <div class="row" >
                             <div class="col-md-6"*ngFor="let orders of colOrder1; let i = index">
-                              <div class="bg-white card payments-item mb-4 shadow-sm">
-                                <a href="#">
-                                   <h6 class="mb-1"> {{orders.titulo}} </h6>
-                                     <img src="{{orders.imagen}}" alt=""> 
-                                 </a>
-                                 <div class="check" *ngIf="checkstat(i)">
-                                 <div class="change" (click)="setEnd(i)">
-                                  <a class="text-danger" data-toggle="modal" data-target="#check-address-modal" href="#">
-                                       <i class="icofont-ui-check"></i> 
-                                  Recibido
-                                  </a>
-                                </div>
-                                 </div> 
-                              </div>    
+                             <div class="row bg-white card payments-item mb-4 shadow-sm">
+                                <div class="col">
+                                  <a href="#">
+                                     <h2 class="mb-1"> {{orders.titulo}} </h2>
+                                       <img src="{{orders.imagen}}" alt=""> 
+                                   </a>
+                                   <div class="check" *ngIf="checkstat(i)">
+                                   <div class="change" (click)="setEnd(i)">
+                                    <a class="text-danger" data-toggle="modal" data-target="#check-address-modal" href="#">
+                                         <i class="icofont-ui-check"></i> 
+                                    Recibido
+                                    </a>
+                                  </div>
+                                   </div> 
+                                </div>  
+                               <!-- <div class="col">
+                                  fr: {{list[0].fechaRecogida}}
+                               </div> -->
+                             </div>
+                               
                            </div>   
                            <div class="col-md-6" *ngFor="let orders of colOrder2; let i = index">
                             <div class="bg-white card payments-item mb-4 shadow-sm">
                               <a href="#">
-                                 <h6 class="mb-1"> {{orders.titulo}} </h6>
+                                 <h2 class="mb-1"> {{orders.titulo}} </h2>
                                    <img src="{{orders.imagen}}" alt=""> 
                                </a>
                                <div class="check" *ngIf="checkstat(i+colOrder2.length)">
                                <div class="change" (click)="setEnd(i+colOrder2.length)">
                                 <a class="text-danger" data-toggle="modal" data-target="#check-address-modal" href="#">
                                      <i class="icofont-ui-check"></i> 
-                                CHECK
+                                     Recibido
                                 </a>
                               </div>
                                </div> 

@@ -11,8 +11,8 @@ import { NgForm } from '@angular/forms';
 export class AdminComponent implements OnInit {
   // uploadedFiles: Array <File>;
   //  formData;
-  name=[];
-  movie=[];
+  name = [];
+  movie = [];
   constructor(
     public userService: UsersService,
     public movieService: MoviesService
@@ -96,16 +96,16 @@ getAllMovies(){
 
 obtenerUsrMovie(){
 for (let j = 0; j < this.listOrders["length"]; j++){
-
   for (let i = 0; i < this.listUsers["length"]; i++) {
-    if(this.listOrders[j].UsuarioId === this.listUsers[i].id)
+    if (this.listOrders[j].UsuarioId === this.listUsers[i].id)
     {this.name[j] = this.listUsers[i].nombre;
 
      break;
     }
     }
+  // tslint:disable-next-line: quotemark
   for (let h = 0; h < this.listMovie["length"]; h++){
-   if(this.listOrders[j].PeliculaId === this.listMovie[h].id){
+   if (this.listOrders[j].PeliculaId === this.listMovie[h].id){
     this.movie[j] = this.listMovie[h].titulo;
       }
     }
