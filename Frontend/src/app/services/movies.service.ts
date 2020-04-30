@@ -39,7 +39,7 @@ setId(id: number){
 
   setEstado(id: number, token) {
     console.log(id, token);
-    return this.http.put<any>(environment.API_URL + `/pedidos/cambiarEstado/${id}`, {
+    return this.http.put<any>(environment.API_URL + `/pedidos/cambiarEstado/${5}`, {
     headers: {
       Authorization: token
     }

@@ -55,7 +55,7 @@ checkstat(i){
 setEnd(i){
   const token = localStorage.getItem('authToken');
   console.log("esstoy aqui", token)
-  this.movieServices.setEstado(i + 1, token)
+  this.movieServices.setEstado(this.list[i].id, token)
   .subscribe((estado: any) => {
           console.log(estado);
 },
