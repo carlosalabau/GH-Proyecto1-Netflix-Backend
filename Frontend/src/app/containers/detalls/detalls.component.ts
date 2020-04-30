@@ -26,7 +26,12 @@ Genre = [] ;
 Actors = [];
 fechaDev: string;
 fechaRec: string;
-
+cities = [
+   {city: 'Valencia', days: 1},
+   {city: 'Malaga', days: 2},
+   {city: 'Sevilla', days: 3}
+];
+day = 0;
   constructor(
     public movieServices: MoviesService,
     public userService: UsersService,
@@ -36,9 +41,8 @@ fechaRec: string;
   ngOnInit(): void {
     this.getDetails();
     this.getPedidos();
-    
+    console.log(this.cities[1].city);
     this.fechaRec = this.data.format();
-    this.fechaDev = this.data.add(3, 'days').calendar();
     console.log(this.fechaRec);
 
   }
@@ -56,15 +60,15 @@ fechaRec: string;
    this.Actors = this.selectMovie[0].Actores;
    console.log(this.Genre, this.Actors);
    }
- 
+
    getPedidos(){
     const token = localStorage.getItem('authToken');
     this.userService.getPedidosUser(this.userService.getId(), token)
     .subscribe((res: any) => {
         this.pedidosList = res;
         this.idMovie = this.pedidosList[0].Pedidos[0].PeliculaId;
-        console.log(this.idMovie);
         this.getMoviePedidos();
+        console.log(this.pedidosList[0]);
         this.notification.success('Successfully order', res['mensaje']);
 
    },
@@ -86,10 +90,19 @@ fechaRec: string;
 });
 }
    setPedidos(){
-    const pedido = {fechaRecogida: this.fechaRec, fechaDevolucion: this.fechaDev,  PeliculaId: this.selectMovie[0].id};
-    const token = localStorage.getItem('authToken');
+     // tslint:disable-next-line: prefer-for-of
+     for (let i = 0; i < this.cities.length; i++) {
+      if (this.cities[i].city === this.pedidosList[0].ciudad) {
+        this.day = this.cities[i].days;
+      }
+     }
+     console.log(this.day);
+     this.fechaDev = this.data.add(this.day, 'days').calendar();
+     console.log(this.fechaDev);
+     const pedido = {fechaRecogida: this.fechaRec, fechaDevolucion: this.fechaDev,  PeliculaId: this.selectMovie[0].id};
+     const token = localStorage.getItem('authToken');
     // console.log(this.fecha);
-    this.userService.setNewOrder(pedido, token)
+     this.userService.setNewOrder(pedido, token)
     .subscribe((res: any) => {
        // tslint:disable-next-line: no-string-literal
       //  console.log(res.id);
