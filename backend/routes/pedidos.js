@@ -8,8 +8,7 @@ const   PedidosController = require('../controllers/pedidos')
 
 
 /* router.get('/recogida', autenticacion,PedidosController.FechaAlquiler); */
-router.post('/cambiarEstado/:id', autenticacion,PedidosController.CambiarEstado);
-router.put('/cambiarEstado', autenticacion,PedidosController.CambiarEstado);
+router.put('/cambiarEstado/:id', autenticacion,PedidosController.CambiarEstado);
 router.post('/agregar', autenticacion, PedidosController.NuevoPedido);
 router.get('/usuario', autenticacion, PedidosController.PedidosId);
 router.delete('/eliminar', isAdmin, autenticacion, PedidosController.EliminarPedido)
