@@ -148,17 +148,17 @@ _Different filters were made  and they are able to test the application bring it
 
 
 * [Angular cli] - Allows the creation of practically the entire fronted project. Through it, were created services, modules, components, models and events.  
-### Instalación 🔧    
+### Installation 🔧    
 ```npm install -g @angular/cli ```
 * [Bootswatch] - It was used as a variant of Boostrap, using the "simplex" theme, greatly helping the styling part and making the app responsive
-### Instalación 🔧 
+### Installation 🔧 
 ``` https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/simplex/bootstrap.min.css ```
-## Contribuyendo 🖇️
+## Contributing 🖇️
 
 Please, you can read [CONTRIBUTING.md](https://github.com/carlosalabau/GH-Proyecto1-Netflix-Backend/blob/master/README.md) for more dettals about our conduct, and you'll send your feedback.
 
 
-## Autores ✒️
+## Authrs ✒️
 
 * **Giovanni Landaburo Del Arco** - *Trabajo Inicial* - [glandaburo](https://github.com/G1ovann16)
 * **Carlos Alabau Herrera** - *Trabajo Inicial* - [carlosalabau](https://github.com/carlosalabau)
