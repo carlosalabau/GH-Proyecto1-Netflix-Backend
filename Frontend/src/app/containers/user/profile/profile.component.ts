@@ -32,7 +32,11 @@ getPedidos(){
   .subscribe(
     order => {
       this.list = order;
-      this.list = this.list[this.users["id"] - 1].Pedidos;
+      for (let i = 0; i < this.list.length; i++) {
+        if (this.list[i].id === this.users['id'] ) {
+        this.list = this.list[i].Pedidos;
+        }
+      }
       this.userservice.setCantPedidos(this.list)
       console.log(this.list);
       this.movieOrder();
