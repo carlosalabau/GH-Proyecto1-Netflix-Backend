@@ -1,0 +1,39 @@
+main{
+    background-color: #212121;
+    color: white;
+}
+.wrapper{
+    padding: 20px 100px;
+}
+.wrapper:nth-child(2){
+    border-top: 1px solid #424242;
+}
+article{
+    display: flex;
+    font-size: 12px;
+}
+article p{
+    all: unset;
+    padding: 0 5px;
+    color: #888;
+}
+figure{
+    all: unset;
+    display: flex;
+    align-content: center;
+}
+figure img{
+    height: 90px;
+}
+nav{
+    width: 66%;
+}
+nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul li{
+    padding-left: 20px;
+    color: #888;
+}
